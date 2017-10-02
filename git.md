@@ -5,7 +5,10 @@
  ```
  git reset 
  ```
-- git log -p : 깃 변경사항 확인
+- 깃 변경사항 확인
+```
+git log -p
+``` 
 - git diff 체크섬..체크섬: 버전별 차이점 확인
 - git commit -a : 변경이 된 파일을 자동으로 add 하여 커밋
 - git commit -m "메시지" : 커밋메시지를 작성함과 동시에 커밋
