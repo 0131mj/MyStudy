@@ -7,5 +7,5 @@
 
 2017-10-02 git 복습
 
-2017-10-04 codeanywhere test
+2017-10-04 codeanywhere test, mobile test
 
