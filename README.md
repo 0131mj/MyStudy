@@ -9,4 +9,6 @@
 
 2017-10-04 codeanywhere test, mobile test
 
-2017-10-05 Anular실행환경 복습
+2017-10-05 Angular 실행환경 복습
+
+2017-10-09 Angular 설치 및 기본 아키텍처 구성 복습
