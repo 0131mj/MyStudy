@@ -1,10 +1,10 @@
 <?php
 
-$dan = 2;       //시작단
+$dan = 2;       //시작하는 단
 $dan_end = 9;   //끝나는 단
 $gob = 1;       //시작하는 곱
 $gob_end = 3;   //끝나는 곱
-$col = 3;       //줄 수
+$col = 3;       //세로줄 수
 
 function product($x, $y)
 {
