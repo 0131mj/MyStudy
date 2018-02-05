@@ -163,6 +163,27 @@ https://stackoverflow.com/questions/45657747/deprecation-warning-when-compiling-
 
 ## 고차 함수
 
+입력 매개변수나 반환값으로 함수 타입을 가지는 함수
+
+```scala
+scala> def safeStringOp(s: String, f: String => String) = {
+     |   if (s != null) f(s) else s
+     | }
+safeStringOp: (s: String, f: String => String)String
+
+scala> def reverser(s: String) = s.reverse
+reverser: (s: String)String
+
+scala> safeStringOp(null, reverser)
+res0: String = null
+
+scala> safeStringOp("Ready", reverser)
+res1: String = ydaeR
+```
+
+* 'null'로 호출하면 안전한 값(???)을 반환하는 반면, 유효한 String으로 호출하는 경우 입력값을 거꾸로 한 값을 반환함.
+* 함수를 매개변수로 사용하는 다른 방법 : 함수 리터럴과 함께 인라인으로 정의 (다음 절에 계속)
+
 ## 함수 리터럴
 
 ## 자리표시자 구문
