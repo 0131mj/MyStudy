@@ -186,6 +186,145 @@ res1: String = ydaeR
 
 ## 함수 리터럴
 
+###### 타입을 가진 입력인수(x)와 함수 본문(x * 2)의 정의
+
+```scala
+scala> var doubler = (x: Int) => x * 2
+doubler: Int => Int = $$Lambda$1024/697240075@2b960a7
+
+scala> val doubled = doubler(22)
+doubled: Int = 44
+```
+
+* 함수 리터럴은 함숫값과 변수에 저장되거나 고차함수 호출의 부분으로 정의 가능 
+
+
+
+> ###### 익명 함수 (Ananymous function)
+>
+> 함수리터럴은 함수 이름을 포함하지 않으므로, 문자 그대로 이해하면 됨. 
+
+
+
+> ###### 람다표현식
+>
+> C#과 자바 8에서 사용
+
+
+
+> ###### 람다(Lambda)
+>
+> 람다 표현식의 축약형
+
+
+
+> ###### function0, function1, function2, ...
+>
+> 함수 리터럴에 대한 스칼라 컴파일러 용어, 입력 인수의 개수를 기반으로 함
+
+
+
+* 익명함수라고 부르지 않는 이유 :
+
+본래는 이 개념을 '익명함수' 라는 용어로 불렀지만, '모든 로직이 인라인으로 기술된다는 점'에서 볼 때 
+'익명함수' 라는 이름이 더 특징을 명확히 나타낸다고 판단함.
+
+###### 구문 : 함수 리터럴 작성하기
+
+```
+([<식별자>]: <타입>, ...]) => <표현식>
+```
+
+
+
+###### 함숫값을 정의하고 새로운 함수 리터럴에 할당
+
+```scala
+scala> val greeter = (name: String) => s"Hello, $name"
+greeter: String => String = $$Lambda$1162/407757655@efe49ab
+
+scala> val hi = greeter("World")
+hi: String = Hello, World
+```
+
+* 함수 리터럴은 근본적으로 매개변수화된 표현식.
+
+
+
+```scala
+scala> def max(a: Int, b: Int) = if (a > b) a else b  // *1
+max: (a: Int, b: Int)Int
+
+scala> val maximize: (Int, Int) => Int = max  // *2
+maximize: (Int, Int) => Int = $$Lambda$1167/1301695646@42172065
+
+scala> val maximize = (a: Int, b: Int) => if (a > b) a else b  // *3
+maximize: (Int, Int) => Int = $$Lambda$1168/1898859288@af96ac9
+
+scala> maximize(84, 96)
+res0: Int = 96
+```
+
+*1 : 원본 함수 max()
+
+*2 : 함숫값에 할당됨
+
+*3 : 함수 리터럴로 재정의 됨.
+
+
+
+###### 인수를 취하지 않는 함수 리터럴
+
+```scala
+scala> def logStart() = "=" * 50 + "\nStarting NOW\n" + "=" * 50
+logStart: ()String
+
+scala> val start = () => "=" * 50 + "\nStarting NOW\n" + "=" * 50
+start: () => String = $$Lambda$1057/1768142988@ab24484
+
+scala> println ( start() )
+==================================================
+Starting NOW
+==================================================
+```
+
+( )String 에서 볼 수 있듯이, 이는 입력매개변수가 없고, String을 반환하는 함수이다. 
+
+
+
+###### safeStringOp를 활용한 함수 리터럴
+
+```scala
+scala> def safeStringOp(s: String, f: String => String) = {
+     | if (s != null) f(s) else s
+     | }
+safeStringOp: (s: String, f: String => String)String
+
+scala> safeStringOp(null, (s: String) => s.reverse)
+res1: String = null
+
+scala> safeStringOp("Ready", (s: String) => s.reverse)
+res2: String = ydaeR
+```
+
+함수 매개변수 'f'의 타입은 String => String 이다. 
+
+
+
+###### 명시적 타입과 괄호를 제거한 함수 리터럴
+
+```scala
+scala> safeStringOp(null, s => s.reverse)
+res3: String = null
+
+scala> safeStringOp("Ready", s => s.reverse)
+res4: String = ydaeR
+```
+
+함수의 기본적인 본질만 남음. 함수리터럴은 입력 매개변수를 받아 그 매개변수로 연산을 수행한 결과값을 반환
+
+
+
 ## 자리표시자 구문
 
 ## 부분 적용 함수와 커링
