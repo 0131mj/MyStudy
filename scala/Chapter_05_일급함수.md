@@ -341,6 +341,30 @@ doubler: Int => Int = <function1>
 
 ?? 윈도우에서 하니까 이렇게 나옴....
 
+```scala
+scala> val doubler: Int => Int = _ * 2
+doubler: Int => Int = $$Lambda$1034/1547965072@3c78e551
+```
+
+맥에서는 이렇게 나옴
+
+
+
+###### 자리표시자 구문을 이용한 safeStringOp 예제
+
+```scala
+scala> def safeStringOp(s: String, f: String => String) = {
+     | if (s != null) f(s) else s
+     | }
+safeStringOp: (s: String, f: String => String)String
+
+scala> safeStringOp(null, _.reverse)
+res1: String = null
+
+scala> safeStringOp("Ready", _.reverse)
+res2: String = ydaeR
+```
+
 
 
 ## 부분 적용 함수와 커링
