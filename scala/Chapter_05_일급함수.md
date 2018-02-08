@@ -367,6 +367,18 @@ res2: String = ydaeR
 
 
 
+###### 두 개의 자리표시자를 가진 예제
+
+```scala
+scala> def combination(x: Int, y: Int, f: (Int, Int) => Int) = f(x,y)
+combination: (x: Int, y: Int, f: (Int, Int) => Int)Int
+
+scala> combination(23, 12, _ * _)
+res0: Int = 276
+```
+
+
+
 ## 부분 적용 함수와 커링
 
 ## 이름에 의한 호출 매개변수
