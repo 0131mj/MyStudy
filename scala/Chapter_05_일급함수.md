@@ -379,6 +379,18 @@ res0: Int = 276
 
 
 
+###### 세 개의 자리표시자를 사용한 예제
+
+```scala
+scala> def tripleOp(a: Int, b: Int, c:Int, f: (Int, Int, Int) => Int) = f(a,b,c) 
+tripleOp: (a: Int, b: Int, c: Int, f: (Int, Int, Int) => Int)Int
+
+scala> tripleOp(23, 92, 14, _ * _ + _ )
+res0: Int = 2130
+```
+
+
+
 ## 부분 적용 함수와 커링
 
 ## 이름에 의한 호출 매개변수
