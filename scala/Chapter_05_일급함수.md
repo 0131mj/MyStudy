@@ -391,6 +391,23 @@ res0: Int = 2130
 
 
 
+###### 두개의 타입 매개변수를 사용한 재정의
+
+* 공통입력타입
+* 반환값 타입
+
+```scala
+scala> def tirpleOp[A,B](a: A, b: A, c:A, f: (A, A ,A) => B) = f(a,b,c)
+tirpleOp: [A, B](a: A, b: A, c: A, f: (A, A, A) => B)B
+
+scala> tripleOp[Int,Int](23, 93, 14, _ * _ + _) 
+<console>:12: error: not found: value tripleOp
+       tripleOp[Int,Int](23, 93, 14, _ * _ + _)
+       ^
+```
+
+실행이 되지 않음. ...
+
 ## 부분 적용 함수와 커링
 
 ## 이름에 의한 호출 매개변수
