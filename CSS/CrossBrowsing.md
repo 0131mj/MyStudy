@@ -14,3 +14,14 @@ select:focus::-ms-value {
   color:#555;
 }
 ```
+
+
+
+# 사파리 기본스타일 제거
+
+## 클릭시 하이라이트 색상제거
+```css
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+```
