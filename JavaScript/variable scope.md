@@ -64,6 +64,8 @@ double2(3); //6, Uncaught ReferenceError : result is not defined
 
 
 
+
+
 ## 렉시컬 스코프
 
 스코프는 설정하는 방식에 따라 두가지 방식으로 나눌 수 있다.
@@ -72,3 +74,18 @@ double2(3); //6, Uncaught ReferenceError : result is not defined
 - 다이나믹 스코프 : '실행'환경으로 스코프 설정
 
 자바스크립트는 렉시컬 특성으로 스코프를 설정한다. eval, with 같은 방법으로 렉시컬 스코프를 수정할 수는 있지만, 위험해서 다들 쓰지 말라고 그러니까 몰라도 된다. 
+
+
+
+## 변수 스코프
+
+변수 스코프 자체는 객체이다.
+
+- 변수 스코프 객체의 구성
+
+  - arguments : 실제 호출에 사용되는 인수
+  - parameter : 함수에서 정의하는 매개변수
+  - 내부 변수
+
+  ​
+
