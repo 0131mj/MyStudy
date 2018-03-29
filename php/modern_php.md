@@ -41,13 +41,35 @@ namespace Symfony\Component\HttpFoundation
 
 
 
-### import와 Alias
+### import와 alias
 
-Alias
+#### import
+
+```php
+<?php
+use Symfony\Component\HttpFoundation\Response;
+
+$response = new Response('앗',400);
+$response->send();
+```
+
+**use 명령어**를 사용해서 네임스페이스, 함수, 클래스, 인터페이스를 import 할 수 있다. 
+
+이러면 Symfony\Component\HttpFoundation 라는 풀 클래스명을 사용하지 않고 맨 마지막의 Response만으로 인스턴스를 생성할 수 있다. 
 
 
 
+#### alias
 
+```php
+<?php
+use Symfony\Component\HttpFoundation\Response as Res;
+
+$response = new Res('앗',400);
+$response->send();
+```
+
+**as** 를 쓰면 줄여서 표기가 가능하다. 
 
 
 
