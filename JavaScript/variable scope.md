@@ -27,6 +27,22 @@
 
 
 
+## AST 
+
+```javascript
+var a = 2;
+```
+
+이걸 실행했을때, AST가 어떻게 그려지는가는 아래 사이트를 보면 된다.
+
+https://resources.jointjs.com/demos/javascript-ast
+
+http://int3.github.io/metajs/
+
+http://www.pythontutor.com/visualize.html#mode=edit
+
+
+
 자바스크립트에서의 변수 스코프의 특징은 크게 두가지 정도가 있다.
 
 - 함수단위 스코프
@@ -120,3 +136,32 @@ double2(3); //6, Uncaught ReferenceError : result is not defined
 
   ​
 
+
+
+### var 있고 없고의 차이
+
+#### 있을 때
+
+```javascript
+var a = 'global'
+function test(){
+  alert(a); //undefined
+  var a = 'local';
+  alert(a);
+}
+test();
+```
+
+#### 없을 때
+
+```javascript
+var a = 'global'
+function test(){
+  alert(a); //global;
+  a = 'local';
+  alert(a);
+}
+test();
+```
+
+왜 이런일이 생기는가.
