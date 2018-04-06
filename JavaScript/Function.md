@@ -111,6 +111,15 @@ graph BT
 
 ### Function vs function
 
+- Function : 함수 인스턴스를 생성하는 생성자 함수
+- function : 함수 인스턴스
+
+```javascript
+var add = new Function('x', 'y', return x+y);
+```
+
+위와 같이 Function 함수를 통한 함수 생성은 잘 사용하지 않는다. 그 이유는 실행코드블럭이 길거나 줄바꿈이 있으면 쓰기 불편하기 때문이다. 
+
 ### Function VS. Object, Array
 
 
