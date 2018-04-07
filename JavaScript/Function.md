@@ -118,9 +118,46 @@ graph BT
 var add = new Function('x', 'y', return x+y);
 ```
 
-위와 같이 Function 함수를 통한 함수 생성은 잘 사용하지 않는다. 그 이유는 실행코드블럭이 길거나 줄바꿈이 있으면 쓰기 불편하기 때문이다. 
+위와 같이 Function 함수를 통한 함수 생성은 잘 사용하지 않는다. 그 이유는 실행코드블럭이 길거나 줄바꿈이 있으면 쓰기 불편하기 때문이다.
+
+ 
 
 ### Function VS. Object, Array
+
+
+
+> Object와 Array도 Function의 인스턴스다.
+>
+
+Object와 Array 생성자도 Function의 인스턴스로서, Function에서 정의한 기본적인 멤버를 사용할 수 있다. 
+
+ 
+
+Function =생성 => 함수객체 f
+
+Function =생성 => 함수객체 Object
+
+Function =생성 => 함수객체 Array
+
+
+
+정리하자면 다음과 같다. 
+
+Function 생성자 함수 ->Object 생성자 함수 (Function인스턴스)->Object 객체(Object 인스턴스)
+
+그러니까 모든 생성자 함수는 함수의 인스턴스인 것이다.
+
+Object생성자 함수, Number생성자함수도 Function생성자 함수로 만들어진 인스턴스이다.  
+
+
+
+하지만 결국 자바스크립트를 끝까지 파보면 object에 직면하게 된다. 
+
+```javascript
+console.log(typeof(Function.__proto__.__proto__)) // object
+```
+
+이 생성자 함수의 프로토타입은 function이고, function의 프로토타입은 object인것이다.
 
 
 
