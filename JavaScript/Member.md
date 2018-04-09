@@ -17,7 +17,6 @@
 - 객체 멤버에는 '.' 로도 접근 가능하고, [ ]로 접근할 수도 있다.
 - 자바스크립트에는 일반 객체지향 언어에서 지원하는 overload 개념은 지원되지 않는다. 즉, 매개변수만 다르다면 동일한 이름의 메서드를 여러 개 정의할 수 있는 일반 객체지향 언어와는 다르다. 
 
-  
 
 ### 객체 멤버 관리 구조
 
@@ -112,7 +111,22 @@ console.dir(obj.myMethod('')) //Uncaught TypeError: obj.myMethod is not a functi
 
 
 
-##### in연산자
+##### in 연산자
+
+```javascript
+var myCar = {make:"Hyundai", model: "포니", year: 1970};
+"make" in myCar ; //true
+"hasOwnProperty" in myCar ; //true
+
+var myArr = ['a','b','c'];
+0 in myArr; //true
+```
+
+in 연산자로도 객체 내에 멤버가 있는지 확인할 수 있다. in 좌측에 string 형태의 값을 넣어서 boolean 결과를 도출해낼 수 있다. 
+
+hasOwnProperty와 다른 점은, 기본객체멤버가 있는 경우에도 true를 반환한다는 점이다.  
+
+
 
 ##### 멤버순회 : for/in
 
