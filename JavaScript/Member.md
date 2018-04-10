@@ -107,7 +107,7 @@ console.dir(obj.hasOwnProperty('hasOwnProperty')); //false
 console.dir(obj.myMethod('')) //Uncaught TypeError: obj.myMethod is not a function
 ```
 
-코드상으로 보자면 obj라는 객체 안에는 hasOwnProperty라는 메소드가 없기 때문에 실행이 되지 않는 것이 정상이다. 하지만 객체안에서는 객체의 내장함수를 사용할 수 있도록 해준다. 여기서 주의할 점은, hasOwnProperty라는 메소드 명에서 짐작할 수 있듯, <u>고유로 생성한 Property에 대해서만 true값을 리턴</u>해준다는 사실이다. 그래서 hasOwnProperty는 '사용은 가능하지만 고유의 멤버는 아니기 때문에' false를 출력한다. 
+코드상으로 보자면 obj라는 객체 안에는 hasOwnProperty라는 메소드가 없기 때문에 실행이 되지 않는 것이 정상이다. 하지만 객체안에서는 객체의 내장함수를 사용할 수 있도록 해준다. 여기서 주의할 점은, hasOwnProperty라는 메소드 명에서 짐작할 수 있듯, <u>객체내부에 생성한 고유의 Property에 대해서만 true값을 리턴</u>해준다는 사실이다. 그래서 hasOwnProperty는 '사용은 가능하지만 고유의 멤버는 아니기 때문에' false를 출력한다. 
 
 
 
@@ -120,15 +120,34 @@ var myCar = {make:"Hyundai", model: "포니", year: 1970};
 
 var myArr = ['a','b','c'];
 0 in myArr; //true
+
+myArr.textKey = 'txt'
+"textKey" in myArr // true
 ```
 
-in 연산자로도 객체 내에 멤버가 있는지 확인할 수 있다. in 좌측에 string 형태의 값을 넣어서 boolean 결과를 도출해낼 수 있다. 
+in 연산자로도 객체 내에 멤버가 있는지 확인할 수 있다. 
 
-hasOwnProperty와 다른 점은, 기본객체멤버가 있는 경우에도 true를 반환한다는 점이다.  
+"문자열" in 객체명 형태로 boolean 결과를 도출해낼 수 있는데,  hasOwnProperty와 다른 점은, 고유의 property가 아닌 내장객체의 멤버를 조회할 경우에도 true를 반환한다는 점이다.  
+
+숫자를 사용하면 배열에서 n번째 원소가 있는지를 확인하는 데 쓸 수 있다. 자바스크립트 배열은 키가 텍스트 형태인 연상배열 형태를 취할 수 있는데, in 연산자 앞에 텍스트를 넣어 배열에서 그 텍스트를 키로 하는 밸류가 있는지 확인이 가능하다. 
 
 
 
 ##### 멤버순회 : for/in
+
+```javascript
+for(far property in object){
+    // property 사용
+}
+    
+var a = [];
+for (var propertyName in o)
+a.push(propertyName)
+```
+
+- 상속에 의해 부모에게 물려받은 멤버도 모두 출력
+- 인스턴스 멤버 뿐만 아니라 프로토타입 멤버도 출력해준다. 
+- 내장멤버는 출력되지 않는다.
 
 
 
