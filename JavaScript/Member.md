@@ -151,4 +151,21 @@ a.push(propertyName)
 
 
 
+
+
 ## 2. prototype, constructor, 인스턴스
+
+```javascript
+function Person(name){
+    this.name = name
+}
+```
+
+- Person을 파싱해서 정의하면, 최종적으로 생성자 객체와 프로토타입 객체가 함께 정의됨
+
+  ```sequence
+  prototype -> constructor : 참조
+  constructor -> prototype : 참조
+  ```
+
+  ​
