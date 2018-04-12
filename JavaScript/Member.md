@@ -168,4 +168,12 @@ function Person(name){
   constructor -> prototype : 참조
   ```
 
+  prototype 속성
+
+  Person 생성자에는 prototype이라는 공개속성이 있는데, 이 속성을 통해 프로토타입 객체에 접근 할 수 있다. 
+
+  ```javascript
+  Person.prototype
+  ```
+
   ​
