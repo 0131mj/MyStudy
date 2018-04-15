@@ -18,7 +18,7 @@ npm start
 
 ## 고치기
 
-파일을 열어보면 요런 식으로 구성이 되어있음.
+생성된 프로젝트를 열어보면 파일이 요런 식으로 구성이 되어있음.
 
 - public 폴더 
   - index.html : root 컴포넌트가 정의되어 있고, 그 안에 App컴포넌트가 있음.
@@ -43,7 +43,7 @@ import 문들 써서 필요한 요소를 끌어다 쓴다.
 
 
 
-## 렌더링 구조
+## Component의 구조
 
 Component -> render -> return -> JSX
 
@@ -80,4 +80,41 @@ class App extends Component {
 ```jsx
  <p>{this.props.mytext}<p/>
 ```
+
+
+
+## state
+
+- 컴포넌트 내부에 존재하며, state가 변경되면 render가 다시 실행됨.
+- state를 변경할 때는 항상 this.setState를 사용해야 함.
+
+```javascript
+state = {
+    key : 'val'
+}
+
+this.setState({
+    key : 'val2'
+})
+```
+
+
+
+## function Component
+
+```jsx
+class MyComp extends Component{
+    
+}
+
+function MyStatelessComp({param}){
+    return (
+        <div>{param}</div>
+    )
+}
+```
+
+- Component를 상속받아서 만들어지는 것이 아니라, 함수형태로 작성된다. 
+- state가 없고 props만 전달 받는다. 
+- 생명주기, render가 없고, return만 존재한다. 
 
