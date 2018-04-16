@@ -61,7 +61,26 @@ class App extends Component {
 
 
 
-## props
+## 컴포넌트의 3대 요소
+
+### 1. 상태 (state)
+
+- 컴포넌트 내부에 존재하며, state가 변경되면 render가 다시 실행됨.
+- state를 변경할 때는 항상 this.setState를 사용해야 함.
+
+```javascript
+state = {
+    key : 'val'
+}
+
+this.setState({
+    key : 'val2'
+})
+```
+
+
+
+### 2. 프로퍼티(props)
 
 리액트에서는 부모 컴포넌트에서자식 컴포넌트로 프로퍼티를 전달할 수 있다. 
 
@@ -83,20 +102,7 @@ class App extends Component {
 
 
 
-## state
-
-- 컴포넌트 내부에 존재하며, state가 변경되면 render가 다시 실행됨.
-- state를 변경할 때는 항상 this.setState를 사용해야 함.
-
-```javascript
-state = {
-    key : 'val'
-}
-
-this.setState({
-    key : 'val2'
-})
-```
+### 3. 이벤트(onXXX)
 
 
 
@@ -118,3 +124,12 @@ function MyStatelessComp({param}){
 - state가 없고 props만 전달 받는다. 
 - 생명주기, render가 없고, return만 존재한다. 
 
+
+
+
+## deploy 과정까지
+
+1. create-react-app으로 어플리케이션 생성 
+2. GitHub에 동일한 이름의 레포지토리 제작
+3. git초기화 
+4. install
