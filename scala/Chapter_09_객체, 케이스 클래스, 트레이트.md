@@ -36,6 +36,24 @@ object <식별자> [extends <식별자>] [{ 필드, 메소드, 클래스 }]
 
 
 
+##### 객체의 인스턴스화
+
+```powershell
+scala> object Hello { println("in Hello"); def hi = "hi" }
+defined object Hello
+
+scala> println(Hello.hi)
+in Hello
+hi
+
+scala> println(Hello.hi)
+hi
+```
+
+
+
+- 순수 함수 : 주어진 입력값으로만 계산하여 결과값을 반환하는 함수
+
 ### Apply 메소드와 동반 객체
 
 ### 객체를 가지는 명령줄 애플리케이션
