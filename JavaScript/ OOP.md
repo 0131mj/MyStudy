@@ -124,6 +124,8 @@ function Person(name){
 
 
 
+
+
 ### 객체 생성
 
 앞에서 정의한 Person 생성자를 new 키워드와 함께 호출하면 객체를 생성할 수 있다.  
