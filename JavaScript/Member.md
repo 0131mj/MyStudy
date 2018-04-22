@@ -152,7 +152,6 @@ a.push(propertyName)
 
 
 
-
 ## 2. prototype, constructor, 인스턴스
 
 ```javascript
@@ -168,7 +167,7 @@ function Person(name){
   constructor -> prototype : 참조
   ```
 
-  prototype 속성
+  ### prototype 속성
 
   Person 생성자에는 prototype이라는 공개속성이 있는데, 이 속성을 통해 프로토타입 객체에 접근 할 수 있다. 
 
@@ -176,4 +175,6 @@ function Person(name){
   Person.prototype
   ```
 
-  ​
+- 생성자, 프로토타입 객체 : 함수 정의시 함께 정의됨.
+
+- 인스턴스 : 생성을 해서 얻게되는 객체.
