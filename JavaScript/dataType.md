@@ -19,7 +19,7 @@
 
 ## 1. 자료형은 크게 2종류
 
-- 기본타입(5종) : string, number, boolean, null, undefined
+### 기본형(원시타입)
 
 ```js
 var string = '문자열'; // '5'도 문자열임.
@@ -29,8 +29,12 @@ var nullType = null;  // 비어 있음.
 var undefined;        // 정의되지 않음
 ```
 
-- 참조타입-객체(3종) : Function, Array, RegExp
+- 기본타입(5종) : string, number, boolean, null, undefined
+- typeof 연산자를 사용해 자료형을 확인한다. 
+- 복사하면 값 자체가 복사된다. 
+  ​
 
+### 참조형
 
 ```javascript
 var func = function();
@@ -38,8 +42,13 @@ var array = [];
 var rx = new RegExp();
 ```
 
+- 참조타입-객체(3종) : Function, Array, RegExp
 
+- instanceof 연산자를 사용해 참조형태를 확인한다. 
 
+- 복사하면 힙주소가 복사된다. 
+
+  ​
 
 
 
