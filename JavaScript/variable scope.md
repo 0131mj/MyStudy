@@ -124,6 +124,7 @@ var 변수의 값은 undefined로 초기화된다.
 
 
 
+
 #### 2. 후 실행
 
 
@@ -173,6 +174,8 @@ add(1,2,3);
 - "x" : 1
 - "y" : 2
 - "a" : undefined;
+
+
 
 
 
@@ -233,7 +236,14 @@ function double(x){
     console.log('result is ' + result);
 }
 double(3);  //6, result is 6
+```
 
+double() 함수를 보면 result라는 변수는 if문 안에 있다. 하지만 result는 if문 바깥에서도 호출이 가능한데, 
+그 이유는 <u>'함수 안에 작성된 변수의 범위는 그 함수 범위 전체'</u> 이기 때문이다.  
+
+
+
+```javascript
 function double2(x){
     if(x !== null){
         const result = x * 2;
@@ -244,10 +254,7 @@ function double2(x){
 double2(3); //6, Uncaught ReferenceError : result is not defined
 ```
 
-- double() 함수를 보면 result라는 변수는 if문 안에 있다. 하지만 result는 if문 바깥에서도 호출이 가능한데, 
-  그 이유는 <u>'함수 안에 작성된 변수의 범위는 그 함수 범위 전체'</u> 이기 때문이다.  
-- 하지만 let이나 const를 사용할 경우, 변수의 스코프는 해당 블록까지만이다. 따라서 if문 밖을 벗어나서 result를 호출하면 에러를 출력한다. 
-
+double2()의 경우 결과가 다르게 나타는데 result앞에 var대신 <u>let이나 const를 사용할 경우, 변수의 스코프는 해당 블록까지</u>만이다. 따라서 if문 밖을 벗어나서 result를 호출하면 에러를 출력한다. 
 
 
 
@@ -265,7 +272,7 @@ double2(3); //6, Uncaught ReferenceError : result is not defined
 
 
 
-​
+
 
 ### var 있고 없고의 차이
 
@@ -278,21 +285,37 @@ var a = 'global'
 function test(){
   alert(a); //undefined
   var a = 'local';
-  alert(a);
+  alert(a); //local
 }
 test();
 ```
+
+우선 생각해보면 test();를 실행했을 때 첫번째 alert()에서는 undefined가 아니라 global이 나올거 같다.  하지만 이게 생각대로 되지 않는 이유는 test 코드블럭이 다음과 같은 순서로 실행이 되기 때문이다. 
+
+1. test 함수의 컴파일 단계 : 자바스크립트 엔진이 코드를 한줄씩 읽어나가는데 실행문은 건너뛰고 우선 var가 나오면 초기화부터 하고 본다. 코드 블럭 내부의 3줄 중에서 var가 붙은 a를 보고 초기화작업을 준비한다. 전역레벨에 동일한 이름의 a가 있긴 하지만 var 붙여주면 '이 구역의 변수는 나야' 라고 영역 표시 선언을 하는 셈이 된다.  따라서 함수 안에서 선언된 var a는 바깥에 선언된 동일한 이름의 var a와는 독립된 변수가 된다. 이 과정을 거치고 나면 함수 내부에서 var a는 undefined로 초기화가 되었을 것이다. 
+2. test 함수의 첫번째 줄 : alert(a);를 하면, 초기화된 a가 undefined이기 때문에 undefined를 출력한다. 
+3. test 함수의 두번째 줄 : 그 뒤에 함수코드블럭의 두번째 줄에서 a에 'local'을 할당한다.  
+4. test 함수의 세번째 줄 : 이제 alert(a);는 local을 출력한다.
+
+
 
 #### 없을 때
 
 ```javascript
 var a = 'global'
 function test(){
-  alert(a); //global;
+  alert(a); //global
   a = 'local';
-  alert(a);
+  alert(a); //local
 }
 test();
 ```
 
-왜 이런일이 생기는가. 
+1. test 함수의 컴파일 단계 : 여기서는 두번째 줄 a에 var 키워드가 붙어있지 않다. 이 말은 뭐냐면, 선언된 게 없으므로 컴파일러가 지나친다는 것이다. a에 local을 할당하는 것은 나중의 일이다. 
+2. test 함수의 첫번째 줄 : alert(a);는 선언된 a를 찾지 못하고 상위레벨인 전역레벨에서 a를 찾는다. 따라서 global을 출력한다. 
+3. test 함수의 두번째 줄 : 이제 변수 a에 local이 할당되는데, 변수에 a를 붙이지 않으면 전역레벨의 변수가 된다. 그런데 전역의 a에는 global이 들어 있다. 이때 a는 global을 대체하고 local로 값을 바꿔버린다. 
+4. test 함수의 네번째 줄 : a를 출력하면 local이 된다. 주의해야 할 점은, a가 전역레벨에 있는 a라는 점이다. 
+
+
+
+정리해보면 이렇다. var를 붙여준다는 것은 '이 변수의 스코프를 지금 있는 함수 안으로 한정하겠다'라는 선언이고, 이 선언을 하게되면 바깥레벨에 있는 동일한 이름의 변수와는 독립된 변수가 된다. 

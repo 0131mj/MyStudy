@@ -122,7 +122,6 @@ b();
 - 활성객체(변수객체)는 객체 형태의 껍데기다.  여기에 컨텍스트에서 실행에 필요한 정보들(매개변수와 사용자정의 변수)이 담긴다.
 
 
-
 ---
 
 
@@ -135,3 +134,4 @@ http://huns.me/development/159
 
 http://poiemaweb.com/js-execution-context
 
+http://heeestorys.tistory.com/708?category=693723
