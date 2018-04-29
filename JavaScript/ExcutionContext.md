@@ -122,11 +122,15 @@ b();
 - 활성객체(변수객체)는 객체 형태의 껍데기다.  여기에 컨텍스트에서 실행에 필요한 정보들(매개변수와 사용자정의 변수)이 담긴다.
 
 
----
-
 
 
 컨텍스트와 스코프라는 용어가 헷갈린다.
+
+
+
+---
+
+##### 참고링크
 
 여기보다 아래에 설명을 잘해놓은 곳이 있으니 참조하자.
 
@@ -135,3 +139,11 @@ http://huns.me/development/159
 http://poiemaweb.com/js-execution-context
 
 http://heeestorys.tistory.com/708?category=693723
+
+https://muckycode.blogspot.kr/2015/03/javascript-execution-context-scope.html
+
+http://alnova2.tistory.com/967
+
+http://jinbroing.tistory.com/78
+
+http://hsp1116.tistory.com/22
