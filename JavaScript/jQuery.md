@@ -22,3 +22,24 @@ $(".order_up").on("click",function(){
 });
 ```
 
+
+
+## ready vs load
+
+- 순서 : ready가 먼저 실행되고, load는 나중에 실행됨.
+- 아래 코드와 같이 load를 먼저 써주더라도 documentReady 창이 먼저 뜸.
+
+```javascript
+$(window).on('load',
+	function () {
+		alert('windowOnload');
+	}
+);
+
+$(window).ready(
+	function () {
+		alert('documentReady');
+	}
+);
+```
+
