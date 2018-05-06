@@ -15,6 +15,18 @@
 
 
 
+아마존에서는 EC2 이외에도 무료로 쓸 수 있는 서비스(프리티어)를  몇가지 제공한다. 
+
+1. EC2 (750시간) : 일반적인  컴퓨터
+2. Amazon RDS(750시간) : 데이터베이스 서비스
+3. Amazon S3 (5GB) : 스토리지 및 콘텐츠 전송
+
+상세한 내용은 아래 참고
+
+https://aws.amazon.com/ko/free/
+
+
+
 ## IAM(Identity and Access Management) 
 
 IAM 에서는 로그인관련 설정을 한다. 여기서 MFA(Multi Factor Auth)기능을 사용하면 아이디, 비밀번호 뿐만 아니라, 스마트폰을 사용해서 은행에서 OTP를 사용하듯 비밀번호를 한단계 더 넣어야 로그인이 가능하도록 설정할 수 있다. 
