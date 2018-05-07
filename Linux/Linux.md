@@ -105,3 +105,21 @@ diff -qs <dir1> <dir2> | grep Only
 chmod 400 filename.txt
 ```
 
+
+
+#### [ 프로그램 설치 ] 
+
+
+
+```shell
+sudo apt-get install apache2
+```
+
+
+
+#### [ 프로그램 업데이트 ]
+
+```shell
+sudo apt-get update
+```
+
