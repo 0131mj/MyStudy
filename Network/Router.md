@@ -16,9 +16,7 @@
 
 
 
-## NAT
-
-Network Address Translation
+## NAT(Network Address Translation)
 
 사용자가 사설아이피에서 인터넷을 하려고하면 다음과 같은 절차로 일이 진행된다. 
 
@@ -38,32 +36,25 @@ Network Address Translation
 
 ## 포트 포워딩
 
-- 라우터로 들어온 포트번호에 따라 특정 포트로 포워딩을 할 수 있는  기능. 
+- 게이트웨이 관리자에서, 라우터로 들어온 포트번호에 따라 특정 포트로 포워딩을 할 수 있는 기능. 
 
 
 
-## 유동 아이피 vs 고정 아이피
+## 유동 아이피(Dynamic) vs 고정(Static) 아이피
 
-- Dynamic 아이피
-
-인터넷을 껐다가 켜면 아이피가 달라지는데 별도로 통신사에 신청을 해야 함.
+- Dynamic 아이피 : 인터넷을 껐다가 켜면 아이피가 달라지는데, 이걸 방지하려면  별도로 통신사에 신청을 해야 함. 
 
 
 
-## DHCP
+## DHCP(Dynamic Host Configuration Protocol)
 
-Dynamic Host Configuration Protocol
-
-유동적으로 내부 아이피를 설정해주는 방식
-
-인터넷에 연결될 때마다 내부 아이피가 변경되는 이유가 이거 때문이다. 
-
-게이트웨이 관리자에서 내부아이피를 맥어드레스에 고정으로 연결해줄 수 있다. 
+- 게이트웨이에서 유동적으로 내부 아이피를 설정해주는 방식. 인터넷에 연결될 때마다 내부 아이피가 변경되는 이유가 이거 때문이다. 
+- 게이트웨이 관리자에서 내부아이피를 맥어드레스에 고정으로 연결해줄 수 있다. 
 
 
 
-## etc
+## 무료 서비스
 
-DNS : 1년과 무료로 사용가능 freenom.com
+freenom.com : DNS를 1년간 무료로 사용가능 
 
-Let's encript : 무료로 https 인증서 발급
+Let's encript :  https 인증서를 무료로발급
