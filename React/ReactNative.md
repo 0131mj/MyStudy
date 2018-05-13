@@ -17,6 +17,15 @@ import { Text, View, StyleSheet, Image, Button, Alert } from 'react-native';
 
 
 
+## Style
+
+- CSS 스타일을 거의 그대로 쓸 수 있다. 
+- 단, short hand 문법을 쓸 수는 없다. 
+
+
+
+
+
 ## FlexStyle
 
 - CSS의 display:flex 속성을 스타일형태로 사용 가능하다. 
@@ -31,9 +40,21 @@ container:{
 
 
 
+## App.json
+
+앱에 대한 메타데이터를 설정함. 
+
+
+
 ## Expo
 
+### 특징
+
 - 리액트 네이티브 앱을 만들어주기 위한 도구 
-- 안드로이드 스튜디오나 xcode 설치 없이 네이티브 앱 개발이 가능하다
+- 안드로이드 스튜디오나 xcode 설치 없이 네이티브 앱 개발이 가능하다.
+- expo안에 미리 정의된 컴포넌트를 불러서 사용할 수도 있다. 
+
+### 기타
+
 - snack.expo.io에서는 codepen 처럼, 엑스포의 환경을 미리 구성해두어 미리보기 및 구성이 가능하다. 
 
