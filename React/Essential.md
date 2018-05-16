@@ -19,6 +19,23 @@ index.html에서 App.js에 정의된 App 컴포넌트를 갖다쓰고 있으므�
 
 
 
+## 어째서 index.js가 진입 실행 파일이 되는가?
+
+- 답은 package.jsom 파일에 있다.  npm start 를 하고나면 react-script에 있는 start를 찾아간다. 여기서 수번을 반복하면 결국 index.js가 될 수 있다.
+
+```json
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+```
+
+
+
+
+
 ## import, export
 
 ```javascript
