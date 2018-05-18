@@ -32,7 +32,7 @@ var undefined;        // 정의되지 않음
 - 기본타입(5종) : string, number, boolean, null, undefined
 - typeof 연산자를 사용해 자료형을 확인한다. 
 - 복사하면 값 자체가 복사된다. 
-  ​
+  
 
 ### 참조형
 
@@ -48,7 +48,7 @@ var rx = new RegExp();
 
 - 복사하면 힙주소가 복사된다. 
 
-  ​
+  
 
 
 
