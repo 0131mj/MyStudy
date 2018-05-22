@@ -45,6 +45,10 @@
 
 
 
+
+
+Redux connect
+
 ---
 
 
