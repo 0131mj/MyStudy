@@ -103,8 +103,6 @@ apply 복습
 
 - 동반 객체 :  클래스와 동일한 이름을 공유하며, 동일한 파일 내에서 그 클래스로 함께 정의되는 객체
 
-
-
 ```scala
 scala> :paste
 // Entering paste mode (ctrl-D to finish)
@@ -124,6 +122,41 @@ tripler: Multiplier = Multiplier@616ac46a
 
 scala> val result = tripler.product(13)
 result: Int = 39
+```
+
+
+
+동반객체에 접근하는 예제
+
+```scala
+scala> :paste
+// Entering paste mode (ctrl-D to finish)
+
+object DBConnection {
+  private val db_url = "jdbc://localhost"
+  private val db_user = "franken"
+  private val db_pass = "berry"
+
+ def apply() = new DBConnection
+}
+
+ class DBConnection {
+  private val props = Map(
+   "url" -> DBConnection.db_url,
+   "user" -> DBConnection.db_user,
+   "pass" -> DBConnection.db_pass
+  )
+  println(s"Created new connection for " + props("url"))
+}
+
+// Exiting paste mode, now interpreting.
+
+defined object DBConnection
+defined class DBConnection
+
+scala> val conn = DBConnection()
+Created new connection for jdbc://localhost
+conn: DBConnection = DBConnection@7ec58feb
 ```
 
 
