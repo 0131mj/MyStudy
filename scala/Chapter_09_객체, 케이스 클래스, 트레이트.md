@@ -163,7 +163,22 @@ conn: DBConnection = DBConnection@7ec58feb
 
 ### 객체를 가지는 명령줄 애플리케이션
 
+```scala
+$ cat > Date.scala                    
+object Date {                                    
+  def main(args: Array[String]){                 
+      println(new java.util.Date)
+  }                                              
+}                                                
+                                                 
+$ scalac Date.scala                   
+                                                 
+$ scala Date                          
+Mon May 28 23:40:53 KST 2018                     
+```
 
+- 스칼라는 객체에 'main' 메소드를 사용하여 애플리케이션의 진입점으로  이 특징을 지원한다. 
+- 명령줄 애플리케이션을 스칼라에서 생성하려면 입력인수로 문재열 배열을 취하는  'main' 메소드를 추가하면 된다. 코드를 컴파일 했다면 이제 객체 이름을 scala 명령어와 함께 실행하면 된다.
 
 
 
