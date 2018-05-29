@@ -95,11 +95,35 @@ hi
 
 객체의 더 많은 사용법
 
+
+
 ### Apply 메소드와 동반 객체
 
 
 
-apply 복습
+#### apply 복습
+
+```scala
+scala> class Multiplier(factor: Int) {
+     | def apply(input: Int) = input * factor
+     | }
+defined class Multiplier
+
+scala> val tripleMe = new Multiplier(3)
+tripleMe: Multiplier = Multiplier@65e7f52a    
+
+scala> val tripled = tripleMe.apply(10)
+tripled: Int = 30
+
+scala> val tripled2 = tripleMe(10)
+tripled2: Int = 30
+```
+
+- apply 메소드는 때로는 기본 메소드 또는 인젝터메소드 라고 불리며, 메소드 이름 없이 호출될 수 있다. apply 메소드는 근본적으로 이름 없이 괄호를 사용하여 적용할 수 있는 기능을 제공하는 간단한 방법이다. 
+
+
+
+#### 동반 객체
 
 - 동반 객체 :  클래스와 동일한 이름을 공유하며, 동일한 파일 내에서 그 클래스로 함께 정의되는 객체
 
