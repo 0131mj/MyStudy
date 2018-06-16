@@ -8,6 +8,18 @@
 
 
 
+### 값의 차이
+
+state : 독립적인 컴포넌트 상태
+
+prop : 외부(부모)컴포넌트에서 받은 속성
+
+
+
+
+
+
+
 ## Flux와 Redux의 차이점
 
 - Redux에는 Dispatcher가 없다. 
@@ -19,10 +31,6 @@
 ```react
 View -> Action -> Dispatcher -> Store(Middleware -> Reducer) -> View
 ```
-
-
-
-
 
 
 
