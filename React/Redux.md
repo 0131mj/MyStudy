@@ -67,6 +67,7 @@ View -> Action -> Dispatcher -> Store(Middleware -> Reducer) -> View
 - 애플리케이션의 상태를 저장하고, 
 - getState()를 통해 상태에 접근하게 하고
 - subscribe(listner)를 통해 리스너를 등록함
+- 만약 데이터를 다루는 로직을 쪼개고 싶다면, 여러개의 스토어 대신 리듀서의 조합이 사용가능하다.
 
 
 
