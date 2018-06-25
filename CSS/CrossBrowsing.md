@@ -28,4 +28,16 @@ select:focus::-ms-value {
 
 
 
-translate 홀수 이슈
+## translate 홀수 이슈
+
+```css
+transform: translate(-50%, -50%);
+```
+
+홀수가 되면 텍스트가 흐릿하게 블러처리가 된다. 
+
+- 짝수로 맞추어주면 해결이 된다. 
+- 홀수로 꼭 유지를 해야 한다면 translate의 숫자를 51%로 조정한다. 
+
+
+
