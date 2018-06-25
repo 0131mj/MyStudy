@@ -25,3 +25,7 @@ select:focus::-ms-value {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 ```
+
+
+
+translate 홀수 이슈
