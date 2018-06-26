@@ -41,3 +41,7 @@ git commit -am "메시지"
 
 ## reset과 revert
 
+
+## 작업 순서
+PULL -> WORK -> COMMIT -> PULL -> PUSH
+
