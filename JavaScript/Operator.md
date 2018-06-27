@@ -223,3 +223,11 @@ OR 연산 수행시, 논리적으로 둘 중 하나만 true라면 true의 값을
 
 AND 연산자
 
+
+#### 논리연산자의 활용
+
+```javascript
+function enter(userName) { userName && logIn(userName) || signUp (); }
+```
+
+userName이 있으면 logIn을, 없으면 singUp을 리턴한다.
