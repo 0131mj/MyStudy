@@ -80,3 +80,9 @@ var obj = {
 Array.prototype.push.apply(obj, ['newTxt']); //11
 ```
 
+### 배열을 스트링으로 변환하기
+
+```javascript
+var arr = [A, B, C];
+var arrString = arr.join(", ");
+```
