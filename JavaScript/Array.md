@@ -84,5 +84,5 @@ Array.prototype.push.apply(obj, ['newTxt']); //11
 
 ```javascript
 var arr = [A, B, C];
-var arrString = arr.join(", ");
+var arrString = arr.join(", "); //A, B, C
 ```
