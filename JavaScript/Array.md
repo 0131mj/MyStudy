@@ -86,3 +86,12 @@ Array.prototype.push.apply(obj, ['newTxt']); //11
 var arr = [A, B, C];
 var arrString = arr.join(", "); //A, B, C
 ```
+
+### 중복 제거하기
+
+```javascript
+var uniqArray = Array.from(new Set(duplicateArray));
+```
+
+
+
