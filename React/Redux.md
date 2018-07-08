@@ -81,6 +81,8 @@ View -> Action -> Dispatcher -> Store(Middleware -> Reducer) -> View
 (previousState, action) => newState
 ```
 
+- 상태에 변화가 생기면, 이전에 컴포넌트가 스토어에게 구독할 때 전달했던 linstner가 호출된다. 
+
 
 
 #### 리듀서에서 하지 말아야 할 것
@@ -128,6 +130,14 @@ View -> Action -> Dispatcher -> Store(Middleware -> Reducer) -> View
 Redux connect
 
 ---
+
+
+
+
+
+## lmmutablity : 불변성
+
+리액트는 컴포넌트의 state를 변경할때 무조건 setState를 통해 업데이트 해줘야 한다. 
 
 
 
