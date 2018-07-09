@@ -76,7 +76,7 @@ class App extends Component {
 
 
 
-### function Component
+### function Component (함수형 컴포넌트)
 
 ```jsx
 function MyStatelessComp({param}){
@@ -90,6 +90,16 @@ function MyStatelessComp({param}){
 - Component를 상속받아서 만들어지는 것이 아니라, function형태로 작성된다. 
 - state가 없고 props만 전달 받는다. 
 - 생명주기, render가 없고, return만 존재한다. 
+
+
+
+#### 더 간단히 표현하기 (화살표 함수 방식)
+
+```react
+const MyName = ({ name }) => {
+    return <div>안녕하세요. 제 이름은 {name} 입니다.</div>;
+}
+```
 
 
 
@@ -122,7 +132,7 @@ this.setState({
 
 
 
-부모 컴포넌트에서 전달 : key = {value}
+#### 부모 컴포넌트에서 전달 : key = {value}
 
 ```jsx
  <Child mytext={"text"}/>
@@ -130,10 +140,39 @@ this.setState({
 
 
 
-자식 컴포넌트에서 받기 : {this.props.key}
+#### 자식 컴포넌트에서 받기 : {this.props.key}
 
 ```jsx
- <p>{this.props.mytext}<p/>
+<p>{this.props.mytext}</p>
+```
+
+
+
+#### 기본 프로퍼티선언하는 방법 : 
+
+##### 방법 1. 컴포넌트 내부에 static defaultProps 를 만들어준다. (방법 2보다 최신 문법임.)
+
+```react
+class MyName extends Component{
+	static defaultProps = {
+    	name : "홍길동"
+	}   
+	...
+}
+```
+
+
+
+##### 방법 2. 컴포넌트 외부에 static defaultProps 를 만들어준다.
+
+```react
+class MyName extends Component{
+	...
+}
+
+MyName.defaultProps = {
+    name : "홍길동"
+}
 ```
 
 
