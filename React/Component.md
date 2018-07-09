@@ -142,7 +142,21 @@ this.setState({
 
 
 
-
+## JSX
 
 컴포넌트 안에서 조건식을 쓰는 방법 : 즉시실행 함수로 구현 가능함.
+
+```react
+return{
+    <div>
+        {
+            if(value === 1) return <div>1이다.</div>
+            if(value === 2) return <div>2이다.</div>
+            if(value === 4) return <div>3이다.</div>
+        }
+    </div>
+}
+```
+
+
 

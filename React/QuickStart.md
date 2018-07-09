@@ -1,4 +1,16 @@
-# 3분만에 앱 만들고 GitHub Page에 배포하기
+# 1. 설치 없이 인터넷에서 실행해보기 
+
+https://codesandbox.io/s/new
+
+리액트 환경이 구축되어 있어 별도의 설치 없이 바로 실행이 가능하다. 
+
+
+
+---
+
+
+
+# 2. 3분만에 앱 만들고 GitHub Page에 배포하기
 
 1. 어플리케이션 생성 : create-react-app
 
