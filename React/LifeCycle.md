@@ -35,13 +35,33 @@ constructor(props){
 
 
 
+#### getDerivedStateFromProps()
+
+- props로 받아온 값을 state로 동기화할때 사용
+
+```react
+static getDerivedStateFromProps(nextProps, prevState){
+    
+}
+```
+
+
+
 
 
 ## 사라진 것들...
 
 #### componentWillMount
 
-- 서버사이드에서 컴포넌트를 마운트 하기 전에 썼던 유물. 
+- 서버사이드에서 컴포넌트를 마운트 하기 전에 쓰곤 하던 유물
+
+
+
+#### componentWillRecieveProps
+
+- 컴포넌트가 새로운 props를 받았을 때 호출됨. 
+- 새롭게 받게될 props는 nextProps로 조회할 수 있으며, this.props를 조회하면 업데이트 되기 전의 API를 반환함. 
+- getDerivedStateFromProps로 대체 사용가능
 
 
 
