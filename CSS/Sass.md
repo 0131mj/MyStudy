@@ -17,3 +17,29 @@ h1{
 
 ## mixin
 
+- 선택자와 속성을 재활용 할 수 있도록 해주는 문법
+- @mixin으로 선언하고, @include로 호출한다. 
+- 인자를 삽입할 수 있으며, 인자를 활용할 때 mixin의 사용효과가 극대화 된다. 
+
+
+
+## 내장함수
+
+```scss
+background-color{
+    lighten($color, 20%)
+}
+```
+
+
+
+## interpolation
+
+```scss
+$side:top;
+.div{
+    border-#{side}-radius:10px
+}
+```
+
+'#{}'를 사용해서 변수의 속성과 선택자의 이름을 동적으로 치환 가능하다. 
