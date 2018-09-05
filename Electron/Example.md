@@ -100,3 +100,46 @@ yarn start
 ```
 
 - hello world 앱이 뜨는 것을 볼 수 있다. 
+
+
+
+---
+
+추가작업
+
+
+
+이벤트 종류
+
+##### App
+
+- window-all-closed : 윈도우가 모두 닫혔을 때 
+- activate : 앱이 실행되었을때
+- ready : 앱이 준비되었을때 
+
+##### window
+
+- closed : 윈도우가 닫혔을 때
+
+
+
+
+
+# 번들링하기 
+
+### electron-packager
+
+```bash
+yarn add --dev electron-packager
+```
+
+--dev 옵션을 추가하게 되면 package.json파일의 devDependencies에 해당 패키지가 추가된다. 
+
+
+
+### 빌드를 위한 스크립트 작성
+
+```json
+"build":"electron-packager . --out=dist --asar --overwite --all"
+```
+
