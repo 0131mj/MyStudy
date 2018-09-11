@@ -88,8 +88,11 @@ function MyStatelessComp({param}){
 
 - 보다 간단한 형태의 컴포턴트이다. 
 - Component를 상속받아서 만들어지는 것이 아니라, function형태로 작성된다. 
-- state가 없고 props만 전달 받는다. 
-- 생명주기, render가 없고, return만 존재한다. 
+- state가 없고 
+- props만 전달 받는다. 
+- 생명주기, render가 없고, return만 존재한다.  즉, 라이프사이클을 타지 않는다.  
+- 초기 로딩이 조금 더 빠르고, 메모리를 덜 사용한다.
+- component를 extends 하지 않는다. 
 
 
 
