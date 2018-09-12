@@ -126,25 +126,55 @@ this.setState({
 
 
 
-### 2. 프로퍼티(props)
-
-리액트에서는 부모 컴포넌트에서 자식 컴포넌트로 프로퍼티를 전달할 수 있다. 
+### 2. 프로퍼티(props) 
 
 
 
-#### 부모 컴포넌트에서 전달 : key = {value}
+#### 프로퍼티 전달
+
+- 리액트에서는 부모 컴포넌트에서 자식 컴포넌트로 프로퍼티를 전달할 수 있다. 
+- 반대로, 자식컴포넌트가 부모 컴포넌트에게 값을 전달할 수도 있다. 
+
+
+
+##### 1) 부모 컴포넌트 =>  자식 컴포넌트
+
+###### 부모 컴포넌트  :  key = {value}
 
 ```jsx
  <Child mytext={"text"}/>
 ```
 
-
-
-#### 자식 컴포넌트에서 받기 : {this.props.key}
+자식 컴포넌트 : {this.props.key}
 
 ```jsx
 <p>{this.props.mytext}</p>
 ```
+
+
+
+##### 2) 자식 컴포넌트 => 부모 컴포넌트
+
+부모 컴포넌트 : 메소드 생성한 후 프롭스로 함수를 전달
+
+```react
+<PhoneForm onCreat={this.handleCreate} />
+```
+
+자식 컴포넌트 : props로 받은 메소드 사용
+
+``` react
+handleSubmit = () => {
+    this.props.onCreate({
+        name : this.state.name,
+        phone : this.state.phone
+    })
+}
+```
+
+
+
+
 
 
 
@@ -177,7 +207,24 @@ MyName.defaultProps = {
 
 
 
+
+
+
+
 ### 3. 이벤트(onXXX)
+
+- e.target.name 이 키네임으로 사용 가능하다. 
+
+```react
+handleChange = (e) =>{
+    this.setState({
+        ...this.state,
+        [e.target.name]:e.target.value
+    })
+}
+```
+
+
 
 
 
@@ -199,3 +246,12 @@ return{
 
 
 
+
+
+## 쉽게 컴포넌트 생성하기
+
+에디터로 visual studio code 를 사용한다면, reactjs code snippet 이라는 확장도구를 설치할  수 있다. 
+
+- rcc : 클래스 컴포넌트 생성
+- rsc : 함수형 컴포넌트 생성
+- import 를 하지 않고 컴포넌트를 작성하더라도 <MyComponent/> 라고 불러서 쓰면 import 구문이 자동으로 생긴다. 
