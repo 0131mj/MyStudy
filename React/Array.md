@@ -102,3 +102,41 @@ numbers.map(n=>{
 
 - filter는 boolean을 반환하며,  반환값이 true일때 해당 인덱스에 해당하는 원소를 유지하고, false 이면 빼버린다. 
 - map은 배열의 원소를 반환하며, 반환값을 배열의 원소로 대체한다. 
+
+
+
+## 4. 배열의 값 출력해보기
+
+- 리액트 개발시 화면에 해당 내용을 출력해보고 싶을 때  사용하는 방법.
+- php 에서 echo 와 같은 역할을 하는 것이 자바스크립트에서의 JSON.stringify() 이다. 이를 유용하게 사용할 수 있다. 
+
+
+
+## 5. 배열의 내용이 없을 때 예외 처리
+
+> Cannot read property 'map' of undefined
+
+배열이 없을 때 위와 같은 메시지가 뜬다. 
+
+이때 해결할 수 있는 방법은 2가지가 있다. 
+
+
+
+1. 명시적 처리 - map을 돌리기 전에 아래와 같은 문구를 먼저 써준다. 
+
+```react
+if(!data) return null;
+data.map(...)
+```
+
+
+
+2. 기본값으로 처리 : defaultProps
+
+```react
+static defaultProps = {
+    data : []
+}
+```
+
+- 이때 defaultProps에는 static을 붙여준다. 
