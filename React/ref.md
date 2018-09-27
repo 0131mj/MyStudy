@@ -71,3 +71,34 @@ render(){
 }
 ```
 
+
+
+---
+
+
+
+## ref를 사용하여 값을 얻어오기
+
+```react
+import React, { Component } from 'react';
+import './App.css';
+
+class App extends Component {
+
+  componentDidMount(){
+      console.log(this.myDiv.getBoundingClientRect())
+  }
+  render() {
+    return (
+      <div ref={ref => this.myDiv = ref}>
+          <h1>hello</h1>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+```
+
+- 이렇게 하면 콘솔에 ref의 대상이 되는 myDiv의 속성값이 출력된다. 
