@@ -49,6 +49,18 @@ static getDerivedStateFromProps(nextProps, prevState){
 
 
 
+#### componentDidCatch
+
+- 에러가 발생했을때 호출되는 함수이다. 
+- 주의할 점은 에러가 발생할 수 있는 컴포넌트의 부모컴포넌트에서 기술을 해줘야 한다는 점.
+
+```react
+componentDidCatch(error, info){
+	console.log(error);
+    console.log(info);
+}
+```
+
 
 
 ## 사라진 것들...
