@@ -131,7 +131,16 @@ Redux connect
 
 ---
 
+## recursive : 재귀적인방식사용
 
+재귀로 할때는 제대로 mapDispatchToProps가 먹히지 않는다. 
+최상위 노드에만 먹히는데 이럴때는 아래와 같이 컴포넌트와 익스포트되는 이름을 다르게 해주면 된다. 
+
+```react
+const TreeNodeBranchWrapper = connect(mapStateToProps, mapDispatchToProps)(TreeNodeBranch);
+export default TreeNodeBranchWrapper
+```
+https://howtoember.wordpress.com/2016/05/18/rendering-recursive-components-in-react-redux/
 
 
 
