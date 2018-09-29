@@ -40,4 +40,10 @@ transform: translate(-50%, -50%);
 - 홀수로 꼭 유지를 해야 한다면 translate의 숫자를 51%로 조정한다. 
 
 
-
+# 아이폰에서 스크롤 랙이 발생할때
+```css
+overflow-y: scroll;
+overflow-x: hidden; 
+-webkit-overflow-scrolling: touch;
+```
+위와 같은 코드를 삽입하면 된다. 원인은 잘 모르겠음. 
