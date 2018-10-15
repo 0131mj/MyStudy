@@ -26,6 +26,8 @@ react-router-dom도 함께 설치해야 한다.
 
 주소와 매칭해주는 컴포넌트 
 
+
+
 #### 파라미터
 
 - path : 입력받을 문자열주소
@@ -34,6 +36,12 @@ react-router-dom도 함께 설치해야 한다.
 - exact : 정확하게 이 주소로 이동해야 함. 
 
 - component : 주소를 입력했을 때 보여줄 컴포넌트
+
+
+
+```javascript
+<Route path='/' Component={Home} />
+```
 
 
 
