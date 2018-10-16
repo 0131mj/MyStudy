@@ -6,6 +6,26 @@ Hyper Text Transfer Protocol 웹 통신 규약
 - 웹 서버의 응답 :  Response
 - 크롬 개발자 도구에서 Network 항목을 클릭하면 데이터를 주고 받는 모습을 볼 수 있다. 
 
+
+
+## Request message
+
+#### Request Message Header : 
+
+​	- Request Line
+
+​	- Request Headers
+
+##### Request Line : 
+
+```js
+Request URL: https://nv.veta.naver.com/fxshow?su=SU10079&nrefreshx=0
+```
+
+
+
+##### Request Headers
+
 ### user agent 
 
 웹브라우저의 다른이름
