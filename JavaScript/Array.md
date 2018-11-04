@@ -95,3 +95,8 @@ var uniqArray = Array.from(new Set(duplicateArray));
 
 
 
+### 배열인지 유사배열인지 확인하는 방법
+
+```javascript
+Array.isArray(배열)
+```
