@@ -113,3 +113,17 @@ Array.isArray(배열)
 - shift : 처음 것 뽑기 
 
 pop 과 shift 를 쓰면, 원본 배열에서 배열의 원소가 삭제된다
+
+
+
+
+
+배열을 문자로 만들 때 join 
+
+문자를 배열로 만들 때 split
+
+
+
+객체를 배열로 만들기
+
+## Object.entries

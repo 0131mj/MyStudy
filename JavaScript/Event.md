@@ -1,5 +1,17 @@
 # Event
 
+Capture, Bubbling, Propagation,  Once
+
+
+
+addEventListner 에는 3번째 파라미터를 넣을 수 있는데, 옵션이 적용 가능하다. 
+
+
+
+e.stopPropagation(); 
+
+이벤트 버블링업 방지
+
 
 
 ## label 요소에 클릭 이벤트 적용
