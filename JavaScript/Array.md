@@ -100,3 +100,16 @@ var uniqArray = Array.from(new Set(duplicateArray));
 ```javascript
 Array.isArray(배열)
 ```
+
+
+
+
+
+##  배열관련 함수
+
+- push : 마지막에 추가
+- pop : 마지막 것 뽑기
+- unshift : 처음에 추가
+- shift : 처음 것 뽑기 
+
+pop 과 shift 를 쓰면, 원본 배열에서 배열의 원소가 삭제된다
