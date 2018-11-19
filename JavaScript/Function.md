@@ -172,3 +172,17 @@ console.log(typeof(Function.__proto__.__proto__)) // object
 ## 8. 중첩 함수
 
 ## 9. 콜백 함수
+
+
+
+## 함수의 실행방식
+
+함수의 매개변수에 어떤 값을 집어넣느냐에 따라 실행되는 방식이 달라진다. 
+
+기본타입을 집어넣으면 call by value 로 작동하고 참조타입으로 넣으면 call by reference로 작동한다.
+
+
+
+- call by value : 값이 복사되어 함수 안으로 들어감 (바깥의 값은 영향받지 않음)
+
+- call by reference : 값의 주소가 함수 안으로 들어감 (바깥의 값에 영향을 줌)
