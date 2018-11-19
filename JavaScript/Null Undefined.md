@@ -1,7 +1,8 @@
 # null vs undefined
 
-- undefined는 타입 이자, 값이다. 
+- undefined의 타입은 undefined 이고, 값도 undefined 이다. 
 - null 의 타입은 object 이다. 
+- null 의 타입이 object 라는 버그 때문에, null은 타입이 아니라 값으로 비교를 해야 한다. 
 
 
 
