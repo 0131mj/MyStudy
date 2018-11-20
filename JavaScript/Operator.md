@@ -133,9 +133,9 @@ var a = function(){}
 
 연산자는 후치연산자, 전치연산자 등... 놓이는 위치에 따라 기능마저 달라짐. 
 
-​	이건 파생적인 차이인가?
+	이건 파생적인 차이인가?
 
-​	다시말해 
+	다시말해 
 
 
 
@@ -231,3 +231,26 @@ function enter(userName) { userName && logIn(userName) || signUp (); }
 ```
 
 userName이 있으면 logIn을, 없으면 singUp을 리턴한다.
+
+
+
+### typeof
+
+typeof 도 연산자이다. 
+
+typeof는 피연산자의 타입을 문자열 형태로 리턴하는데, 주의할 점은 다음과 같다. 
+
+- 함수는 function을 리턴
+- 배열은 object를 리턴
+- null은 object를 리턴
+
+
+
+### !!
+
+느낌표 두개짜리 연산자는 true 혹은 false 만을 리턴해준다. 즉, 피연산자를 불린 값으로 변환해주는 것이다. 
+
+주의할 점은 {} 이런 빈 객체가 true로 리터된다는 점이다. 
+
+- 0, null, undefined, ''(빈문자열) : true 반환
+- 1, {} : true 반환 
