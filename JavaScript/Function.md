@@ -73,9 +73,23 @@ function add(x, y){
 
 
 
-## 4. 함수 인자 - arguments, callee
+## 4. 함수 인자
+
+함수가 호출되면, 함수 내부로 전달되는 값으로 기존 매개변수로 전달되는 인자값 외에,  
+
+암묵적으로 arguments 객체와 this인자가 전달된다. 
+
+
 
 ### arguments
+
+arguments 는 다음의 세 부분으로 구성되어 있다. 
+
+- 함수를 호출할 때 넘겨진 인자(배열형태)
+- length 프로퍼티
+- callee 프로퍼티
+
+
 
 ```javascript
 add(a,b){
@@ -84,22 +98,18 @@ add(a,b){
 add(1,2);
 ```
 
-
-
-
-
 ```mermaid
 graph LR
 add실행 -- Arguments객체 --> add함수
 ```
+
+
 
 ### argument.callee
 
 callee 속성은 현재 실행되고 있는 함수(함수 객체)를 나타낸다.
 
 이것은 마치 생성자 안에서 사용되는 this와 같다. 
-
-
 
 ```mermaid
 graph BT
