@@ -1,5 +1,22 @@
 # 컴포넌트 생명주기
 
+컴포넌트는 크게 3가지의 흐름에 따라 움직인다.
+
+1. Mount
+2. Update
+3. Unmount
+
+
+
+## Mount 
+
+마운트(DOM이 생성되고 웹브라우저 상에 나타나는 단계)에서는 다음 4가지 메서드가 순서대로 호출된다.  
+
+- constructor
+- getDerivedStateFromProps
+- render
+- componentDidMount
+
 
 
 #### constructor
@@ -10,8 +27,51 @@ constructor(props){
 }
 ```
 
-- extends Component의 값을 재사용해주기 위해 쓴다고 한다. 하지만 그냥 익스텐즈로 충분하지 않은가?
+- 초기 state를 정의할 수 있다. 
 - super는 무엇을 하는가?  자바스크립트의 super는 "부모의 생성자를 호출한다."고 되어있다. 
+- 컴포넌트는 Component 를 extends 해서 만들어지는데, 여기서 constructor를 만들어주지 않으면  Component 클래스의 생성자메서드를 그대로 사용한다. 
+- 하지만 constructor를 만들어줄 경우, 수동으로 super(props)를 통해 Component의 prop을 사용할 수 있도록 한다.
+
+
+
+#### getDerivedStateFromProps()
+
+- props로 받아온 값을 state로 동기화할때 사용
+
+```react
+static getDerivedStateFromProps(nextProps, prevState){
+    
+}
+```
+
+
+
+#### render()
+
+- 컴포넌트의 유일한 필수 메서드.
+- 이 안에서는 state를 변경해서는 안된다. 
+- 이 안에서는 웹브라우저 안에 접근할 수 없다. 
+- (변경 및 웹브라우저의 접근은 componentDidMount 를 사용한다.)
+
+
+
+#### componentDidMount
+
+- 컴포넌트를 만들고, 첫 렌더링을 다 마친후 실행된다. 
+- 다른 자바스크립트 라이브러리의 함수 호출, setTimeout, setInterval, 네트워크 요청 같은 비동기 작업 처리 수행
+
+
+
+## Update
+
+컴포넌트가 업데이트되는 경우는 총 네가지이다. 
+
+1. props 가 바뀜
+2. state 가 바뀜
+3. 부모 컴포넌트 리렌더링
+4. forceUpdate
+
+
 
 
 
@@ -33,19 +93,9 @@ constructor(props){
 
 #### componentDidUpdate
 
+- 리렌더링을 완료한 후 실행한다 
+- 업데이트가 끝난 직후이므로 DOM 관련 처리를 해도 된다. 
 - state의 이전상태와 지금상태가 바뀌었을때, 어떤 작업을 하겠다라고 하면 할 수 있다. 
-
-
-
-#### getDerivedStateFromProps()
-
-- props로 받아온 값을 state로 동기화할때 사용
-
-```react
-static getDerivedStateFromProps(nextProps, prevState){
-    
-}
-```
 
 
 
@@ -60,6 +110,14 @@ componentDidCatch(error, info){
     console.log(info);
 }
 ```
+
+
+
+
+
+## Unmount
+
+
 
 
 
