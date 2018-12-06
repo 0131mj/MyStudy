@@ -48,7 +48,6 @@ var rx = new RegExp();
 
 - 복사하면 힙주소가 복사된다. 
 
-  
 
 
 
@@ -187,6 +186,33 @@ console.log(obj.sixTeen); 	//undefined
 ---
 
 
+
+## 가비지 컬렉션
+
+- 참조타입은 메모리의 주소가 복사된다. 아래의 코드에서 볼 수 있듯, b에는 a의 주소가 그대로 들어간다. 
+-  동일한 주소를 바라보고 있으므로, b를 변화시키면 a도 변화한다. 
+
+```javascript
+var a = [1, 2, 3];
+var b = a;
+b.push(4);
+
+console.log(a); // [1, 2, 3, 4]
+console.log(b); // [1, 2, 3, 4]
+```
+
+
+
+- 하지만 이 경우에는 완전히 다르게 동작한다. b 가 참조할 주소가 없어지면, b는 가비지 콜렉터의 대상이 된다. 
+
+```javascript
+var a = [1, 2, 3];
+var b = a;
+b = null;
+
+console.log(a); // [1, 2, 3]
+console.log(b); // null
+```
 
 
 
