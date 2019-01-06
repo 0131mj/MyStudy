@@ -6,9 +6,15 @@
 
 
 
+## flex 시작하기
+
+flex는 컨테이너와 아이템으로 구성되어 있는데, 컨테이너에 display: flex 속성을 주면서 
+
 
 
 ## 컨테이너에서 쓰이는 속성
+
+- display : 보여주는 방식을 flex로 한다는 선언
 
 - flex-direction : 진행방향 결정
   - justify-content : 진행방향에서의 배치 결정
