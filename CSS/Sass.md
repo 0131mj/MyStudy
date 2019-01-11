@@ -43,3 +43,16 @@ $side:top;
 ```
 
 '#{}'를 사용해서 변수의 속성과 선택자의 이름을 동적으로 치환 가능하다. 
+
+## 상위 클래스 호출
+
+```scss
+.inner{
+    .outer & {
+    
+    }
+}
+```
+
+&를 이런식으로 상위 클래스를 역으로 붙여 사용 가능하다.
+https://css-tricks.com/using-sass-control-scope-bem-naming/#article-header-id-1
