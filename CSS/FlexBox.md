@@ -98,7 +98,7 @@ flex는 컨테이너와 아이템으로 구성되어 있는데, 컨테이너에 
 
 ### flex
 
-- flex 1 1 auto 는 flex-grow: 1;flex-shrink: 1; flex-basis: auto; 를 말한다.
+- flex 1 0 auto 는 flex-grow: 1; flex-shrink: 0;  flex-basis: auto; 를 말한다.
 - 단순하게 플렉스에 숫자를 주면 flex-basis가 0으로 자동으로 바뀐다. 
 - flex-basis 를 0으로 설정하고 
 - flex-grow 를 지정해줬다고 보면 됨.
