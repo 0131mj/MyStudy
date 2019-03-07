@@ -55,7 +55,39 @@
 
 ## 컴포넌트의 종류
 
-### Class Component
+State 유무에 따른 구분
+
+
+
+### Stateless Functional Component (함수형 컴포넌트)
+
+```jsx
+function MyStatelessComp({param}){
+    return (
+        <div>{param}</div>
+    )
+}
+```
+
+- 단순한 자바스크립트 함수 형태의 컴포넌트이다. 
+
+- state가 없고 , props만 전달 받는다. 
+
+- 초기 로딩이 조금 더 빠르고, 메모리를 덜 사용한다.
+
+  
+
+#### 더 간단히 표현하기 (화살표 함수 방식)
+
+```react
+const MyStatelessComp = ({ param }) => {
+    return <div>{param}</div>;
+}
+```
+
+
+
+### Stateful Class Component
 
 ```jsx
 class App extends Component {
@@ -69,40 +101,12 @@ class App extends Component {
 }
 ```
 
-- Component -> render -> return -> JSX 의 위계구조로 구성된다. 
-- Component를 상속받아서 class형태로 작성된다. 
+- 리액트의 Component classs를 상속받아서, class형태로 만들어진다.
 - render의 return값이 출력되는 요소이다. 
 - class 내에 메서드를 정의하여 사용가능하다. 
+- 보통 Component -> render -> return -> JSX 의 위계구조로 구성된다.  
 
 
-
-### function Component (함수형 컴포넌트)
-
-```jsx
-function MyStatelessComp({param}){
-    return (
-        <div>{param}</div>
-    )
-}
-```
-
-- 보다 간단한 형태의 컴포턴트이다. 
-- Component를 상속받아서 만들어지는 것이 아니라, function형태로 작성된다. 
-- state가 없고 
-- props만 전달 받는다. 
-- 생명주기, render가 없고, return만 존재한다.  즉, 라이프사이클을 타지 않는다.  
-- 초기 로딩이 조금 더 빠르고, 메모리를 덜 사용한다.
-- component를 extends 하지 않는다. 
-
-
-
-#### 더 간단히 표현하기 (화살표 함수 방식)
-
-```react
-const MyName = ({ name }) => {
-    return <div>안녕하세요. 제 이름은 {name} 입니다.</div>;
-}
-```
 
 
 
