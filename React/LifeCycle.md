@@ -80,6 +80,7 @@ static getDerivedStateFromProps(nextProps, prevState){
 - 리액트에서는 부모의 상태가 바뀌면 자식의 상태도 렌더링을 기본적으로 해주게 되어있다.
 - 성능을 최적화 하기위해 사용할 수 있다. state를 바꿨음에도 불고하고 렌더링을 하지 않도록 하고 싶다면 이 주기를 false로 만들면 된다. 
 - virtual DOM에 나타나게 할지 말지를 결정해주는 함수라고 할 수 있다. 
+- setState를 사용할 수 없다. 
 
 
 
@@ -121,7 +122,11 @@ componentDidCatch(error, info){
 
 
 
-## 사라진 것들...
+## 사라질 것들...
+
+will 3형제 
+
+
 
 #### componentWillMount
 
@@ -134,6 +139,10 @@ componentDidCatch(error, info){
 - 컴포넌트가 새로운 props를 받았을 때 호출됨. 
 - 새롭게 받게될 props는 nextProps로 조회할 수 있으며, this.props를 조회하면 업데이트 되기 전의 API를 반환함. 
 - getDerivedStateFromProps로 대체 사용가능
+
+
+
+componentWillUpdate
 
 
 
