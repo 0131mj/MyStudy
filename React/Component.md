@@ -55,7 +55,7 @@
 
 ## 컴포넌트의 종류
 
-State 유무에 따른 구분
+State 유무에 따른 구분 - 이 부분은 Life Hook 라는 새로운 feature에 의해 변경되었음.
 
 
 
@@ -71,9 +71,15 @@ function MyStatelessComp({param}){
 
 - 단순한 자바스크립트 함수 형태의 컴포넌트이다. 
 
-- state가 없고 , props만 전달 받는다. 
+- props를 전달받아서 리턴을 한다. 
+
+- state가 없다.
 
 - 초기 로딩이 조금 더 빠르고, 메모리를 덜 사용한다.
+
+- this 키워드가 없다.
+
+- stateless / Dumb / Presentational 라고도 불린다. 
 
   
 
@@ -90,6 +96,8 @@ const MyStatelessComp = ({ param }) => {
 ### Stateful Class Component
 
 ```jsx
+import React, {Component} from 'react'
+
 class App extends Component {
   render() {
     return (
@@ -102,9 +110,13 @@ class App extends Component {
 ```
 
 - 리액트의 Component classs를 상속받아서, class형태로 만들어진다.
-- render의 return값이 출력되는 요소이다. 
+- props는 this.props 를 사용한다.
+- 라이프사이클 훅을 제공한다. 
+- render의 return값이 출력되는 요소이다.  
+- 이 안에서 사용되는 div 엘리먼트는 html 이 아니라 JSX이다. 
 - class 내에 메서드를 정의하여 사용가능하다. 
 - 보통 Component -> render -> return -> JSX 의 위계구조로 구성된다.  
+- Stateful / Smart / Container 컴포넌트라고도 불린다. 
 
 
 

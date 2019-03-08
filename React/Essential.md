@@ -4,7 +4,7 @@
 
 ## 초기 상태
 
-create react app을 사용해서만든 프로젝트를 열어보면, 여러 파일이 있는데 핵심파일은 아래 3개다. 
+create react app을 사용해서 만든 프로젝트를 열어보면, 여러 파일이 있는데 핵심파일은 아래 3개다. 
 
 1. public/index.html(최종 렌더링 지점) : <div id="root"></div>라는 단 하나의 엘리먼트가 있다.
 2. src/index.js (렌더링을 연결해주는 역할) : <div id="root"></div>에 App.js로부터 import 한 <App></App>를 렌더링한다.

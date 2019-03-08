@@ -97,3 +97,16 @@ this.setState((prevState, props)=>{
 
 
 
+## state vs props
+
+### props 
+
+- 변경불가
+- 함수형컴포넌트 : props
+- 클래스형컴포넌트 : this.props 
+
+### state 
+
+- 변경가능
+- 함수형컴포넌트 : useState Hook
+- 클래스형컴포넌트 : this.state
