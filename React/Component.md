@@ -226,6 +226,21 @@ MyName.defaultProps = {
 
 
 
+####  Prop을 간편하게 전개해서 사용하는 방법
+
+- props 대신 바로 집어넣어서 사용가능하다. 
+
+```react
+function Person({person}){
+    return(
+        <div>
+            I am {person.name}.
+            I am {person.age}
+        </div>
+    )
+}
+```
+
 
 
 
