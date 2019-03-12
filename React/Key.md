@@ -79,4 +79,6 @@
 3. 0, 1, 2는 야, 키도 그대로고 값도 그대로네? 그래서 변함이 없고 엉뚱하게 3번에 갖다 달라붙는다. 
 4. 새로운 뉴페이스는 자기가 사용할 키도 같이 갖고 오는 게 좋다. 
 
+
 https://medium.com/@vraa/why-using-an-index-as-key-in-react-is-probably-a-bad-idea-7543de68b17c
+https://css-tricks.com/how-react-reconciliation-works/
