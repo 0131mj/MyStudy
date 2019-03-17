@@ -58,6 +58,7 @@ static getDerivedStateFromProps(nextProps, prevState){
 - (변경 및 웹브라우저의 접근은 componentDidMount 를 사용한다.)
 - ajax call을 하면 안된다.
 - Children components lifecycle methods are also executed.
+- 상위컴포넌트에서 render 단계까지 거치고 나면 이후의단계를 실행하기 전에 하위컴포넌트로 라이프사이클이 옮겨간다.
 
 
 
