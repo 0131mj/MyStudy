@@ -19,7 +19,7 @@
 
 
 
-#### constructor
+### constructor
 
 ```react
 constructor(props){
@@ -27,22 +27,26 @@ constructor(props){
 }
 ```
 
-- 초기 state를 정의할 수 있다. 
 - super는 무엇을 하는가?  자바스크립트의 super는 "부모의 생성자를 호출한다."고 되어있다. 
 - 컴포넌트는 Component 를 extends 해서 만들어지는데, 여기서 constructor를 만들어주지 않으면  Component 클래스의 생성자메서드를 그대로 사용한다. 
 - 하지만 constructor를 만들어줄 경우, 수동으로 super(props)를 통해 Component의 prop을 사용할 수 있도록 한다.
+- 초기 state를 정의하거나 이벤트 핸들러를 바인딩한다.
+- Directly overwrite this.state
+- 사이드이펙트를 사용할 수 없다. (HTTP request 등)
 
 
 
 #### getDerivedStateFromProps()
-
-- props로 받아온 값을 state로 동기화할때 사용
 
 ```react
 static getDerivedStateFromProps(nextProps, prevState){
     
 }
 ```
+
+- 컴포넌트가 re-render 될 때마다 호출된다.
+- props로 받아온 값을 state로 동기화할때 사용
+- 사이드이펙트를 사용할 수 없다. (HTTP request 등)
 
 
 
@@ -52,13 +56,25 @@ static getDerivedStateFromProps(nextProps, prevState){
 - 이 안에서는 state를 변경해서는 안된다. 
 - 이 안에서는 웹브라우저 안에 접근할 수 없다. 
 - (변경 및 웹브라우저의 접근은 componentDidMount 를 사용한다.)
+- ajax call을 하면 안된다.
+- Children components lifecycle methods are also executed.
 
 
 
 #### componentDidMount
 
 - 컴포넌트를 만들고, 첫 렌더링을 다 마친후 실행된다. 
+
 - 다른 자바스크립트 라이브러리의 함수 호출, setTimeout, setInterval, 네트워크 요청 같은 비동기 작업 처리 수행
+
+- 자식컴포넌트가 있다면, 자식컴포넌트레벨에서의 componentDidMount 까지가 먼저 실행되고, 부모의 componentDidMount 가 실행된다. 
+
+  ```react
+  <Parent> // 2)ComponentDidMount
+      Parent
+      <Child>Child</Child> // 1)ComponentDidMount
+  </Parent>
+  ```
 
 
 
@@ -81,6 +97,7 @@ static getDerivedStateFromProps(nextProps, prevState){
 - 성능을 최적화 하기위해 사용할 수 있다. state를 바꿨음에도 불고하고 렌더링을 하지 않도록 하고 싶다면 이 주기를 false로 만들면 된다. 
 - virtual DOM에 나타나게 할지 말지를 결정해주는 함수라고 할 수 있다. 
 - setState를 사용할 수 없다. 
+- 사이드이펙트를 사용할 수 없다. (HTTP request 등)
 
 
 
@@ -92,7 +109,7 @@ static getDerivedStateFromProps(nextProps, prevState){
 
 
 
-#### componentDidUpdate
+#### componentDidUpdate(prevProps, prevState, snapshot)
 
 - 리렌더링을 완료한 후 실행한다 
 - 업데이트가 끝난 직후이므로 DOM 관련 처리를 해도 된다. 
@@ -142,7 +159,19 @@ will 3형제
 
 
 
-componentWillUpdate
+#### componentWillUpdate
+
+
+
+---
+
+
+
+참고 자료
+
+
+
+https://www.youtube.com/watch?v=DyPkojd1fas&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=24
 
 
 
