@@ -108,7 +108,7 @@ export default App;
 
 ## 하위 컴포넌트 참조하기
 
-##### FocusInput(상위 컴포넌트)
+##### FocusInput (상위 컴포넌트)
 
 ```react
 import React, { Component } from 'react'
@@ -139,7 +139,7 @@ export default FocusInput
 
 
 
-##### FocusInput(하위 컴포넌트)
+##### Input (하위 컴포넌트)
 
 ```react
 import React, { Component } from 'react'
@@ -177,6 +177,10 @@ ForwardRef를 사용하면 하위컴포넌트 인스턴스의 ref 를 부모가 
 
 이 방식의 좋은 점은, 하위컴포넌트에 붙어있는 함수를 가져다 쓰는 것이 아니라, 상위 컴포넌트 자신이 함수를 정의 하고 참조할 ref만 하위로 내려주어 붙일 수 있다는 점이다.
 
+
+
+##### FRParentInput (상위컴포넌트)
+
 ```react
 import React, { Component } from 'react'
 import FRInput from './components/FRInput';
@@ -206,13 +210,15 @@ export default FRParentInput
 
 
 
+##### FRInput (하위컴포넌트)
+
 ```react
 import React from 'react'
 const FRInput = React.forwardRef( 
     (props, ref)=> {
         return (
             <div>
-                <input type="text" ref={ref}/>
+                <input type="text" ref={ref}/> {/** ref는 상위에서 전달해준 값이다.**/}
             </div>
         );
     }
