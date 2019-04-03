@@ -1,10 +1,48 @@
 # Promise
 
+Promise 란, 프로그래밍에서 병렬처리를 위해 처음 고안된 패턴으로, 
+
+Python, Java, Scala 등의 언어에도 이 개념이 존재한다. 
+
+( 타 언어에서는 Future, Promise, Delay 와 같은 이름으로 쓰인다. )
+
+JavaScript에서의 Promise는 이 초기 목적에서 '병렬 쓰레드' 만 빼고는 동일하다. 
 
 
-비동기 작업을 위한 컨셉
+
+## callback hell
+
+흔히 Callback 지옥을 해결하기 위한 도구로 알려져 있는데,
+
+가독성이 향상되는 것은 사실이나, callback Depth를 해결하기 위한 목적으로 만들어 진 것은 아니다.
+
+
+
+## Promise 객체
+
+비동기작업을 수행하기 위한 객체
+
+```javascript
+new Promise((resolve, reject) =>{
+    resolve();
+    reject();
+})
+```
+
+- 매개변수 : "resolve 와 reject 를 매개변수로 갖는 콜백함수",
+- 위 생성자코드는 아래의 말과 같다고 보면 된다.
+
+> "지금부터 Promise 객체를 하나 생성할껀데, 
+>
+>   성공하면 어떻게 할지(resolve), 
+>
+>   실패하면 어떻게 할지(reject)를 알려줘 "
+
+
 
 ## .then
+
+then을 연이어서 쓸 수 있다. 
 
 
 
