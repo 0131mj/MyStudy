@@ -42,7 +42,35 @@ new Promise((resolve, reject) =>{
 
 ## .then
 
+```javascript
+const plus = new Promise(
+    (resolve, reject) => {
+        const a = 1;
+        const b = 2;
+        if (a + b > 2) {
+            resolve(a + b);
+        } else {
+            reject(a + b);
+        }
+    }
+)
+
+plus
+    .then((success) => {
+    
+	})
+    .catch((fail) => {
+    
+	})
+```
+
 then을 연이어서 쓸 수 있다. 
+
+promise 의 결과가 resolve 면(성공하면) 결과가 then으로 넘어가고, 
+
+promise 의 결과가 reject 면(실패하면) 결과가 catch를 타게 된다. 
+
+
 
 
 
