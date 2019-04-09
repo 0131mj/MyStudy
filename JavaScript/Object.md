@@ -38,4 +38,16 @@
 
 
 
+
+
+## 객체를 반복하여 나타내는 방법
+
+```javascript
+for (key in obj){
+    console.log(key, obj[key])
+}
+```
+
+
+
 ### 
