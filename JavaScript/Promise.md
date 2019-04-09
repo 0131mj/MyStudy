@@ -1,5 +1,13 @@
 # Promise
 
+결과를 갖고 있지만, then이나 catch를 붙이기 전까지는 반환하지 않는 것.
+
+콜백은 곧바로 실행되어 버린다.
+
+
+
+유래
+
 Promise 란, 프로그래밍에서 병렬처리를 위해 처음 고안된 패턴으로, 
 
 Python, Java, Scala 등의 언어에도 이 개념이 존재한다. 
@@ -75,4 +83,19 @@ promise 의 결과가 reject 면(실패하면) 결과가 catch를 타게 된다.
 
 
 ## .fetch
+
+
+
+
+
+## .all
+
+- 여러 프로미스를 한번에 실행해줄 수 있다. 
+- 단 하나라도 실패할 경우, catch로 처리
+
+```javascript
+Promise.all([Users.findOne(), Users.remove(), Users.update()])
+	.then((results) => {})
+	.catch((error) => {})
+```
 

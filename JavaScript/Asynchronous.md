@@ -47,3 +47,21 @@ async 내부에서 await라는 키워드를 사용할 수 있는데,
 Promise 에 있는 내용을 실행하고, resolve에 있는 내용을 리턴해준다.
 
 await 는 일반함수에 붙여도 괜찮다.
+
+
+
+
+
+### 예외처리 
+
+```javascript
+async () => {
+    try{
+        
+    }catch{
+        
+    }
+}
+```
+
+- async 문에서는 promise 와 같이. then, then, catch 이렇게 이어지는 패턴을 사용할 수는 없다
