@@ -44,3 +44,5 @@ case 1 과  case 2의 차이점은 별로 없다.
 
 - this가 되게 할 대상을 func.bind(that) 이런식으로 묶으면 func의 this 는 항상 that을 가리키게 된다. 
 
+
+

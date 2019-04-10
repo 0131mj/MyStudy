@@ -1,5 +1,26 @@
 # prototype
 
+
+
+## 프로토타입은 상호 참조구조이다.
+
+```javascript
+function Human(name){
+    this.name = name;
+}
+```
+
+- Human이라는 생성자 함수를 만들면, 
+- 자바스크립트는 내부적으로 Human의 prototype 객체를 하나 추가적으로 더 만들어낸다. 
+
+
+
+- 이 prototype은,  constructor 라는 프로퍼티를 갖고 있으며, constuctor는 다시 Human을 참조한다. 
+- Human 안에 들어있는 prototype 프로퍼티가 Human의 prototype이라는 걸 가리기고, 
+- 또 그 "Human의 prototype" 안에있는 constuctor 가 다시 Human 객체를 가리키는 것을이해하는 것, 이것이 프로토타입 이해의 출발점이다. 
+
+
+
 ```javascript
 function Human(name){
     this.name = name;
