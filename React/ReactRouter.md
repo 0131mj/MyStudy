@@ -44,18 +44,19 @@ react-router-dom도 함께 설치해야 한다.
   <Route path='/' Component={Home} />
   <Route path='/about/:username/:name' Component={About} />
 </Router>  
+```
 
-
+```javascript
 const About = ({match})=> {
   return <div>{match.params.username}</div>
 }
 ```
-- 라우터는 3가지 프롭을 받는다. match, location, history
 
 
 ### Link
 
 앵커태그와 비슷함.  페이지를 고치는 대신 연결만 해줌
+
 
 #### 파라미터
 
@@ -112,4 +113,15 @@ const MyPage = ({history}) => {
 ### Switch
 
 - 가장 처음에 매칭되는 것만 보여줌
+- 주로 404 페이지 같은걸 만들때 사용한다. 
+
+```javascript
+<Router>
+  <Switch>
+    <Route exact path='/' Component={Home} />
+    <Route path='/about/:username/:name' Component={About} />
+    <Route Component={NoMatch} />
+  </Switch>    
+</Router>  
+```
 
