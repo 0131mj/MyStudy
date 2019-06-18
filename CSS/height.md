@@ -1,5 +1,9 @@
 # height : 100%
 
+방법 1. 일반요소에 position absolute 혹은 position fixed를 쓰고 height를 100%로 적용한다. 
+
+방법 2. body, html 에 height 100%를 준다.
+
 
 
 ## CSS default value
