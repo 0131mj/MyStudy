@@ -1,28 +1,71 @@
 # FlexBox
 
-- 플렉스박스는 CSS3에서 등장한 기능으로,  종래에 쓰던 float를 대체하는 기능이라고 볼 수 있다. 
-
-- 속성은, 컨테이너와 아이템, 두 종류에 따라 쓰이는 속성이 다르다. 
-  - 컨테이너 : 내용을 둘러싼 껍데기
-  - 아이템 :  껍데기 안에 들어있는 니용
-- 컨테이너와 아이템이라는 엘리먼트가 존재하는 것이 아니라, 이런 역할을 한다는 것이다.
+- flex box 는 CSS3에서 등장한 기능으로,  레이아웃을 효과적으로 배치하기 위해서 고안된 개념이다. 
+- 종래에 쓰던 float를 대체하는 기능이라고도 볼 수 있다. 
 
 
 
 ## flex 시작하기
 
-- flex는 어떤 엘리먼트의 display 속성을 flex 혹은 inline-flex로 설정하면서 시작된다. 
-- 해당 엘리먼트 내부에 있는 아이템들은 flex 아이템이 되어버린다. 
+flex box를 사용한다는 것은, "flex의 룰에 따라 대상을 제어한다" 는 것을 의미하며, 
 
-### flex
+이를 위해서는 flex box model을 먼저 만들어야 한다. 
 
-### inline-flex
+```html
+<article>
+    <div>a</div>
+    <div>b</div>
+    <div>c</div>
+</article>
+```
 
-- 시작은 display 설정부터 한다. 
+- 위에서 <article> 에 display 속성을 flex (혹은 inline-flex)로 설정하면, 이  <article> 은 flex box model 이 된다.
 
 
 
-## 컨테이너에서 쓰이는 속성 (flex-flow)
+#### 제어 대상 - 2가지
+
+  flex-box는 다음과 같이 두개의 역할로 구분된다. 
+
+- flex container - 내용을 둘러싼 껍데기 (display: flex  or inline-flex)  <article> 
+- flex item - 내용 <div> 들
+
+
+
+## flex-box formatting context
+
+- 플렉스박스를 만들게 되면 하나의 formatting context 를 만들게 된다. 
+- 이 말은 바깥의 속성과는 독립된 레이아웃 모델로 동작한다는 것을 의미한다.
+- 기본적으로, div는 아래로 쌓인다. 이것은 이것을 둘러싼 포맷팅컨텍스트가 블록 이기 때문이다. 
+- 하지만 flex-box container 안에서는 , div 조차도 flex-direction이 지정한 방향대로 쌓이게 된다. 이것은 플렉스박스 포맷팅 컨텍스트의 영향을 받고 있다는 것이다.
+
+
+
+## 속성 부여
+
+속성은, 컨테이너와 아이템, 두 종류에 따라 쓰이는 속성이 다르다. 
+
+- 컨테이너 : 
+  - flex-direction : row || column || row-reverse || column-reverse;
+  - flex-wrap: wrap || no-wrap || wrap-reverse;
+  - flex-flow: row wrap; /*direction "row" and yes, please wrap the items.*/
+  - justify-content: flex-start || flex-end || center || space-between || space-around
+  - align-items: flex-start || flex-end || center || stretch || baseline
+  - align-content:  flex-start || flex-end || center || stretch 
+
+
+
+- 아이템 :  
+  - order
+  - flex-grow
+  - flex-shrink
+  - flex-basis
+
+
+
+
+
+## 컨테이너에서 쓰이는 속성
 
 - display : 보여주는 방식을 flex로 한다는 선언
 
@@ -114,11 +157,20 @@
 
 ### flex-basis 
 
-- 원래의 너비 (혹은 높이) 얼마나 되는가를 지정
-- auto : 기본 자기 값,
-- 0으로 설정하고 flex-grow를 설정하면, 기본값이 없이 flex-grow에만 참조해서 가져온다. 
+기본값 - (원래의 너비 (혹은 높이) 얼마나 되는가)를 지정하는 속성, 
 
+박스모델레이아웃에서 width, height 와 같다.
 
+- auto : 기본 자기 값 (하위 콘텐츠에 따라 결정됨)
+
+- 0 : 설정하지 않음. 0으로 하고 flex-grow를 설정하면, 기본값이 없이 flex-grow에만 참조해서 가져온다. 
+
+- 0px : 사이즈가 0px로 기본 설정됨. 
+  (주의사항 : 높이를 0px로 만들고 싶다면  다른 css속성과는 달리, 0 대신 '0px'로 해야 함. )
+
+- 140px  : 고정사이즈로 설정
+
+  
 
 
 ### flex
@@ -133,3 +185,32 @@
 ## order
 
 - 형제중에서 우선순위를 부여하는 속성이다. 
+
+
+
+## absolute flex vs relative flex
+
+```css
+/* absolute flex item */
+li {
+  flex: 1 1; /*flex-basis defaults to 0*/
+}
+
+/* relative flex item */
+li {
+  flex-basis: 200px; /*only flex-basis is set*/
+}
+```
+
+
+
+
+
+#### 더 많은 자료들
+
+아래 링크를 참고할 것
+
+<https://webclub.tistory.com/628>
+
+
+
