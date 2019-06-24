@@ -137,6 +137,10 @@ flex box를 사용한다는 것은, "flex의 룰에 따라 대상을 제어한�
 
 ## 아이템에서 쓰이는 속성(flex)
 
+### order
+
+- 형제중에서 우선순위를 부여하는 속성이다. 
+
 
 
 ### flex-grow
@@ -170,25 +174,48 @@ flex box를 사용한다는 것은, "flex의 룰에 따라 대상을 제어한�
 
 - 140px  : 고정사이즈로 설정
 
-  
-
-
-### flex
-
-- flex 1 0 auto 는 flex-grow: 1; flex-shrink: 0;  flex-basis: auto; 를 말한다.
-- flex : 5; 이런 식으로 단순하게 플렉스에 숫자만 주면 flex-basis가 0으로 자동으로 바뀐다. 
-- flex-basis 를 0으로 설정하고 
-- flex-grow 를 지정해줬다고 보면 됨.
 
 
 
-## order
+## 단축 속성 - flex
 
-- 형제중에서 우선순위를 부여하는 속성이다. 
+단축속성은 flex 라는 키워드로 flex-grow, flex-shrink, flex-basis 를 함께 제어하는 방식이다.
 
 
 
-## absolute flex vs relative flex
+#### flex : default 
+
+- flex: 0, 1, auto 와 동일
+- 베이스는 원래 사이즈이며 늘어나지는 않지만, 필요에 따라 줄어든다. 
+
+
+
+#### flex : none
+
+- flex: 0, 0, auto 와 동일
+- 베이스는 원래 사이즈이며, 늘어나지도, 줄어들지도 않는다.
+- 너비가 자동으로 계산되지 않는 고정너비 엘리먼트이다.
+
+
+
+#### flex : auto 
+
+- flex : 1, 1, auto 와 동일
+- 자동으로 초기 너비를 계산하지만 사용 가능한 전체 공간에 맞게 증가(grow)하고 필요한 경우 축소(shrink)된다 
+
+
+
+#### flex : 5 
+
+- flex : 5, 1, 0 와 동일
+- 베이스는 따로 없고,  grow에 의해 폭이 결정되며, 줄어들기도 한다.
+
+
+
+## absolute flex-item vs relative flex-item
+
+- 절대적 flex-item : flex-grow 와 flex-shrink 속성만 있음. (컨텐츠와 상관없이 flexd에만 기반한 크기 적용)
+- 상대적 flex-item : flex-basis 속성만 있음 (컨텐츠의 크기에 따라 계산)
 
 ```css
 /* absolute flex item */
@@ -211,14 +238,5 @@ li {
 아래 링크를 참고할 것
 
 <https://webclub.tistory.com/628>
-
-
-### 단축 속성
-```css
-flex : default  //(flex: 1, 0, auto)
-flex : none     //(flex: 0, 0, auto)
-flex : auto;    //(flex: 1, 1, auto)
-flex : 3;       //(flex: 3, 1, 0)
-```
 
 
