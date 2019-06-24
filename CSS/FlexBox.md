@@ -213,11 +213,12 @@ li {
 <https://webclub.tistory.com/628>
 
 
-#단축 속성
-- flex : default  //(flex: 1, 0, auto)
-- flex : none     //(flex: 0, 0, auto)
-- flex : auto;    //(flex: 1, 1, auto)
-- flex : 3;       //(flex: 3, 1, 0)
-
+### 단축 속성
+```css
+flex : default  //(flex: 1, 0, auto)
+flex : none     //(flex: 0, 0, auto)
+flex : auto;    //(flex: 1, 1, auto)
+flex : 3;       //(flex: 3, 1, 0)
+```
 
 
