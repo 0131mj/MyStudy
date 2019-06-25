@@ -46,6 +46,8 @@ new Promise((resolve, reject) =>{
 >
 >   실패하면 어떻게 할지(reject)를 알려줘 "
 
+- .then 과 .catch 는 Promise 객체의 메소드이다. 
+- 성공하면 .then , 실패하면 .catch 가 실행된다.
 
 
 ## .then
