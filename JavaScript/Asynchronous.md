@@ -65,3 +65,13 @@ async () => {
 ```
 
 - async 문에서는 promise 와 같이. then, then, catch 이렇게 이어지는 패턴을 사용할 수는 없다
+- async 함수는 return 혹은 throw 값이 담긴 Promise를 리턴하므로, then 또는 catch를 결과값으로 받아 실행해주면 된다.
+
+```javascript
+const returnPromise = async () => {
+  return 'zero';
+};
+returnPromise().then((res) => {
+  console.log(res); // 'zero'
+});
+```
