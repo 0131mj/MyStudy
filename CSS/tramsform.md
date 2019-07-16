@@ -6,10 +6,6 @@ transition 과 다르다.
 
 
 
-
-
-
-
 ### 헷갈리는 이름 정리
 
 - transition : 전환
