@@ -12,9 +12,9 @@
 
 ## label, break, continue
 
-- label : 같은 "스코프" 내에서 중복선언이 불가
-- break : 모든 레이블 구문에서 사용가능
-- continue : 반복레이블 구문에서만 사용가능
+- label : "Function Scope"를 따르며, 같은 "함수 스코프" 내에서 중복선언이 불가
+- break : 모든 레이블 구문에서 사용가능한 탈출명령어
+- continue : 반복레이블 구문에서만 사용가능한 탈출명령어
 
 
 
@@ -52,3 +52,19 @@ for (const i of [1, 2, 3, 4]){
 - 위의 예시에서는 break 뒤에 identifier 가 없다.  iteration set 에서 자동으로 label 을 생성한 것이다. 
 - 원래는 break 뒤에 명시적으로 label을 붙여주는 것이 맞지만, 맥락에따라 break는 label을 자동으로 찾아서 붙여준다.
 - continue 문은 iteration set 에서만 작동한다.
+
+
+
+## label  Parsing
+
+- 레이블에 대한 파싱은 정적 타임에 하기 때문에,  실행 도중에 에러나지 않는다. 
+- 언어를 레코드로 만들다가 Syntax 에러를 내고 죽어버린다.
+
+
+
+## label 의 특징
+
+- label은 scope 도 있고, label 이 가진 블록도 있다. 
+- label 은 바로 뒤에 나오는 문 하나를 자기의 문으로 갖는다. 
+- 만약 label 에 블록을 씌우지 않으면 label 바로 다음에 나오는 단문 하나를 소유하게 된다. 
+- 이는 label 뒤에 나오는 { } 블럭이 하나의 중문이기 때문이다.
