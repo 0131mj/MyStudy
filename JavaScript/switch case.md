@@ -14,7 +14,21 @@ switch ( 3 ) {
 
 
 
+
+
+## label 과 break
+
+case 구문은 하나의 label이다. 
+
+따라서, break 를 걸지 않으면 문장을 순차적으로 실행해버린다. 
+
+
+
+
+
 ## 기명 레이블
+
+label 을 명시적으로 지정해줄 수 있다. 
 
 ```javascript
 a:
@@ -28,12 +42,6 @@ switch ( 3 ) {
 ```
 
 
-
-## label 과 break
-
-case 구문은 하나의 label이다. 
-
-따라서, break 를 걸지 않으면 문장을 순차적으로 실행해버린다. 
 
 
 
