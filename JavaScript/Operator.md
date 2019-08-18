@@ -134,7 +134,7 @@ var a = function(){}
 연산자는 후치연산자, 전치연산자 등... 놓이는 위치에 따라 기능마저 달라짐. 
 
 	이건 파생적인 차이인가?
-
+	
 	다시말해 
 
 
@@ -179,6 +179,20 @@ var j = ++i;  //i=2, j=2
 var i = 1; 
 var j = i++;  //i=1, j=2
 ```
+
+
+
+(주의!!) 후치연산자는 현재 루틴에 영향을 주지 않는다. 
+
+```javascript
+let nums = [1, 2];
+let seq = 0;
+nums[seq++] = "x"; // nums[0] = "x" 실행 후에, seq에 1을 더한다.
+console.log(seq); // 1
+console.log(nums); // ["x", 2]
+```
+
+
 
 
 
