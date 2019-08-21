@@ -1,9 +1,12 @@
 # call vs apply vs bind
 
 - call 이나 apply는 거의 비슷하다. 
+
 - call은 실행할 때의 컨텍스트를 바꾸는 것이고, bind 는 해당 함수를 고정으로 박아둔 함수 자체를 만들어내는 것이다.
 
+- 한계 : call 과 apply 로는 생성자의 인자로 사용할수 없다. 
 
+  ## 
 
 ## call()
 

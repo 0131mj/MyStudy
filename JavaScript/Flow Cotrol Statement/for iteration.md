@@ -32,11 +32,21 @@ for (; ; ;){
 
 
 
+# for ( in )
+
+
+
 # for ( of )
 
+```javascript
+for(const v of iter){
+    console.log(v)
+}
+```
 
-
-# for ( in )
+- ES6 에서 추가로 도입된 구문
+- iterator 를 소비한다. 
+- iter 자리에는 문자와 배열이 올 수 있다. 
 
 
 
