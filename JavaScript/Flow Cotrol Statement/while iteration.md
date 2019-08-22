@@ -21,6 +21,21 @@ while (act.method().c) {
 
 
 
+## while 문 안전하게 작성하기
+
+```javascript
+let index = 100;
+while( condition && index < 0){
+    index--;
+    ....
+    // condition 
+}
+```
+
+- 테스트 할 때 무한루프에 빠지지 않도록 임의의 수를 while 문에 부가조건으로 걸어둔다. 
+
+
+
 ## do while
 
 - 구조 : do - 문 - while - 식

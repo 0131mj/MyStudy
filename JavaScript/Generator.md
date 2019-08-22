@@ -28,6 +28,12 @@ console.log(g.next())
 
 
 
+## Generator Suspension
+
+- 멈췄다가 resume 할 수 있는 기능
+
+
+
 ## 결과값
 
 - 제너레이터를 호출한 결과는 iterator 다. 

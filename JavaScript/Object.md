@@ -72,9 +72,13 @@ x : 8
 -5 : 40
 ```
 
+
+
 #### 순회시 정렬순서 
 
 예전에는 Object 의 for in 을 돌면 랜덤하게 출력되었고 브라우저마다 달랐다.
+
+순서가 없는 HashMap 구조였던 것이다.
 
 하지만 es6 부터는 키의 정렬 순서라는 것이 생겼다.  정렬 순서는 다음과 같다. 
 
@@ -120,4 +124,29 @@ const objNew = {
 
 
 
-### 
+## 객체관련 연산자 및 메소드
+
+
+
+### instanceOf
+
+- typeOf가 원시타입을 체크한다면, instanceOf는 참조타입을 체크한다. 
+
+
+
+### Object.values
+
+- 객체에서 값만 모아서 배열로 반환
+
+
+
+### hasOwnProperty
+
+- 해당 키가 존재하는지확인한다.
+
+
+
+### JSON.parse(JSON.stringify(obj))
+
+- 객체를 복사하는 가장 빠르고 확실한 명령
+- stringify 와 parsing은 C가 수행하므로, 깊은 복사보다 훨씬 빠르다. 
