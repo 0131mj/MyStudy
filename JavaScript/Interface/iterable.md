@@ -5,6 +5,22 @@
 
 
 
+먼저 "Symbol.iterator" 라는 키를 갖는다는 말을 이해해야 한다. 
+
+문자 그대로 보면, 키 자리가 아래처럼 기술됨을 말한다. 
+
+```javascript
+{
+    [Symbol.iterator]: function (){}
+}
+```
+
+이렇게 쓰면 뭐가 달라지는가?
+
+1. 객체의 키가 [Symbol.iterator] 도 되어 있다면, 자바스크립트 엔진은 이 객체가 iteaor로 동작하도록 만든다.
+
+
+
 #### Iterable 이 존재하는 이유
 
 - iterator 만 있으면 한번 수명을 다하고 없어지는데,
