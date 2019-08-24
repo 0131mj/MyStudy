@@ -13,3 +13,5 @@
 - 지속적인 반복 수행
 
 ## Abstract loop
+
+Factory + Composite

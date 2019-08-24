@@ -1,13 +1,17 @@
 # Symbol
 
 - Symbol 은 ES6 에서 추가된 feature 로, Primative type 이다. 
-- Symbol 은 new Symbol 로 구현할 수 없고, Symbol() 을 사용한다. 
+
+
+
+## 생성하기
 
 ```javascript
 const s = Symbol();
 ```
 
-
+- Symbol 은 new Symbol 로 구현할 수 없고, Symbol() 을 사용한다. 
+- 이는 symbol 이 primative type 이기 때문이다.
 
 
 

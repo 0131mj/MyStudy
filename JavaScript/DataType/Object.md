@@ -128,9 +128,11 @@ const objNew = {
 
 
 
-### instanceOf
+### instanceof
 
-- typeOf가 원시타입을 체크한다면, instanceOf는 참조타입을 체크한다. 
+- typeof가 원시타입을 체크한다면, instanceof는 참조타입을 체크한다. 
+- typeof : string을 반환
+- instanceof : boolean 을 반환
 
 
 
