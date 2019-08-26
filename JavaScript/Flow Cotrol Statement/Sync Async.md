@@ -39,3 +39,7 @@ double(2, console.log); //4
 - NonBlock Sync : modernAPI - 가장 이상적인 API
 
   
+  
+  
+
+목적은 Async 코드를 sync 처럼 보이게 하는 것.
