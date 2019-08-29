@@ -65,7 +65,8 @@ for(const v of iter){
 - for of 는 "이터레이터" 라는 특정메소드를 반복호출 하는 방식으로 이뤄진다. 
 - Array, Map, Set 얘네들도 모두 iterator 메소드를 갖고 있다. 
 - [Symbol.iterator]를 키로 가진 메소드를 객체에 넣어주면, 어떤 객체든 사용이 가능하다. 
-- 이런 [Symbol.iterator] 메소드를 가진 객체를 "이터레이터" 객체 라고 부른다. 
+- 이런 [Symbol.iterator] 메소드를 가진 객체를 "이터러블" 객체 라고 부른다.  
+- 즉, 이터레이터를 갖고 있으면 이터러블 객체이다. 
 
 
 
