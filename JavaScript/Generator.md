@@ -1,5 +1,9 @@
 # Generator 제너레이터
 
+제너레이터는 쓰레드가 아니다. 
+
+제너레이터는 이터레이터이다.
+
 
 
 ## Co Routine
@@ -14,7 +18,7 @@
 ## Generator
 
 ```javascript
-function * counter(){
+function* counter(){
     yield 1
     yield 2
     yield 3
@@ -38,6 +42,16 @@ console.log(g.next())
 - 화살표 함수는 사용할 수 없고, 반드시 function * ()형태로 사용한다.
 - next()는 제너레이터 객체에 내장된 함수로, yield까지의 부분이 실행되고,  next()를 호출 하는 쪽에 yield의 value와  함수가 끝났는지를 확인하는 정보가 반환됨
 - yield 는 iterator 에서 value 에 해당된다.
+
+
+
+
+
+## yield
+
+- yield는 return 과 유사하나, 여러번 실행이 가능하다. 
+
+
 
 
 
