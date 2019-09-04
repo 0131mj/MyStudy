@@ -14,7 +14,11 @@
 
 
 
-## async, await
+## async, await (with try... catch)
+
+- aync 문은 3단으로 구성된다.  async > try >await
+- 우선, async await 를 사용하려면 try catch 가 필수라는 것을 알고 시작하자. 
+- ( Promise에 비해편해졌다고 하기는 하지만, try...catch가 )
 
 
 
@@ -52,7 +56,7 @@ await 는 일반함수에 붙여도 괜찮다.
 
 
 
-### 예외처리 
+### try catch 예외처리 
 
 ```javascript
 async () => {
@@ -75,3 +79,39 @@ returnPromise().then((res) => {
   console.log(res); // 'zero'
 });
 ```
+
+
+
+### 예외처리의 분기
+
+```javascript
+async(){
+    try{
+        const firstResult  = await dbSelect("userName");
+        const secondResult = await dbUpdate("userName", "userName2");
+    }catch(err){
+        console.error(err)
+    }
+}
+```
+
+- catch는 firstResult 와 secondResult 를 함께 처리한다. 
+- 별도로 따로 처리하려면 아래와 같이 구성해야 한다. 
+
+
+
+```javascript
+async(){
+    try{
+        const firstResult  = await dbSelect("userName");
+    }catch(err1){
+        console.error(err1)
+    }
+    try{
+        const secondResult = await dbUpdate("userName", "userName2");
+    }catch(err2){
+        console.error(err2)
+    }
+}
+```
+

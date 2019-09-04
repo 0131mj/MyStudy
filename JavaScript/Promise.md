@@ -1,8 +1,28 @@
 # Promise
 
+
+
+## 개념
+
 결과를 갖고 있지만, then이나 catch를 붙이기 전까지는 반환하지 않는 것.
 
-콜백은 곧바로 실행되어 버린다.
+(콜백은 곧바로 실행되어 버린다.)
+
+장점은 코드를 연이어 쓰지 않아도 나중에 쓸 수 있다는 점이다.
+
+```javascript
+const myPromise = (message) => ( new Promise(
+    (resolve, reject) => {
+        resolve(message);
+    }
+))
+
+// ... 100줄의 코드
+myPromise
+	.then(yourPromise)
+```
+
+
 
 
 
@@ -86,6 +106,17 @@ promise 의 결과가 resolve 면(성공하면) 결과가 then으로 넘어가�
 
 promise 의 결과가 reject 면(실패하면) 결과가 catch를 타게 된다. 
 
+then 안에 나오는 success 는, plus라는 promise 의 리턴값이다.
+
+
+
+## 무조건 실패하는, 무조건 성공하는 Promise
+
+```javascript
+const successPromise = Promise.resolve("성공");
+const failurePromise = Promise.reject("실패");
+```
+
 
 
 
@@ -99,7 +130,7 @@ promise 의 결과가 reject 면(실패하면) 결과가 catch를 타게 된다.
 ## .all
 
 - 여러 프로미스를 한번에 실행해줄 수 있다. 
-- 단 하나라도 실패할 경우, catch로 처리
+- 주의할 점 : 단 하나라도 실패할 경우, catch로 처리
 
 ```javascript
 Promise.all([Users.findOne(), Users.remove(), Users.update()])
@@ -107,3 +138,8 @@ Promise.all([Users.findOne(), Users.remove(), Users.update()])
 	.catch((error) => {})
 ```
 
+
+
+---
+
+참고출처 : https://www.youtube.com/watch?v=vgs9Xc8pXgw&list=PLcqDmjxt30RsbFOspFG3EsxMwhFSnGFLw&index=14
