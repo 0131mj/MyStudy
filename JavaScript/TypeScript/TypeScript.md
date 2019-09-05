@@ -80,3 +80,51 @@ function fullName(person: Person){
 }
 ```
 
+
+
+
+
+## Object Type 
+
+- primative Type 이 아님을 강제함
+
+
+
+## Tuple
+
+```typescript
+let tu : [string, number] = ['hello', 1]
+```
+
+- 함수의 arguments 타입을 체크하는데도 사용됨.
+
+
+
+## any
+
+```typescript
+function leakingAny (value: any){
+    let a: number = value.num;
+    let b = number + 1;
+    return b;
+}
+
+let c: number = leakingAny(1)
+let c: number = leakingAny("s")
+```
+
+- 최대한 쓰지 말 것.
+
+- 누수를 막기 위한 전략 : 리턴타입을 any가 아닌 값으로 받는다. (들어갈땐 any, 나올땐 특정타입)
+
+
+
+# assertion
+
+```typescript
+const dom = document.queySelector("#btn") as HTMLButtonElement;
+```
+
+- 특정타입이라고 우기는 것
+- 위에서의 결과는 null 일수도 있고, dom 일수도 있지만 (못찾았을 경우), 100% 찾을 수 있다고 그리고 저형태라고 억지로 써놓은 것이다. 컴파일러에게 "그럴리가 없어, 내가 다 체크했으니까 일일이 검사하지마" 라고 하는 명령이다.
+- 주의 : 형이 변하는 것은 아님!!

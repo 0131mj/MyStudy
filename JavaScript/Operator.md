@@ -271,6 +271,17 @@ typeof는 피연산자의 타입을 문자열 형태로 리턴하는데, 주의�
 
 
 
+### in
+
+객체에 해당 속성이 존재하는지를 boolean으로 리턴
+
+```javascript
+let "a" in ["a", "b", "c"] // true
+let "a" in {a:1, b:2, c:3} // true
+```
+
+
+
 
 
 ## 연산자와 메모리
