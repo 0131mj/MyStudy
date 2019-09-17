@@ -1,5 +1,7 @@
 # 클래스
 
+
+
 ## 함수와 클래스의 차이점
 
 함수가 객체를 생성하는 역할을 하지만 그렇다고 클래스와 동일한 개념은 아니다. 
@@ -17,6 +19,34 @@
 ```javascript
 const Data = class extends Array{
     
+}
+```
+
+
+
+
+
+### 클래스와 프로토타입
+
+```javascript
+// ES5 문법
+function Person(){
+    
+}
+Person.prototype.myFunc = function (){
+    
+}
+
+// ES6 문법
+class Person{
+    constructor(){
+        
+    }
+    
+    // myFunc를 정의하면 메소드는 자동으로 Person.prototype 에 저장된다. 
+    myFunc(){
+        
+    }
 }
 ```
 
