@@ -42,7 +42,7 @@ addToThis.call(obj, 3)
 - obj라는 객체에는 메소드가 없고, 
 - addToThis에는 this.num이 없다. 
 - 하지만 call 이라는 함수를 이용하면 이 둘을 엮어줄 수 있다. 
-- arguments는 아래와 같이 여러개가 들어갈 수 있다. ( 첫번째 인자는 대상객체가 들어가야 하지만)
+- arguments는 아래와 같이 여러개가 들어갈 수 있다. ( 단, 첫번째 인자는 this로 사용할 값을 넣는다. )
 
 
 
@@ -51,7 +51,7 @@ var obj = {num: 2}
 var addToThis = function(a, b, c){
     return this.num + a + b + c;
 }
-addToThis.call(obj, 1,2,3)
+addToThis.call(obj, 1,2,3)   // 2 + 1 + 2 + 3
 ```
 
 
@@ -61,6 +61,7 @@ addToThis.call(obj, 1,2,3)
 ## apply
 
 ```javascript
+var obj = {num: 2}
 var arr = [1,2,3]
 var addToThis = function(a, b, c){
     return this.num + a + b + c;
@@ -68,7 +69,7 @@ var addToThis = function(a, b, c){
 addToThis.apply(obj, arr); // 8
 ```
 
-이거 말고는
+apply 는 두번째 인자를 배열로 받는다는 점만 다르다.
 
 
 

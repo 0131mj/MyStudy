@@ -2,24 +2,31 @@
 
 
 
-## 프로토타입은 상호 참조구조이다.
-
 ```javascript
 function Human(name){
     this.name = name;
 }
 ```
 
-- Human이라는 생성자 함수를 만들면, 
+
+
+#### prototype은 함수 선언시에 만들어진다. 
+
+- function 키워드로 선언된, Human이라는 생성자 함수를 만들면, 
 - 자바스크립트는 내부적으로 Human의 prototype 객체를 하나 추가적으로 더 만들어낸다. 
+- (화살표 함수는 선언시에 프로토타입을 만들지 않는다.)
 
 
+
+#### 프로토타입은 상호 참조구조이다.
 
 - 이 prototype은,  constructor 라는 프로퍼티를 갖고 있으며, constuctor는 다시 Human을 참조한다. 
 - Human 안에 들어있는 prototype 프로퍼티가 Human의 prototype이라는 걸 가리기고, 
-- 또 그 "Human의 prototype" 안에있는 constuctor 가 다시 Human 객체를 가리키는 것을이해하는 것, 이것이 프로토타입 이해의 출발점이다. 
+- 또 그 "Human의 prototype" 안에있는 constuctor 가 다시 Human 객체를 가리키는 것을 이해하는 것, 이것이 프로토타입 이해의 출발점이다. 
 
 
+
+## `__proto__`
 
 ```javascript
 function Human(name){
@@ -38,9 +45,8 @@ console.dir(foo);
 
 - 일반적으로 Human 이라는 생성자 함수의 prototype에 프로퍼티나 함수를 추가한다. 
 - foo에서 Human 생성자 함수의 프로토타입에 프로퍼티나 함수를 추가하려면, foo.constructor.prototype 방식을 사용한다.
-- prototype과 __proto(언더바 표현이 안된다….)는 결국 같은 대상을 가리키는데, 그 대상은 Human의 prototype이다.
-
-
+- prototype과 `__proto__`는 결국 같은 대상을 가리키는데, 그 대상은 Human의 prototype이다.
+- 원시값이 아닌 모든 참조값은 `__proto__`속성을 갖는다.
 
 ### 프로토타입은 언제 결정되는가?
 
@@ -57,9 +63,11 @@ console.dir(foo);
 
 ## 프로토타입의 세가지 모습
 
-- prototype 프로퍼티 :  프로토타입을 가리킴. (생성자 함수 안에 존재) - prototype
-- prototype 링크 : 프로토타입을 가리킴. (생성자 함수를 통해 만들어진 인스턴스에 존재 ) [[Prototype]] 로 표기
-- prototype 객체 : 얘가 진짜 프로토타입
+- prototype 프로퍼티(포인터) :  프로토타입을 가리킴. ((생성자)함수 안에 존재) - prototype
+- prototype 링크(포인터) : 프로토타입을 가리킴. (생성자 함수를 통해 만들어진 인스턴스에 존재 ) 
+  - [[Prototype]] 로 표기, (`__proto__` 로 통칭 사용)
+  - 모든 참조타입은 내부적으로 이 값을 다 갖고 있고, 자신의 원형을 가리키고 있다.
+- prototype 객체(대상객체) : 얘가 진짜 프로토타입(constructor를 갖고 있다.)
 
 ```mermaid
 graph BT
