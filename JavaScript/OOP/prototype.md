@@ -48,6 +48,8 @@ console.dir(foo);
 - prototype과 `__proto__`는 결국 같은 대상을 가리키는데, 그 대상은 Human의 prototype이다.
 - 원시값이 아닌 모든 참조값은 `__proto__`속성을 갖는다.
 
+
+
 ### 프로토타입은 언제 결정되는가?
 
 - 모든 객체의 프로토타입은, 자바스크립트의 룰에 따라 객체를 생성하는 시점에 결정된다. 
@@ -69,6 +71,10 @@ console.dir(foo);
   - 모든 참조타입은 내부적으로 이 값을 다 갖고 있고, 자신의 원형을 가리키고 있다.
 - prototype 객체(대상객체) : 얘가 진짜 프로토타입(constructor를 갖고 있다.)
 
+
+
+## 프로토타입 링크의 종결점
+
 ```mermaid
 graph BT
 리터럴객체(리터럴로 생성한 객체) -.->|Prototype 링크|Object.prototype객체
@@ -80,6 +86,57 @@ prototype객체(생성자함수.prototype) -.->|Prototype 링크|Object.prototyp
 
 
 
+#### 참고 
+
+- 직접 콘솔로 출력해서 비교해볼 것
+- `__proto__`가 없어질때 까지 계속 눌러서 찾아보면 결국 Object 에 도달함.
+
+```javascript
+if (true) {
+    const a = {
+        x: 1,
+        y: 2,
+    }
+    console.dir(a)
+
+    const b = ()=>{
+        const x = 1;
+        const y = 2;
+    }
+    console.dir(b)
+
+    function c() {
+        this.x = 1;
+        this.y = 2;
+    }
+    console.dir(c)
+
+    const d = function() {
+        this.x = 1;
+        this.y = 2;
+    }
+    console.dir(d)
+
+    const e = new Function(1)
+    console.dir(e)
+
+    const f = new Date()
+    console.dir(f)
+
+    const g = Date;
+    console.dir(g)
+
+    const h = new Object();
+    console.log(h)
+
+    console.dir({})
+}
+```
+
+
+
+
+
 ## 기본 프로토타입의 변형
 
 - 기본 프로토타입은 다른 프로토타입 객체로 변형이 가능하다. 
@@ -87,6 +144,7 @@ prototype객체(생성자함수.prototype) -.->|Prototype 링크|Object.prototyp
 
 
 
-## new의 역할
+---
 
-객체를 리터럴로 생성하는 대신에, new를 통해서 생성을 하면  prototype 체이닝이 기능을 한다. 
+
+

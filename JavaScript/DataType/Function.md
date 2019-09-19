@@ -23,18 +23,18 @@
 
 ### 객체 타입으로서의 함수
 
-자바스크립트에서 함수는, 객체다. 
-
-따라서 아래 두 문장의 결과는 완전히 동일하다.
+- 자바스크립트에서 함수는, 객체다. 
+- 따라서 아래 두 문장의 결과는 완전히 동일하다.
 
 ```javascript
 function Person(){};
+```
+
+```javascript
 var Person = new Function();
 ```
 
-
-
-자바스크립트 엔진이 function 이라는 키워드를 만나면, 
+prototype은 객체 중에서도 Function 객체에만 만들어진다. 
 
 
 
