@@ -1,4 +1,4 @@
-# 생성자
+# constructor 생성자
 
 - 생성자 함수(줄여서 생성자)는, 타입이 아니라  객체를 생성하는 역할을 하는 함수이다. 
 - 기존 함수에 new 연산자를 붙여서 호출하면, 해당 함수는 생성자로 동작한다.
@@ -9,6 +9,27 @@
 
 - Object 는 객체를 만드는 생성자
 - Function 은 함수를 만드는 생성자
+
+
+
+## constructor 의 활용
+
+1. 어느 객체를 가지고 만들었는지 알 수 있다. 
+
+```javascript
+const d = new Date();
+console.log(d.constuctor);
+```
+
+
+
+2. 새로운 객체를 만들어내는 데도 사용할 수 있다. (사실 이는 두가지 함수가 축약되어 붙어있는 것이다.)
+
+```javascript
+const d2 = new d.constructor();
+```
+
+
 
 
 

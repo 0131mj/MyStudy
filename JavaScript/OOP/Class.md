@@ -52,8 +52,47 @@ class Person{
 
 
 
-super
+## super
 
 함수로 사용시 : 부모클래스의 생성자를 호출한다.
 
 객체로 사용시 : 부모클래스의 메소드를 호출한다.
+
+
+
+#### ES6 이수 : 클래스 문법 (super 키워드 사용)
+
+```javascript
+class Person {
+    constructor(name, first, second){
+    	this.name = name;
+		this.first = first;
+		this.second = second;    
+    }
+}
+
+class PersonPlus extends Person{
+	constructor(name, first, second, third){
+        super(name, first, second);
+        this.third = third
+    }  
+}
+```
+
+
+
+#### ES5 이전 : 함수 문법(call 키워드 사용)
+
+```javascript
+function Person {
+	this.name = name;
+	this.first = first;
+	this.second = second;    
+}
+
+function PersonPlus(name, first, second, third){
+    Person.call(this, name, first, second)
+    this.third = third
+}
+```
+
