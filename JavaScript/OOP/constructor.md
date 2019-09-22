@@ -12,6 +12,21 @@
 
 
 
+## constructor 의 정의 요령
+
+```javascript
+const Task = class {
+    constructor(title){
+        this.title = title;
+        this.isComplete = false;
+    }
+}
+```
+
+위의 예제에서, this.isComplete의 내용을 강제하고 싶다면, 참조형을 사용하면 된다. 일반 값은 가용범위가 매우 넓은 반면, 버그를 낼 확률이 높다. 
+
+
+
 ## constructor 의 활용
 
 1. 어느 객체를 가지고 만들었는지 알 수 있다. 
