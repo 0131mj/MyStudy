@@ -207,3 +207,23 @@ const bananna = new Banana(b)
 - 렌더링해주는 부분은 DOM을 알고 있어야 하며, 즉 native 브라우저에 의존적으로 되어있다.
 - 반면 게임의 로직은 어떤 곳에서도 상관없이 재활용이 가능한데 이부분은 도메인이라고 부른다. 
 - 도메인객체를 네이티브로부터 잘 분리해두는 것이 재활용을 잘 할수 있는 방법이며, 이것을 네이티브 격리라고 부른다. 
+
+
+
+## 9. 컨텍스트의 일관성
+
+```javascript
+const Task = class {
+    constructor(title, isComplete = false){
+        this.title = title;
+        this.isComplete = isComplete;
+        this.id = getUId();
+    }
+}
+```
+
+개개의 원자가되는 단위를 값으로 식별할 것이냐, 객체로 식별할 것이냐라는 것은 중요하다.
+
+객체지향에서 식별하는 개별적인 대상이, 값이 되면 잘못된 설계이다. 
+
+값은 값이 동일한 이상 얼마든지 반복될 수 있기 때문에 중첩이 가능하고, 따라서 weak 한 구조이다.
