@@ -63,7 +63,17 @@ const p41:Person4 = {
 
 ## 함수 인터페이스
 
-- 함수의 타입체크는 할당할때가 아니라, 사용할때 실행된다.
+```typescript
+interface HelloHuman{
+    (name: string, age?: number): void;
+}
+
+const helloPerson: HelloHuman = function (name: string){
+    console.log(`안녕하세요 ${name}입니다.`)
+}
+
+helloPerson('Mark');
+```
 
 
 
