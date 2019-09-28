@@ -39,14 +39,14 @@ react-router-dom도 함께 설치해야 한다.
 
 
 
-```javascript
+```react
 <Router>
   <Route path='/' Component={Home} />
   <Route path='/about/:username/:name' Component={About} />
 </Router>  
 ```
 
-```javascript
+```react
 const About = ({match})=> {
   return <div>{match.params.username}</div>
 }
@@ -68,7 +68,7 @@ const About = ({match})=> {
 
 링크에 따라서 새로운 스타일을 적용하고 싶을 때 사용 (active style)
 
-```javascript
+```react
 <NavLink exact to="/" activeClassName="active">홈</NavLink>
 ```
 
@@ -77,7 +77,7 @@ const About = ({match})=> {
 
 조건에 따라 Redirect를 실행해준다. 
 
-```javascript
+```react
 import {Redirect} from 'react-router-dom';
 
 const logged = false;
@@ -97,7 +97,7 @@ const MyPage = () => {
 ### history
 Route 된 컴포넌트가 받는 3개의 Props(match, location, history) 중에서  history.push 라는 함수가 있다. 
 
-```javascript
+```react
 
 const MyPage = ({history}) => {
   return (
@@ -115,7 +115,7 @@ const MyPage = ({history}) => {
 - 가장 처음에 매칭되는 것만 보여줌
 - 주로 404 페이지 같은걸 만들때 사용한다. 
 
-```javascript
+```react
 <Router>
   <Switch>
     <Route exact path='/' Component={Home} />
