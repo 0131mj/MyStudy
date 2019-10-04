@@ -97,6 +97,22 @@ this.setState((prevState, props)=>{
 
 
 
+### 함수형 setState
+
+this.state가 들어가야 할때는 prevState 를 사용한다.
+
+```react
+this.setState((prevState)=> {
+    return {
+        count : prevState.count +1
+    }
+})
+```
+
+
+
+
+
 ## state vs props
 
 ### props 
@@ -110,3 +126,35 @@ this.setState((prevState, props)=>{
 - 변경가능
 - 함수형컴포넌트 : useState Hook
 - 클래스형컴포넌트 : this.state
+
+
+
+
+
+## state 선언 방식
+
+#### this.state
+
+- props를 사용할 경우
+
+```react
+constructor(props){
+    super(props);
+    this.state = {
+    	a: "a"
+	}
+}
+```
+
+
+
+#### state
+
+- props를 사용하지 않을 경우
+
+```react
+state = {
+    a: "a"
+}
+```
+
