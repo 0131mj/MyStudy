@@ -115,3 +115,79 @@ async(){
 }
 ```
 
+
+
+
+
+## async vs Promise
+
+```javascript
+async function myAsyncFunc(){
+    return "done!";
+}
+
+function myPromiseFun(){
+    return new Promise((relove, reject)=>{
+        resolve("done")
+    })
+}
+
+const result = myAsyncFun();
+const result2 = myPromiseFun();
+```
+
+- 위 둘의 결과는 동일하다. 
+
+- async 함수에서의 리턴은, Promise 에서의 resolve 에 해당한다.
+
+
+
+### 예외 발생시키기
+
+```javascript
+async function myAsyncFunc(){
+    throw "myAsyncError" // Uncaught(in promise)
+}
+
+function myPromiseFun(){
+    return new Promise((relove, reject)=>{
+        reject("myPromiseError") // Uncaught(in promise)
+    })
+}
+
+const result = myAsyncFun();
+console.log(result); // Promise {<rejected>: "myAsyncError"} 
+
+const result2 = myPromiseFun();
+console.log(result2) // Promise {<rejected>: "myPromiseError"} 
+```
+
+- async 에서는 reject 대신, 일반함수에서 쓰는 것과마찬가지로 throw를 던지면 된다. 
+- 이 에러를 잡지 않으면 경고메시지로 Uncaught 가 발생하는데, Promise의 catch를 통해서 이 에러를 잡으면 된다. 
+
+
+
+### 예외 처리하기
+
+```javascript
+async function myAsyncFunc(){
+    throw "myAsyncError" // Uncaught(in promise)
+}
+
+function myPromiseFun(){
+    return new Promise((relove, reject)=>{
+        reject("myPromiseError") // Uncaught(in promise)
+    })
+}
+
+const result = myAsyncFun().catch(e => {
+    console.error(e)
+});
+console.log(result); // Promise {<rejected>: "myAsyncError"} 
+
+const result2 = myPromiseFun(e => {
+    console.error(e)
+});
+console.log(result2) // Promise {<rejected>: "myPromiseError"} 
+```
+

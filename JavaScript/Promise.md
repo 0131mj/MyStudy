@@ -143,3 +143,32 @@ Promise.all([Users.findOne(), Users.remove(), Users.update()])
 ---
 
 참고출처 : https://www.youtube.com/watch?v=vgs9Xc8pXgw&list=PLcqDmjxt30RsbFOspFG3EsxMwhFSnGFLw&index=14
+
+
+
+
+
+## Promise 의 에러 처리
+
+```javascript
+function wait(sec){
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            reject("error!");
+        }, sec*1000)
+    })
+}
+
+wait(3); // Uncaught (in promise) error !
+```
+
+- Promise 에서의 에러를 발생시카는 방법은, reject 를 호출시키는 것이다. 
+- Promise 안에서 예외가 발생하면 in Promise 라는 키워드로 알림이 뜬다. 
+- 이것을 일반 try catch 구문으로 호출하면 잡히지가 않는데, 이것을 잡기 위해서는 Promise 자체에 있는 catch 함수를 사용한다. 
+
+```javascript
+wait(3).catch(e => {
+    console.log(e);
+})
+```
+
