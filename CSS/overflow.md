@@ -6,6 +6,22 @@
 
 
 
+## 속성
+
+- visible
+- hidden
+- scroll
+- inherit
+- auto : 기본
+
+
+
+overflow의 규약에는, "hidden" 과 "scroll" 에 관한 특례가 있다. 
+
+그 특례란 , 이 두 속성을 사용했을 때 새로운 BFC를 만들어낸다는 것이다.
+
+
+
 ## body
 
 - 원래 float는 DOM 상에서 둥둥떠있는 요소이기 때문에, 부모는 float 된 자식의 높이를 읽을 수 없다. 

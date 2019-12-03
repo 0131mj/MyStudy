@@ -1,10 +1,43 @@
-# 포지션 관련 프로퍼티
+# Position
+
+어떤 특정 gemetry 속에서 left, top 등을 결정하는 룰을 지정하는 방식(계산식)
+
+- static
+- relative
+- absolute
+- fixed
+- inherit
+
+
+
+## relative
+
+- static으로 먼저 개체를 그리고, 붕 떠서 다시 지정된 위치에 다시 그려준다.
+
+
+
+## static vs relative
+
+- relative 가 위로 올라온다. 
+- relative 끼리는 z-index 가 경합을 벌인다. 
+
+
+
+
+
+## 포지션 관련 프로퍼티
 
 
 
 
 
 JavaScript 
+
+
+
+## offset
+
+- 읽기 전용속성
 
 
 
