@@ -4,6 +4,16 @@
 
 
 
+## Display model
+
+
+
+### classic display model
+
+### modern display model
+
+
+
 ## 종류 
 
 - inline : 기본값
