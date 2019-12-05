@@ -75,14 +75,10 @@ document.querySelector('.blue').onclick=_=>{
 
 https://drafts.css-houdini.org/css-typed-om/
 
-
-
 - CSS에는 다양한 형이 존재한다. 
 - number
 - percent
 - rad
-
-
 
 ### attributeStyleMap
 
