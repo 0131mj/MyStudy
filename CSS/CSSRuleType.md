@@ -1,0 +1,13 @@
+# CSS Rule type
+
+CSSOM 을 비롯한 19개의 룰타입이 존재한다.
+
+- STYLE_RULE : CSSOM
+- CHARSET_RULE : CSSOM
+- IMPORT_RULE : CSSOM
+- MEDIA_RULE : CSSOM
+- FONT_FACE_RULE : CSSOM
+- PAGE_RULE : CSSOM
+- KEYFRAMES_RULE : css3-animations
+- KEYFRAME_RULE : css3-animations
+- ...

@@ -68,3 +68,29 @@ document.querySelector('.blue').onclick=_=>{
 
 
 이는 DOM에 클래스를 주는 것보다 훨씬 resource 가 적게 드는 방법이다. DOM을 변경시키지 않고 스타일 시트만 껐다가 켰다가 하기 때문이다. 
+
+
+
+## Typed CSSOM (draft)
+
+https://drafts.css-houdini.org/css-typed-om/
+
+
+
+- CSS에는 다양한 형이 존재한다. 
+- number
+- percent
+- rad
+
+
+
+### attributeStyleMap
+
+```javascript
+CSS.number(0.5);
+el.attribuetStyleMap.set('opacity', CSS.number(0.5));
+
+CSS.px(0.5);
+el.attribuetStyleMap.set('height', CSS.px(0.5));
+```
+
