@@ -2,6 +2,14 @@
 
 
 
+### Sync Flow 
+
+- 메모리에 적재된 명령이 순차적으로 실행됨
+
+- SyncFlow Control : Goto를 통해 명령의 위치를 이동함
+
+
+
 ## 노이만 머신
 
 
@@ -53,3 +61,23 @@ const a = b || c;
 
 
 ### 3) 제어문 Flow Control Statement 을 이용한 지연
+
+
+
+
+
+
+
+## Concurrency vs Parallelism
+
+- Concurrency  : 흔히 동시성이라고 번역되지만, 정말 똑같은 시간에 동시에 일어나는 것을 뜻하지는 않는다.
+
+  시분할 컴퓨팅에서 각 프로세스를 왔다리갔다리 하면서 마치 동시에 처리되는 것 같은 효과를 주는 것을 뜻한다.
+
+- Parallelism : 병렬성 - 여러개의 프로세스가 한꺼번에 각자의 플로우 안에서 동시에 일어나는 것, 자바스크립트는 이 방식으로 움직인다.
+
+
+
+
+
+callback queue 는 

@@ -1,0 +1,47 @@
+
+
+## Concurrency vs Parallelism
+
+- Concurrency  : 흔히 동시성이라고 번역되지만, 정말 똑같은 시간에 동시에 일어나는 것을 뜻하지는 않는다.
+
+  시분할 컴퓨팅에서 각 프로세스를 왔다리갔다리 하면서 마치 동시에 처리되는 것 같은 효과를 주는 것을 뜻한다.
+
+- Parallelism : 병렬성 - 여러 개의 프로세스가 한꺼번에 각자의 플로우 안에서 동시에 일어나는 것. 메모리를 동시에 참조하는 등의 동시성문제가 발생할 수 있다. 
+
+
+
+## 생산자 소비자 패턴
+
+callback queue 는 parellel 한 요구사항을 받아서 큐가 Concurrency 하게 처리하도록 연결해준다.
+
+멀티쓰레드를 사용하지만 동시성 문제는 발생하지 않는다.
+
+생성자-소비자 패턴 중에서도 소비자가 1명만 있는 패턴을 Pipe Pattern 이라고 부른다.
+
+
+
+#### Parellism (생산자) - multi thread
+
+- network
+- timer
+- message
+- dom event
+
+
+
+#### Concurrency (소비자 1명) - single thread
+
+동시에 일어나지 않고 하나의 토큰이 왔다갔다하면서 일을 수행한다.
+
+- engine work : 
+  - 브라우저를 통제
+  - 렌더링 등을 비롯한 수많은 작업 수행, 
+  - 자바스크립트 코드에 영향을 주는 부분이기 때문에 Single thread 로 작동한다. 
+  - check queue 를 수행하며 큐에 이벤트가 있는지 검사한다.
+- check queue : 
+  - callback queue큐에 이벤트가 있는지 체크한뒤에, 할일이 없으면 다시 engine work로 돌아간다. 
+  - 체크 대상 : 이벤트리스너, ajax 완료 리스너 등...
+- run JS : 
+  - 코드가 실행되는 부분, 실행이 완료되면 다시 engine work 로 돌아간다. 
+  - 성능최적화 대상 : engine work 나 check queue 를 직접 통제하는 건 어렵기 때문에 코드를 최적화 한다. 
+  - 권장 : 3ms
