@@ -1,21 +1,4 @@
-# Generator 제너레이터
-
-제너레이터는 쓰레드가 아니다. 
-
-제너레이터는 이터레이터이다.
-
-
-
-## Co Routine
-
-- 여러번 실행한다는 뜻이며, 반대 개념은 Single Routine
-- 코루틴은 언어마다 지원하는 방식이 다르며, 자바스크립트에서는 코루틴을 제너레이터를 통해서 실행한다.
-- ES6 이후로 자바스크립트 엔진에서는 코루틴을 지원하기 위해, 작성된 모든 statement 를 "레코드 record" 라는 형태의 객체로 감싸서 메모리에 저장한다. 
-- 문은 원래 중간에 멈출 방법이 없는데, 문인데도 불구하고 서스펜션을 지원하는 스펙이 있다면, yield 를 통해 멈출 수 있다.
-
-
-
-## Generator
+# Generator
 
 ```javascript
 function* counter(){
@@ -45,19 +28,19 @@ console.log(g.next())
 
 
 
+## Generator Suspension
+
+- function 에 * 가 붙어있으면 내부적인 suspend 구간을 형성한다.
+- yield 키워드를 만나면 suspend가 실행되고, next를 호출하면 다시 resume이 일어난다.
+- suspend : 멈췄다가 
+- resume : 다시 동작
+
 
 
 ## yield
 
 - yield는 return 과 유사하나, 여러번 실행이 가능하다. 
-
-
-
-
-
-## Generator Suspension
-
-- 멈췄다가 resume 할 수 있는 기능
+- yield가 일어날 때 마다 next 다음턴을 준다.
 
 
 
@@ -68,8 +51,29 @@ console.log(g.next())
 
 
 
-## 특징
+## Generator의 특징
+
+- 제너레이터는 쓰레드가 아니다. 
+- 제너레이터는 유사 iterable 이다.
+- 제너레이터를 호출하면 iterator 가 나온다.
+
+- iterable객체는 iterator메소드를 호출해서 iterator를 받는 반면에, 
+  generator 는 함수처럼 그냥 호출하면 iterator를 얻을 수 있다.
 
 - 제어문을 멈출 수 있다.
+
 - 거의 모든 언어에 구현되어 있다. 
 
+
+
+## Co Routine
+
+- 여러번 실행한다는 뜻이며, 반대 개념은 Single Routine
+- 코루틴은 언어마다 지원하는 방식이 다르며, 자바스크립트에서는 코루틴을 제너레이터를 통해서 실행한다.
+- ES6 이후로 자바스크립트 엔진에서는 코루틴을 지원하기 위해, 작성된 모든 statement 를 "레코드 record" 라는 형태의 객체로 감싸서 메모리에 저장한다. 
+- 문은 원래 중간에 멈출 방법이 없는데, 문인데도 불구하고 서스펜션을 지원하는 스펙이 있다면, yield 를 통해 멈출 수 있다.
+- 제너레이터를 쓰는 목적은, next()를 통해 자신의 제어로직을 외부로 위임하는 데 있다.  제어는, 바깥에서.
+
+
+
+## 
