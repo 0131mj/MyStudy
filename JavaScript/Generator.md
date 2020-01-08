@@ -55,7 +55,7 @@ console.log(g.next())
 
 - 제너레이터는 쓰레드가 아니다. 
 - 제너레이터는 유사 iterable 이다.
-- 제너레이터를 호출하면 iterator 가 나온다.
+- 제너레이터를 호출하면 iterable 객체가 나온다.
 
 - iterable객체는 iterator메소드를 호출해서 iterator를 받는 반면에, 
   generator 는 함수처럼 그냥 호출하면 iterator를 얻을 수 있다.

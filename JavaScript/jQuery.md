@@ -43,3 +43,13 @@ $(window).ready(
 );
 ```
 
+
+
+## get
+
+jQuery 에서 순수 자바크립트로 전환할때 get 사용
+
+```javascript
+$('div').get()
+```
+
