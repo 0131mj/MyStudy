@@ -102,3 +102,53 @@ interface는 Inteface 자체를 원인으로 컴파일한다.
 
 
 새로 만들거면 Interface, 기존거를 조합할거면 type alias 사용할 것
+
+
+
+
+
+# 상속과 합성
+
+
+
+
+
+## 인터페이스 합치기
+
+같은 이름의 인터페이스는 하나로 합쳐지게 된다.
+
+```typescript
+interface Greeting{
+    korean:string
+}
+
+interface Greeting{
+    english:string
+}
+
+const greeting:Greeting = {
+    korean:"안녕",
+    english:"hello" // 안적어주면 에러 난다. 
+}
+```
+
+- 주의!! : 타입은 합쳐질 수 없다. 
+
+
+
+
+
+# 타입 vs 인터페이스
+
+```typescript
+type Greeting = {
+    korean:string
+    english:string
+} | string
+```
+
+- 타입이 좀 더 넓은 범위, 
+- 인터페이스는 주로 객체에 사용
+- 타입은  = 를 꼭 적어줘야 한다. 
+- 타입의 다형적인 특성때문에 '|' 과 함께 많이 쓰인다.
+- 타입은 나중에 쓰일 수 있기 때문에, 인터페이스를 쓸수 있다면 인터페이스를 쓰도록 한다. 
