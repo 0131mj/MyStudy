@@ -145,10 +145,59 @@ type Greeting = {
     korean:string
     english:string
 } | string
+
+type Hello = string | number;
 ```
 
+- 타입은 합성할 수 없다. 
 - 타입이 좀 더 넓은 범위, 
 - 인터페이스는 주로 객체에 사용
 - 타입은  = 를 꼭 적어줘야 한다. 
 - 타입의 다형적인 특성때문에 '|' 과 함께 많이 쓰인다.
 - 타입은 나중에 쓰일 수 있기 때문에, 인터페이스를 쓸수 있다면 인터페이스를 쓰도록 한다. 
+
+
+
+# readonly
+
+- 변경하지 못하도록 하는 타입고정 키워드
+
+```typescript
+interface test {
+    readonly STR: string
+}
+```
+
+
+
+# keyof
+
+- 인터페이스의 키들의 집합을 타입으로 하는 것
+
+
+
+```typescript
+interface Greeting {
+    Korean : "안녕",
+    English : "Hi"
+}
+
+function SayGreeting(greetingStr: Greeting[keyof Greeting]): keyof Greeting {
+    
+}
+```
+
+
+
+## 임시값
+
+뭐가 들어올지는 모르지만 넘버가 들어올 거 같을때
+
+```typescript
+interface Example {
+    a: 3,
+    b: 7,
+    [key: string]: number;
+}
+```
+
