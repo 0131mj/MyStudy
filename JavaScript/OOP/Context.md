@@ -36,3 +36,36 @@ console.log(JSON.stringify(a) === JSON.stringify(b))// value Context
 - 하나의 원본
 - 상태 변화를 내부에서 책임짐
 - 메시지를 기반으로 로직을 전개
+
+
+
+# 객체지향의 필수조건
+
+```javascript
+const EssentialObject = class{
+    
+    /* hide state*/
+    #name="";
+    #screen = "";
+    
+    constructor(name){
+        this.#name = name;        
+    }
+
+	camoflage(){
+        this.#screen = (Math.random() * 10).toString(16).replace(".", "");
+    }
+
+	/* encapsulation */
+	get name(){
+        return this.#screen || this.#name;
+    }
+}
+```
+
+### hide state
+
+### encapsulation
+
+- 추상화 : 바깥에서는, name 이 내부적으로 어떤 값을 사용해서 보내는지 (원래 이름인지 위장된 스크린의 이름인지) 알 수 없다.
+

@@ -1,5 +1,7 @@
 # Polymorphism
 
+- Polymorphism 은 객체지향 언어의 필요충분조건이다.
+
 ```javascript
 const Worker = class {
     run() {
