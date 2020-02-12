@@ -69,3 +69,11 @@ const EssentialObject = class{
 
 - 추상화 : 바깥에서는, name 이 내부적으로 어떤 값을 사용해서 보내는지 (원래 이름인지 위장된 스크린의 이름인지) 알 수 없다.
 
+
+
+
+
+# Isolation of change : 격리
+
+격리벽 세우기 : 오염되지 않는 시스템
+
