@@ -1,10 +1,14 @@
 # Generator
 
+이터레이터이자, 이터러블을 생성하는 함수, 
+
+well-formed iterator 를 리턴한다. 
+
 ```javascript
 function* counter(){
     yield 1
     yield 2
-    yield 3
+    yield 3    
 }
 
 const g = counter()
@@ -25,6 +29,44 @@ console.log(g.next())
 - 화살표 함수는 사용할 수 없고, 반드시 function * ()형태로 사용한다.
 - next()는 제너레이터 객체에 내장된 함수로, yield까지의 부분이 실행되고,  next()를 호출 하는 쪽에 yield의 value와  함수가 끝났는지를 확인하는 정보가 반환됨
 - yield 는 iterator 에서 value 에 해당된다.
+
+
+
+## 리턴값
+
+```javascript
+ function *gen() {
+        yield 1;
+        yield 2;
+        yield 3;
+        return 100;
+    }
+    const iter = gen();
+    console.log(iter.next()); // {value:1, done:false}
+    console.log(iter.next()); // {value:2, done:false}
+    console.log(iter.next()); // {value:3, done:false}
+    console.log(iter.next()); // {value:100, done:true}
+
+    for (const a of gen()) console.log(a); //1, 2, 3
+```
+
+- 리턴값을 넣을 수 있다. 
+- 주의 : 리턴도 제너레이터의 서스펜션 구간에 포함되기는 하지만, 순회에는 포함되지 않는다. 
+-  return 100; 을 해주지 않는다면 마지막 서스펜션은 undefined 가 되어 자동으로 done 이 true 로 떨어지게 된다. 
+
+
+
+#### 명시적 종료  (return A를 지정)
+
+- return 위치에서 generator를 종료 (done: true)
+- value: A 반환
+
+
+
+#### 암시적 종료 (return 을 지정해주지 않으면)
+
+- 더이상 진행시킬 yield 가 없을 때 자동으로 generator를 종료 (done: true)
+- value : undefined 반환
 
 
 
@@ -73,7 +115,3 @@ console.log(g.next())
 - ES6 이후로 자바스크립트 엔진에서는 코루틴을 지원하기 위해, 작성된 모든 statement 를 "레코드 record" 라는 형태의 객체로 감싸서 메모리에 저장한다. 
 - 문은 원래 중간에 멈출 방법이 없는데, 문인데도 불구하고 서스펜션을 지원하는 스펙이 있다면, yield 를 통해 멈출 수 있다.
 - 제너레이터를 쓰는 목적은, next()를 통해 자신의 제어로직을 외부로 위임하는 데 있다.  제어는, 바깥에서.
-
-
-
-## 

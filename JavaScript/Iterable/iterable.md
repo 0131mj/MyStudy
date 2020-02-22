@@ -75,3 +75,23 @@ const iterable = {
 - Iterable 은 문자열, 배열 등에 이미 구현되어 있다. 
 - 자바스크립트 엔진조차도 ES6 에서 Core Object 등이 변경되고 적용되어 있다. 
 - ES6 loop는 지연실행에 기반한 iterator 객체를 소비하는 형태로 되어있다. 
+
+
+
+## well-formed iterator
+
+자기자신을 반환하는 로직이 구현되어있어서, 어디서든 멈추고 재실행가능
+
+```javascript
+const iterable = {
+    [Symbol.iteraotr](){
+        let i = 3;
+        return {
+            next(){
+                return i==0 ? {done: true}: {value: i--, done:false};
+            },
+            [Symbol.iterator](){return this}
+        }
+    }
+}
+```
