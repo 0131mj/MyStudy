@@ -2,42 +2,6 @@
 
 
 
-## 소개
-
-
-
-#### 유래
-
-Promise 란, 프로그래밍에서 병렬처리를 위해 처음 고안된 패턴으로, 
-
-Python, Java, Scala 등의 언어에도 이 개념이 존재한다. 
-
-( 타 언어에서는 Future, Promise, Delay 와 같은 이름으로 쓰인다. )
-
-JavaScript에서의 Promise는 이 초기 목적에서 '병렬 쓰레드' 만 빼고는 동일하다. 
-
-
-
-#### 목적 1. 제어권 취득
-
-프라미스를 쓰는 목적은, "then의 시점을 내가 정하고 싶어서" 라고 봐도된다. 
-
-따라서 Promise에 then이 바로 나온다면, 프라미스로 짜긴 했지만 그냥 콜백이나 다름없이 사용하고 있는거라고 봐도 무방하다. 
-
-Promise의 효력이 발생하는 것은 프로미스를 먼저 만들고, 나중에 그 Promise에 then을 사용하는 케이스이다.
-
-
-
-#### 목적 2. callback hell 해결
-
-흔히 Callback 지옥을 해결하기 위한 도구로 알려져 있는데,
-
-가독성이 향상되는 것은 사실이나, callback Depth를 해결하기 위한 목적으로 만들어 진 것은 아니다.
-
-콜백을 사용했을 때 발생할 수 있는 문제점은 depth가 깊다는 것이 아니라, 제어권을 잃어버린다는 것이다.
-
-
-
 
 
 ## 개요
@@ -64,7 +28,7 @@ do(){
 
 하지만,  something 이 얼마나 걸릴지 모른다면, 비동기로 처리해야 할 필요성이 생긴다.
 
-비동기 함수의 결과로 보자면 성공했냐, 실패했냐로 나눌 수 있다.
+비동기 함수의 결과는 '성공' 아니면 '실패' 둘 중 하나이다.
 
 Promise는 이러한 비동기를 다루기 위한 장치이다. 
 
@@ -126,7 +90,7 @@ executor 는 두 가지 인자를 받는다.
 
 
 
-#### resolve 와 recect 가 하는 일
+#### resolve 와 reject 가 하는 일
 
 
 
@@ -135,63 +99,6 @@ executor 는 두 가지 인자를 받는다.
 - resolve 는 Promise 를 종료시킨다. 
 - resolve 함수가 실행되면,  then 메소드에 등록한 함수가 호출된다.
 - resolve(value) 이렇게 넣어주면, then 에서 value를 받아 쓸 수 있다.
-
-
-
-# .then()
-
-약속 (Promise) 을 했다면, 결과를 확인해야 한다. 
-
-Promise 안에는, then 이라는 녀석이 내부적으로 이미 들어있다. 
-
-then 은 Promise 가 resolve 되면 호출된다.
-
-
-
-#### 입력값 - 두개의 함수
-
-```javascript
-p.then(
-    (value) => {
-        // 프로미스가 실행되었을 때 호출 (value는 Promise의 resolve 에서 받은 값)
-    }, 
-    (reason) => {
-        // 프로미스가 거부되었을 때 호출  
-    } 
-)
-```
-
-- 성공함수와 실패함수를 하나씩 받는다.
-- 실패함수가 없거나, 함수가 아니라 값이 들어있다면 : 마지막 Promise 의 상태를 그대로 물려 받는다.
-
-- then 안에는 함수를 넣게 되는데, 이 함수는, 로 부터 받은 response를 인자로 사용한다. 
-
-
-
-#### 리턴값
-
-```javascript
-const resultP = p.then((data) => {console.log(data)}) // result  = Promise 객체
-resultP.then()
-
-```
-
-- then 은 새로운 promise 를 리턴한다.
-- 즉, then의 실행결과는 promise 인 것이다.
-
-
-
-
-
-# .catch()
-
-- Promise 체이닝의 종결점
-
-
-
-
-
-finally
 
 
 
@@ -221,10 +128,6 @@ myPromise
 
 
 
-
-
-
-
 # 구조
 
 Promise 는 비동기 처리를 위한 장치이다. 
@@ -237,13 +140,28 @@ Promise 는 비동기 처리를 위한 장치이다.
 
 ## 1. 생성 (선언부)
 
-### 1) Promise
-
 ```javascript
 const myPromise = new Promise(실행함수)
 ```
 
 - Promise 는 리터럴로 만드는 것이 아니라, 내장된 생성자를 사용해서 만들어야 한다. 
+
+
+
+### 실행함수
+
+- 성공함수와 실패함수를 하나씩 받아서 이행하는 함수다. 
+- 선언과 동시에 실행되지만, resolve 를 바로 수행하지는 않는다.
+- 실행함수는 반환값이 없다.
+
+```javascript
+ (res, rej) => {
+	res(successVal)
+	rej(failVal)
+}
+```
+
+
 
 
 
@@ -258,7 +176,7 @@ new Promise((resolve, reject) =>{
 })
 ```
 
-- 매개변수 : "resolve 와 reject 를 매개변수로 갖는 콜백함수",
+- 매개변수 : 실행함수("resolve 와 reject 를 매개변수로 갖는 콜백함수",)
 - 위 생성자코드는 아래의 말과 같다고 보면 된다.
 
 > "지금부터 Promise 객체를 하나 생성할껀데, 
@@ -274,19 +192,6 @@ new Promise((resolve, reject) =>{
 ## 
 
 
-
-### 2) 실행함수
-
-- 성공함수와 실패함수를 하나씩 받아서 이행하는 함수다. 
-- 선언과 동시에 실행되지만, resolve 를 바로 수행하지는 않는다.
-- 실행함수는 반환값이 없다.
-
-```javascript
- (res, rej) => {
-	res(successVal)
-	rej(failVal)
-}
-```
 
 
 
@@ -337,11 +242,61 @@ plus
 
 
 
+### .then()
+
+약속 (Promise) 을 했다면, 결과를 확인해야 한다. 
+
+Promise 안에는, then 이라는 녀석이 내부적으로 이미 들어있다. 
+
+then 은 Promise 가 resolve 되면 호출된다.
 
 
-## .catch()
 
+#### 입력값 - 두개의 함수
+
+```javascript
+p.then(
+    (value) => {
+        // 프로미스가 실행되었을 때 호출 (value는 Promise의 resolve 에서 받은 값)
+    }, 
+    (reason) => {
+        // 프로미스가 거부되었을 때 호출  
+    } 
+)
+```
+
+- 성공함수와 실패함수를 하나씩 받는다.
+- 실패함수가 없거나, 함수가 아니라 값이 들어있다면 : 마지막 Promise 의 상태를 그대로 물려 받는다.
+
+- then 안에는 함수를 넣게 되는데, 이 함수는, 로 부터 받은 response를 인자로 사용한다. 
+
+
+
+#### 리턴값
+
+```javascript
+const resultP = p.then((data) => {console.log(data)}) // result  = Promise 객체
+resultP.then()
+
+```
+
+- then 은 새로운 promise 를 리턴한다.
+- 즉, then의 실행결과는 promise 인 것이다.
+
+
+
+
+
+### .catch()
+
+- Promise 체이닝의 종결점
 - 실패와 연결된다. 
+
+
+
+
+
+### finally
 
 
 
@@ -371,14 +326,6 @@ A : then은 Promise를 부르는 것이 아니라. Promise 에 대기를 걸어�
 - settled : 처리됨 - 비가역적
   - fullfilled : 성공
   - recjected : 거부
-
-
-
-
-
-
-
-
 
 
 
@@ -459,3 +406,41 @@ Promise.all([Users.findOne(), Users.remove(), Users.update()])
 ## Promise.resolve()
 
 - Promise.resolve() 를 사용해서 프로미스 체이닝을 시작할 수도 있다.
+
+
+
+
+
+## 더 알아보기
+
+
+
+#### 유래
+
+Promise 란, 프로그래밍에서 병렬처리를 위해 처음 고안된 패턴으로, 
+
+Python, Java, Scala 등의 언어에도 이 개념이 존재한다. 
+
+( 타 언어에서는 Future, Promise, Delay 와 같은 이름으로 쓰인다. )
+
+JavaScript에서의 Promise는 이 초기 목적에서 '병렬 쓰레드' 만 빼고는 동일하다. 
+
+
+
+#### 목적 1. 제어권 취득
+
+프라미스를 쓰는 목적은, "then의 시점을 내가 정하고 싶어서" 라고 봐도된다. 
+
+따라서 Promise에 then이 바로 나온다면, 프라미스로 짜긴 했지만 그냥 콜백이나 다름없이 사용하고 있는거라고 봐도 무방하다. 
+
+Promise의 효력이 발생하는 것은 프로미스를 먼저 만들고, 나중에 그 Promise에 then을 사용하는 케이스이다.
+
+
+
+#### 목적 2. callback hell 해결
+
+흔히 Callback 지옥을 해결하기 위한 도구로 알려져 있는데,
+
+가독성이 향상되는 것은 사실이나, callback Depth를 해결하기 위한 목적으로 만들어 진 것은 아니다.
+
+콜백을 사용했을 때 발생할 수 있는 문제점은 depth가 깊다는 것이 아니라, 제어권을 잃어버린다는 것이다.
