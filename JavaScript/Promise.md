@@ -427,6 +427,28 @@ JavaScript에서의 Promise는 이 초기 목적에서 '병렬 쓰레드' 만 �
 
 
 
+## callback과 뭐가 그리 다른가?
+
+콜백은, 코드를 그대로 쓰는 반면 Promise 는 비동기적인 상황을 하나의 일급 값으로 응축시킨다. 
+
+```javascript
+function add10(a, callback){
+    setTimeout(()=> callback(a + 10), 100)
+}
+
+function add20(a){
+    return new Promise(resolve => setTimeout(()=>resolve(a + 20), 100));
+}
+```
+
+위의 코드에서 차이점은 add20의 "return" 에 있다. 
+
+변수에 할당되거나, 인자로 전달될 수 있다. 
+
+
+
+
+
 #### 목적 1. 제어권 취득
 
 프라미스를 쓰는 목적은, "then의 시점을 내가 정하고 싶어서" 라고 봐도된다. 
@@ -444,3 +466,20 @@ Promise의 효력이 발생하는 것은 프로미스를 먼저 만들고, 나�
 가독성이 향상되는 것은 사실이나, callback Depth를 해결하기 위한 목적으로 만들어 진 것은 아니다.
 
 콜백을 사용했을 때 발생할 수 있는 문제점은 depth가 깊다는 것이 아니라, 제어권을 잃어버린다는 것이다.
+
+
+
+## 모나드, 합성 관점에서의 Promise
+
+```javascript
+const f = a => a + 1;
+const g = a => a * 1; 
+new Promise(resolve => setTimeout(()=>resolve(2), 1000))
+	.then(f)
+	.then(g)
+	.then(r => log(r)); //3
+```
+
+모나드란, 프로그래밍에서 안전한 합성을 위해 쓰이는 기술을 말한다. 
+
+Promise 체이닝은, 안에 들어있는 비동기적 상황이 얼마가 걸리든, then 을 통해 끝까지 코드가 도달할 수 있게 만든다. 
