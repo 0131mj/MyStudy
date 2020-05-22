@@ -21,8 +21,8 @@
 ```react
 <ul>
     <li key="0">a</li>
-	<li key="1">b</li>
-	<li key="2">c</li>
+    <li key="1">b</li>
+    <li key="2">c</li>
 </ul>
 ```
 
@@ -35,8 +35,8 @@
 ```react
 <ul>
     <li key="0">x</li> // key : 0, 값이 a => x 로 변경
-	<li key="1">a</li> // key : 1, 값이 b => a 로 변경
-	<li key="2">b</li> // key : 2, 값이 c => b 로 변경
+    <li key="1">a</li> // key : 1, 값이 b => a 로 변경
+    <li key="2">b</li> // key : 2, 값이 c => b 로 변경
     <li key="3">c</li> // key : 3, 값이 새로 생성
 </ul>
 ```
