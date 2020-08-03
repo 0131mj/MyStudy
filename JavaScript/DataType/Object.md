@@ -1,15 +1,20 @@
 # Object : 객체
 
-객체와 함수는 자바스크립트에서 가장 중요한 개념이다. 
+- Object
+  - Function
+  - Array
+  - RegExp
+  - Date
+  - Map, WeakMap
+  - Set, WeakSet
 
-- 객체
-  - 함수
-  - 배열
-- 숫자
-- 문자
-- 불린
-- null
-- undefined
+
+
+자바스크립트의 데이터 타입은 크게 두가지 - 기본형과 참조형이 있다. 
+
+이중 참조형에는 Object 와 Array, Function 등이 있는데 이는 모두 Object 이다. 
+
+따라서, 객체는 넓은 의미에서 참조형 데이터 그 자체라고 볼 수 있다. 
 
 
 
