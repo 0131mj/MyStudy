@@ -161,3 +161,33 @@ https://github.com/FEDevelopers/tech.description/wiki/%EB%A6%AC%EB%8D%95%EC%8A%A
 리덕스(Redux)란 무엇인가?
 
 https://voidsatisfaction.github.io/2017/02/24/what-is-redux/
+
+
+
+## immer
+
+불변성을 유지해주는 도구
+
+
+
+## hooks
+
+- useDispatch
+- useSelector
+
+before
+
+```javascript
+const mapStateToProps = (rootState) => ({
+    enableSettings: rootState.control.enableSettings
+})
+```
+
+
+
+after
+
+```javascript
+const enableSettings = useSelector(state => state.control.enableSettings);
+```
+
