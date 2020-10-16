@@ -115,3 +115,102 @@ console.log(g.next())
 - ES6 이후로 자바스크립트 엔진에서는 코루틴을 지원하기 위해, 작성된 모든 statement 를 "레코드 record" 라는 형태의 객체로 감싸서 메모리에 저장한다. 
 - 문은 원래 중간에 멈출 방법이 없는데, 문인데도 불구하고 서스펜션을 지원하는 스펙이 있다면, yield 를 통해 멈출 수 있다.
 - 제너레이터를 쓰는 목적은, next()를 통해 자신의 제어로직을 외부로 위임하는 데 있다.  제어는, 바깥에서.
+
+```javascript
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button id="btn">START</button>
+<script>
+    let isStopped = true;
+    let state = "ready";
+
+    const promise = (seq) => {
+        return (
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (isStopped) {
+                        reject({
+                            seq,
+                            result: false,
+                        })
+                    } else {
+                        resolve({
+                            seq,
+                            result: true,
+                        });
+                    }
+                }, 300)
+            })
+        )
+    }
+
+
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    // (async ()=>{
+    //     for (const item of arr) {
+    //         const result = await test(item);
+    //         console.log(result);
+    //     }
+    // })();
+
+    function* loop(arr) {
+        for (const item of arr) {
+            yield promise(item)
+        }
+    }
+
+    let generator = loop(arr);
+
+    let currState = null;
+
+    const go = () => {
+        currState = generator.next();
+        // if (!currState) {
+        // }
+        const {done, value} = currState;
+        if (!isStopped) {
+            if (done) {
+                console.log("done");
+                btn.innerText = "DONE";
+                btn.setAttribute("disabled", "true")
+            } else {
+                value.then(result => {
+                    console.log(result);
+                    go();
+                }).catch(data => {
+                    // console.log("Stop on : ", data);
+                    currState = data;
+                })
+            }
+        }
+    }
+
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", () => {
+        if (!isStopped) {
+            isStopped = true;
+            console.log("%cStopped !!", "color:crimson; background-color:yellow")
+            btn.innerText = "RESTART";
+        } else {
+            isStopped = false;
+            console.log(currState === null ? "Started !!" : "ReStarted !!")
+            btn.innerText = "STOP";
+            if (currState) {
+                generator = loop(arr.slice(currState.seq - 1, arr.length))
+            }
+            go();
+        }
+    })
+</script>
+</body>
+</html>
+```
