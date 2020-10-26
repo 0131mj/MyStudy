@@ -31,7 +31,7 @@ callback queue 는 parellel 한 요구사항을 받아서 큐가 Concurrency 하
 
 #### Concurrency (소비자 1명) - single thread
 
-동시에 일어나지 않고 하나의 토큰이 왔다갔다하면서 일을 수행한다.
+동시에 일어나지 않고 하나의 토큰이 왔다갔다하면서 일을 수행한다. (자바스크립트)
 
 - engine work : 
   - 브라우저를 통제
