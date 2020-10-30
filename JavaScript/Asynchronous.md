@@ -14,3 +14,31 @@
 
 
 
+아래 루프는 sync를 1부터 100까지 출력한 후,  async: 100을 100번 출력한다.
+
+```javascript
+const limit = 100;
+let curr = 0;
+while(limit > curr){
+    console.log("sync: ", curr)    
+    curr+=1;
+    setTimeout(()=>{
+	    console.log("async: ", curr)
+    })
+}
+// sync: 1
+// sync: 2
+// ....
+// sync: 100
+// async: 100
+// async: 100
+// ...
+// async: 100
+```
+
+
+
+
+
+
+
