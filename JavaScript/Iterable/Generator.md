@@ -95,14 +95,27 @@ console.log(g.next())
 
 ## Generator의 특징
 
-- 제너레이터는 쓰레드가 아니다. 
-- 제너레이터는 유사 iterable 이다.
-- 제너레이터를 호출하면 iterable 객체가 나온다.
-- iterable객체는 iterator메소드를 호출해서 iterator를 받는 반면에, 
-  generator 는 함수처럼 그냥 호출하면 iterator를 얻을 수 있다.
-- 제어문을 멈출 수 있다.
 - 거의 모든 언어에 구현되어 있다. 
 - 제너레이터의 의의는, 나의 일반적일 로직을 기술하고, 자신의 동작을 외부에 위임할 수 있다는 것이다.
+- 별도의 쓰레드가 아니다. 
+- 제어문을 멈출 수 있다.
+
+
+
+### iterable vs 유사 iterable
+
+#### 공통점
+
+- 호출시 iterator (실제루프가 진행되는 영역)를 반환한다. 
+
+#### 차이점
+
+- 호출 방식이 다르다. 
+  iterable객체는 iterator메소드를 호출해서 iterator를 받는 반면에,  
+  generator 는 함수처럼 그냥 호출하면 iterator를 얻을 수 있다.
+- for of... 에는 iterable 이 온다. 
+  하지만 제너레이터는 iterable이 아닌, 유사 iterable 이기 때문에 for of 구문에 사용할 수 없다. 
+- 팁 : 즉시 실행함수로 감싸서 반영하면 iterator 를 바로 얻을 수도 있다.
 
 
 

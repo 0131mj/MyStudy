@@ -78,6 +78,64 @@ const a = b || c;
 
 
 
+## 제어 역전
+
+- 제어 역전 : 
+- 반 제어 역전 : 
 
 
-callback queue 는 
+
+#### 제어역전 사례
+
+흔히 가장 쉽게 생각할 수 있는 루프는 이런 식이다.
+
+```javascript
+const working = _ => {}
+for (let i = 0; i < 1000; i++) working();
+```
+
+
+
+블로킹을 없애버린 케이스
+
+```javascript
+const working = _ => {}
+const nbFor = (max, load, func) => {
+    let i = 0;
+    const f = time => {
+        let curr = load;
+        while (curr-- && i < max) {
+            func();
+            i++;
+        }
+        console.log(i);
+        if (i < max - 1) requestAnimationFrame(f, 0);
+    }
+    requestAnimationFrame(f, 0);
+}
+
+nbFor(100, 10, working)
+```
+
+
+
+블로킹을 없애고 제너레이터를 통해 바깥으로 컨트롤을 위임한 케이스
+
+```javascript
+const working = _ => {}
+const gene = function*(max, load, func){
+    let i = 0, curr = load;
+    while (i < max) {
+        if (curr--) {
+            func();
+            i++;
+        }
+        else {
+            curr = load;
+            console.log(i);
+            yield;
+        }
+    }
+}
+```
+
