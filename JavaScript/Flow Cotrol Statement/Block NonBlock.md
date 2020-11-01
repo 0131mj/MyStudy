@@ -141,3 +141,125 @@ if(true){
 }
 ```
 
+
+
+
+
+# Non-blocking 을 구현하는 몇가지 방법
+
+```javascript
+const REPEAT = 1000;
+let cnt = 0;
+let countable = true;
+const working = _ => {    
+    if(countable){
+        console.log("DIDN'T STOP!! : ", cnt += 1)
+    }else{
+        console.log("STOPPED!!")
+    }
+    if(cnt === repeat){
+        console.log("duration : ", performance.now() - start);
+    }
+}
+```
+
+
+
+### 블로킹
+
+```javascript
+for (let i = 0; i < REPEAT; i++) working();
+```
+
+- 흔히 가장 쉽게 생각할 수 있는 루프는 이런 식이다.
+- 가장 빠르다.  거침없이 나아가는 폭주기관차라고 생각할 수 있다. 
+- 동적으로 countable 을 false로 만든다고 하더라도, 블로킹 상태이기 때문에 이 코드를 멈출수는 없다. 
+
+
+
+### 블로킹을 없애버린 케이스(슬라이스)
+
+```javascript
+const working = _ => {}
+const nbFor = (max, load, func) => {
+    let i = 0;
+    const f = time => {
+        let curr = load;
+        while (curr-- && i < max) {
+            func();
+            i++;
+        }
+        if (i < max - 1) requestAnimationFrame(f, 0);
+    }
+    requestAnimationFrame(f, 0);
+}
+
+nbFor(REPEAT, 10, working)
+```
+
+- 현재 프로그램을 통째로 장악하지 않고, 10개씩 끊어서 루프를 수행한다. 
+- 제어권을 돌려받는다. 
+- 하지만 내부적으로 코드를 심어주지 않는다면, 명령 자체를 멈추지는 못한다. 
+- nbFor 라는 함수는 자기자신이 제어권한을 갖고 있다. 
+- 클로저 변수 사용
+- 함수 내부에서 재귀적으로 다시 코드를 수행하는 방식으로 루프 수행
+- 내부적으로 requestAnimationFrame을 사용하기 때문에 상대적으로 느리다. 
+
+
+
+### 블로킹을 없애고 제너레이터를 통해 바깥으로 컨트롤을 위임한 케이스
+
+```javascript
+const gene = function*(max, load, func){
+    let i = 0, curr = load;
+    while (i < max) {
+        if (curr--) {
+            func();
+            i++;
+        }
+        else {
+            curr = load;
+            console.log(i);
+            yield;
+        }
+    }
+}
+
+const nbFor2 = (max, load, func) => {
+    const iterator = gene(max, load, block);
+    const f =_=> iterator.next().done||timeout(f);
+    timeout(f);
+}
+```
+
+- 지역변수 사용
+- 일정한 크기만큼 잘라서 수행하는 것은 똑같지만 함수의 외부에서 제어권을 컨트롤할수 있도록 되었다. 
+
+
+
+### 비동기 제어 : 프로미스로 반제어권을 행사하게 한 케이스
+
+```javascript
+const gene2 = function*(max, load, func){
+    let i = 0;
+    while(i<max){
+        yield new Promise(res => {
+            let curr = load;
+            while (curr-- && i < max){
+                func();
+                i++;
+            }
+            console.log(i);
+            timeout(res, 0);
+        })
+    }
+}
+
+const nbFor3 = (max, load, func) => {
+    const iterator = gene2(max, load, func);
+    const next =_=> ({value, done}) => done || value.then(v => next(iterator.next()))
+    next(iterator.next());
+}
+```
+
+- 앞전의 케이스와는 반대로 , 내부의 프로미스 자체가 제어권을 갖는다. 
