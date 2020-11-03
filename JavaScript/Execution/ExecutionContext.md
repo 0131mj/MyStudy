@@ -77,7 +77,20 @@ b();
 
 
 
-##### 포이마 웹에서의 설명
+##### 모던 자바스크립트 입문 책 (ES6)
+
+- ExecutionContext
+  - **LexicalEnvironment**
+     (== VariableEnvironment)
+    - EnvinonmentRecord
+      - DeclarativeEnvironmentRecord
+      - ObjectEnvironmentRecord
+    - OuterLexicalEnvironment Reference
+  - **ThisBinding**
+
+
+
+##### 포이마 웹에서의 설명(ES3)
 
 - 실행 컨텍스트
   - 변수객체
