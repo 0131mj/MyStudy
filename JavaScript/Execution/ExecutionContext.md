@@ -80,7 +80,7 @@ b();
 ##### 모던 자바스크립트 입문 책 (ES6)
 
 - ExecutionContext
-  - **LexicalEnvironment**
+  - **LexicalEnvironment** (ES5에서 도입)
      (== VariableEnvironment)
     - EnvinonmentRecord
       - DeclarativeEnvironmentRecord
