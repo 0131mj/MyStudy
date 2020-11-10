@@ -8,6 +8,8 @@
 
 (아직 정리중)
 
+Event Loop
+
 - Main Thread
   - 관할
     - JavaScript
@@ -32,4 +34,14 @@
     - 이벤트큐가 돌면서 하나씩 수행한다.
 - Render Steps
   - 렌더링은 또다른 경로이다.
+  - 관할
+    - 스타일 계산 : CSS 
+    - Layout  :  렌더링 트리
+    - Painting
+- 오래 걸리는 작업이 주어졌을때
+  - EventLoop 는 Task를 실행하느라, 
+    - Task 이벤트 (클릭, 텍스트 선택 등...) 와 RenderStep 처리를 못 받는다.
 - requestAnimationFrame
+- 참고
+  - http://jaynewho.com/post/25
+  - https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript
