@@ -72,3 +72,12 @@
   - 점은 런타임에 계산된다.
 - linked list
 
+
+
+
+
+JSStack,
+
+MicroTasks,
+
+Log
