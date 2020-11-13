@@ -1,8 +1,19 @@
 # Event
 
-Capture, Bubbling, Propagation,  Once
+웹페이지는 사용자의 이벤트를 받아서 처리하는 하나의 거대한 머신이라고 할 수 있다. 
+
+동적으로 변화가 생기는 것은, 사용자가 뭔가를 클릭하거나 입력할때 일어나며, 이것들은 모두 이벤트로 작용한다.
 
 
+
+- Capture, 
+- Bubbling, 
+- Propagation,  
+- Once
+
+
+
+### addEventListener
 
 addEventListner 에는 3번째 파라미터를 넣을 수 있는데, 옵션이 적용 가능하다. 
 
@@ -43,4 +54,3 @@ review_txt.addEventListener('keyup', function () {
 
 
 
-addEventListener
