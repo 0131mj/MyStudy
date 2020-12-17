@@ -38,3 +38,14 @@ devDependencies: {
 ### npm outdated
 
 - 새로운 버전이 있는지 확인하는 명령어
+
+
+
+#### npm init
+
+- 프로젝트 생성
+
+```javascript
+npm init -y // yes to everything
+```
+
