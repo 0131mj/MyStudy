@@ -230,6 +230,9 @@ li {
 ```
 
 
+## flex-wrap and overflow
+- 사파리에서 flex-wrap 을 지정했을 때 overflow 가 제대로 먹히지 않는 현상이 생길 수 있다. 
+- 이때 height 를 auto 로 지정하고 flex
 
 
 
