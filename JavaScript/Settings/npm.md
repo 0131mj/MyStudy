@@ -35,7 +35,7 @@ devDependencies: {
 
 ### 명령어들
 
-### npm outdated
+#### npm outdated
 
 - 새로운 버전이 있는지 확인하는 명령어
 
@@ -49,3 +49,38 @@ devDependencies: {
 npm init -y // yes to everything
 ```
 
+
+
+#### save
+
+- 패키지를 실치하고 해당 항목을 dependancies에 표기하도록 함.
+
+```shell
+npm install 패키지명 save
+```
+
+
+
+####  run
+
+- 스크립트를 실행하게 함
+
+```powershell
+npm run start
+```
+
+
+
+
+
+#### 동시에 여러 스크립트 실행하기
+
+```jso
+"scripts": {
+	"start": "nodemon ./bin/www",
+	"sass": "node-sass -rw public/css -o public/css",
+	"dev": "npm-run-all -p start sass"
+},
+```
+
+- npm-run-all 모듈을 사용한다.  ( -p : parallel)
