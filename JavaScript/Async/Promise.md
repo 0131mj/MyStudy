@@ -1,6 +1,6 @@
 # Promise
 
-
+Promise 원형 함수
 
 
 
