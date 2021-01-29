@@ -1,6 +1,6 @@
 # async, await
 
- async await 문법은 Promise를 간단하게 사용하는 문법이다. 
+ async await 문법은 세미-코루틴으로,  Promise를 간단하게 사용하는 문법이다. 
 
 ```javascript
 function delay(a){
