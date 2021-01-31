@@ -44,6 +44,8 @@ $side:top;
 
 '#{}'를 사용해서 변수의 속성과 선택자의 이름을 동적으로 치환 가능하다. 
 
+
+
 ## 상위 클래스 호출
 
 ```scss
@@ -56,3 +58,33 @@ $side:top;
 
 &를 이런식으로 상위 클래스를 역으로 붙여 사용 가능하다.
 https://css-tricks.com/using-sass-control-scope-bem-naming/#article-header-id-1
+
+
+
+## @at-root : 루트부터 다시 선언하기
+
+```scss
+.some-page{
+	@at-root .admin-page{
+		background-color: black;	
+	}
+    @at-root .user-page{
+        background-color: white;	
+	}
+}
+```
+
+
+
+위의 코드의 컴파일 결과는 아래와 같다.
+
+```scss
+.admin-page .some-page{
+	background-color: black;
+}
+
+.admin-page .some-page{
+	background-color: white;    
+}
+```
+
