@@ -39,3 +39,7 @@ typeof abc3def; //string
 ## 내장함수
 
 search
+
+### replaceAll
+이 함수는 생각보다 최근에 도입되었다. 
+Node.js 는 15.0.0 부터, Chrome 85 부터 지원한다. 
