@@ -15,3 +15,9 @@ const {phone:contact} = data;
 console.log("contact",contact); // '010-0000-0000'
 ```
 
+
+
+```javascript
+const [a, b] = str.split('.')
+```
+
