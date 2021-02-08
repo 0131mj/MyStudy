@@ -10,3 +10,13 @@ console.log(myURL);
 ```
 
 - URL 객체에는 host, port, search 등 여러 값이 들어있다. 
+
+
+
+### searchParams
+
+- getAll
+- get
+- has
+- keys()
+- values()
