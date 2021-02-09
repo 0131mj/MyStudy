@@ -2,6 +2,14 @@
 
 - 주소는 여러가지 값으로 이루어져있다. 
 
+
+
+## URL 을 생성하는 두가지 방식
+
+
+
+### url.URL (WHATWG 방식)
+
 ```javascript
 const url = require('url');
 const URL = url.URL;
@@ -11,12 +19,18 @@ console.log(myURL);
 
 - URL 객체에는 host, port, search 등 여러 값이 들어있다. 
 
+- searchParams로 서치가 편리함
 
-
-### searchParams
+##### searchParams
 
 - getAll
 - get
 - has
 - keys()
 - values()
+
+
+
+### url.parse
+
+- 호스트가 없을 때도 사용 가능
