@@ -28,3 +28,12 @@
 
 ### 블록텍스트괄호 지정이 안될때
 Surround selection when typing quote or brace
+
+
+
+
+
+# 웹스톰 단축키
+
+- 중괄호 이동 : Ctrl + [
+- 중괄호 블록 : Ctrl + shift + [ 
