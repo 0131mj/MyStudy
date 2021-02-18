@@ -29,3 +29,17 @@ http.createServer((req, res) => {
 
 - https 는 443,
 - http 는 80이 기본포트이다. 
+
+
+
+- Well-known 포트 (80,443)는 생략이 가능하다. 즉, naver.com:443은 naver.com과 같다. 
+- Well-known 포트가 아니면 포트번호를 붙여줘야 한다.
+
+
+
+
+
+## 응답
+
+- res.write 는 응답을 html 로 보내주는 것이다. 
+- res.end : 종료 
