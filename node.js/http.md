@@ -43,3 +43,32 @@ http.createServer((req, res) => {
 
 - res.write 는 응답을 html 로 보내주는 것이다. 
 - res.end : 종료 
+
+
+
+## 파일을 읽어서 보내기
+
+```javascript
+const http = require('http');
+const fs = require('fs');
+
+const server = http.createServer((req, res) => {
+    console.log('서버 실행');
+    fs.readFile('./server2.html', (err, data) => {
+        if (err) {
+            throw err;
+        }
+        res.end(data);
+    })
+}).listen(8080);
+
+server.on('listening', () => {
+    console.log('8081번 포트에서 서버 대기중입니다.');
+});
+
+server.on('error', (error) => {
+    console.error(error);
+})
+```
+
+- 서버로부터 버퍼를 받아서 읽으면 브라우저는 알아서 렌더링을 한다. 
