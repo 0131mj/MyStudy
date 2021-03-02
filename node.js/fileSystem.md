@@ -44,6 +44,23 @@ console.log(result);
 
 
 
+#### writeFile
+
+- 파일 쓰기
+
+```javascript
+fs.writeFile('data/filename', 'content', 'utf8', (err) => {
+    res.writeHead(200);
+    res.end('success');
+})
+```
+
+
+
+
+
+
+
 ## 버퍼
 
 - 파일을 조각조각으로 보내는 단위
