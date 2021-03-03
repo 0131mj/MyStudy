@@ -57,6 +57,19 @@ fs.writeFile('data/filename', 'content', 'utf8', (err) => {
 
 
 
+#### rename
+
+- 파일명 바꾸기
+
+```javascript
+fs.rename(`data/${id}`, `data/${title}`, (err) => {
+    fs.writeFile(`data/${title}`, description, 'utf8', (err) => {
+        res.writeHead(302, { Location: `/?id=${title}` });
+        res.end();
+    })
+})      
+```
+
 
 
 
