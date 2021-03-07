@@ -46,7 +46,7 @@ const _filter = (f, iter) => {
 
 ## _reduce
 
-주어진 데이터를, 주어진 함수로 순회하고 누진시켜 하나의 결과값을 만듬.
+주어진 데이터를, 주어진 함수로 순회하고 누진시켜 하나의 결과값을 생성
 
 ```javascript
 const _reduce = (f, iter, acc) => {
