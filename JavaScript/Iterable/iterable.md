@@ -80,7 +80,7 @@ const iterable = {
 
 ## well-formed iterator
 
-- 자기자신을 반환하는 로직이 구현되어있어서, 어디서든 멈추고 재실행가능
+- 자기자신을 반환하는 로직이 구현되어있어서, 어디서든 멈추고 재실행가능.
 - 이터레이터가 자기자신을 반환하는 심볼 이터레이터 메소드를 가지고 있을 때 , well-formed iterator 라고 할 수 있다.
 
 ```javascript
