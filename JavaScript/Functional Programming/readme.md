@@ -52,3 +52,6 @@
 const iterator = arr[Symbol.iterator](); // 이터레이터 
 ```
 
+
+
+# 참조 투명성과 치환성
