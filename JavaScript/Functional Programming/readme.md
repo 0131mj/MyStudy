@@ -80,4 +80,18 @@ const iterator = arr[Symbol.iterator](); // 이터레이터
 
 
 
+### 전개연산자 : spread operator
+
+- 전개연산자 역시 이터러블 프로토콜을 따른다. (Symbol.iterator 을 사용한다.)
+- Set, Map도 펼칠 수 있다.
+
+```javascript
+const a = [1, 2, 3];
+console.log([...a, b]);
+```
+
+
+
+
+
 # 참조 투명성과 치환성
