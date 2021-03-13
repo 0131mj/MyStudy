@@ -99,3 +99,27 @@ const iterable = {
 const iterator = iterable[Symbol.iterator]();
 console.log(iterator[Symbol.iterator]() === iterator); // true
 ```
+
+
+
+#### 일회성 이터러블
+
+아래처럼 쓰면 어떻게 될까?
+
+```javascript
+const iterable = {
+    i: 3,
+    next() {
+        return {
+            done: this.i <= 0,
+            value: this.i--,
+        }
+    },
+    [Symbol.iterator]() {
+        return this;
+    }
+}
+```
+
+- 정의에 따라 이 이터러블은 well-formed iterable 이기는 하다. 
+- 하지만 이건 일회성 이터러블로, 멈추고 재개하는 것은 가능하지만 한번 소비한 후에는 done이 멈춰져서 진행이 불가능하다.
