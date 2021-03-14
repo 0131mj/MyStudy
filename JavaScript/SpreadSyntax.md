@@ -1,26 +1,32 @@
 # 전개 연산자
 
-- 간단한 예로, 배열을 펼쳐서 연산시켜주는 연산자로 활용이 가능하다. 
+
+
+## Iterable destructuring
+
+전개 연산자 문법은 iteration interface 를 따른다. 
+
+즉, 적용하려는 대상에 `[Symbol.iterator]` 가 구현이 되어있어야 사용 가능하다. 
+
+배열을 전개하는데 쓰이는 대괄호구문은 배열을 둘러싼 부분이 아니라, iterable을 표현한 것이다.
+
+
+
+#### 해체 가능 대상
+
+- Array
+- Map
+- Set
+- String
+
+
+
+#### 예시
 
 ```javascript
 const arr = [1, 2, 3];
 console.log(...arr); //1 2 3
 ```
-
-
-
-
-
-## Iterable destructuring
-
-단, 해체 구문은 배열 자체를 해체하는 구문이 아니라, iterable 을 해체하는 구문이다. 
-
-배열이나 객체를 해체하는데 쓰이는 대괄호구문은 배열을 둘러싼 부분이 아니라, iterable을 표현한 것이다.
-
-
-
-- Array destructuring ( x )
-- Iterable destructuring ( O )
 
 
 
@@ -56,4 +62,3 @@ const myFunc = (...arg) => console.log(arg);
 ```javascript
 const a = [...iter];
 ```
-
