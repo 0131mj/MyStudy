@@ -2,7 +2,7 @@
 
 이터레이터이자, 이터러블을 생성하는 함수, 
 
-well-formed iterator 를 리턴한다. 
+well-formed iterator 를 리턴하며, 순회할 값을 문장으로 기술할 수 있다. 
 
 ```javascript
 function* counter(){
@@ -11,7 +11,7 @@ function* counter(){
     yield 3    
 }
 
-const g = counter()
+const g = counter(); // g는 well-formed iterator이다.
 
 console.log(g.next())
 console.log(g.next())
@@ -96,9 +96,10 @@ console.log(g.next())
 ## Generator의 특징
 
 - 거의 모든 언어에 구현되어 있다. 
-- 제너레이터의 의의는, 나의 일반적일 로직을 기술하고, 자신의 동작을 외부에 위임할 수 있다는 것이다.
 - 별도의 쓰레드가 아니다. 
 - 제어문을 멈출 수 있다.
+- 제너레이터의 의의는, 나의 일반적인 로직을 기술하고, 자신의 동작을 외부에 위임할 수 있다는 것이다.
+- 또한 어떠한 상태나 어떠한 값이든 순회할 수 있도록 만들 수 있다는 것은 함수형 프로그래밍에 있어서의 상징적인 의의를 갖는다.
 
 
 
