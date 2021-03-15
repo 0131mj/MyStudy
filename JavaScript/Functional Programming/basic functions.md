@@ -1,41 +1,51 @@
 # Basic Functions
 
-
-
 함수형 프로그래밍에서 기초 재료가 되는,  원자적인 함수들을 설명한다. 
 
-- _map
-- _filter
-- _reduce
+- map
+- filter
+- reduce
 
 
 
-## _map
+## map
 
 주어진 조건을 일괄적으로 적용한 새로운 배열을 리턴
 
 ```javascript
-const _map = (f, iter) => {
+const map = (f, iter) => {
     const res = [];
-    for(a of iter){
-        res.push(f(a));
+    for(i of iter){
+        res.push(f(i));
     }
     return res;
 }
 ```
 
+- for ...of 문을 사용했기 때문에, Array.prorotype.map 과는 달리,  array 뿐만 아니라 iterable 프로토콜을 따르는 모든 값(NodeList, Map, Set...)을 지원한다.
+
+```javascript
+const m = new Map();
+m.set('a', 10);
+m.set('b', 20);
+log(m); 									  // Map(2) { 'a' => 10, 'b' => 20 }
+log(new Map(map(([k, v]) => [k, v * 2], m))); // Map(2) { 'a' => 20, 'b' => 40 }
+```
 
 
-## _filter
+
+
+
+## filter
 
 주어진 조건을 만족하는 새로운 배열을 리턴
 
 ```javascript
-const _filter = (f, iter) => {
+const filter = (f, iter) => {
     const res = [];
-    for(a of iter){
-        if(f(a)){
-            res.push(a)
+    for(i of iter){
+        if(f(i)){
+            res.push(i)
         }
     }
     return res;
@@ -44,19 +54,18 @@ const _filter = (f, iter) => {
 
 
 
-## _reduce
+## reduce
 
 주어진 데이터를, 주어진 함수로 순회하고 누진시켜 하나의 결과값을 생성
 
 ```javascript
-const _reduce = (f, iter, acc) => {
+const reduce = (f, iter, acc) => {
     if(!acc){
         iter = iter[Symbol.iterator]();
         acc = iter.next().value;
     }
-    for (const a of iter) {
-        log("a : ", a)
-        acc = f(acc, a);
+    for (const i of iter) {
+        acc = f(acc, i);
     }
     return acc;
 };
