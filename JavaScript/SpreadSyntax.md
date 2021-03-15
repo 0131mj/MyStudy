@@ -1,5 +1,7 @@
 # 전개 연산자
 
+이터러블은 구조분해 및 전개연산자에 사용된다.
+
 
 
 ## Iterable destructuring
