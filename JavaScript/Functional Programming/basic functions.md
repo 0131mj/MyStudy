@@ -52,6 +52,20 @@ const filter = (f, iter) => {
 }
 ```
 
+- iter 에는 제너레이터의 즉시 실행 결과도 들어갈 수 있다. 
+
+```javascript
+log(...filter(a => a % 2, function* () {
+    yield 1;
+    yield 2;
+    yield 3;
+    yield 4;
+    yield 5;
+}()))
+```
+
+
+
 
 
 ## reduce
@@ -60,11 +74,11 @@ const filter = (f, iter) => {
 
 ```javascript
 const reduce = (f, iter, acc) => {
-    if(!acc){
-        iter = iter[Symbol.iterator]();
+    if (!acc) {
+        iter = iter[Symbol.iterator](); //(a) 진행을 하기 위해, 소비할 이터러블을 새롭게 생성
         acc = iter.next().value;
     }
-    for (const i of iter) {
+    for (const i of iter) { //(b) acc가 주어지지 않았을 경우, 여기서 순회하는 iter는 (a)에서 생성한 이터러블
         acc = f(acc, i);
     }
     return acc;
@@ -72,9 +86,9 @@ const reduce = (f, iter, acc) => {
 ```
 
 - acc 존재여부에 따라, 순회할 대상 자체가 달라진다. 
-- acc가 존재하지 않으면 iter를 Array Iterator 인스턴스를 생성한다. 
-- acc 있음 : iter 는 Array
-- acc 없음 : Iter 는 Array Iterator 이다. 
+  - acc 있음 : iter 는 함수의 인자 원본
+  - acc 없음 : iter 는 함수의 인자 원본 iter에서 뽑아낸 새로운 iterable  
+    - (b) 단계(순회) 에 이르기 전에 진행을 해야 하므로 새롭게 만들어 놓고 시작했다.
 - 둘다 실행시 Iterable을 반환하는 Well-formed iterable 이기 때문에 위는 가능하다. 
 
 
@@ -82,11 +96,11 @@ const reduce = (f, iter, acc) => {
 #### 주의
 
 ```javascript
-const _reduce = (f, iter, acc) => {
-    if(!acc){
+const reduce = (f, iter, acc) => {
+    if (!acc) {
         acc = iter[Symbol.iterator]().next().value; //(a)
     }
-    for (const a of iter) {
+    for (const a of iter) { //(b)
         acc = f(acc, a);
     }
     return acc;
@@ -95,4 +109,5 @@ const _reduce = (f, iter, acc) => {
 ```
 
 - 이렇게 하면 오류가 발생한다. 
-- (a) 라인은 얼핏 보면 앞의 두 줄 코드를 한줄로 단순화 한것 같지만, acc에서 필요한 값만 인스턴스한 값으로 취하고 버리기 때문에 
+- (a) 라인은 얼핏 보면 앞의 두 줄 코드를 한줄로 단순화 한것 같지만, acc에서 필요한 값만 인스턴스한 값으로 취하고 버리기 때문이다. 
+- (b) 라인에서의 iter는 원본이다.  (왜냐하면 위 acc에서 사용한 값은 iter의 Symbol.itertor 함수 실행 결과 에서 뽑아낸 값에 불과하기 때문이다.)
