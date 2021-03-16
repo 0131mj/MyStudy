@@ -74,7 +74,7 @@ log(...filter(a => a % 2, function* () {
 
 ```javascript
 const reduce = (f, iter, acc) => {
-    if (!acc) {
+    if (acc === undefined) { // !acc 를 하게 되면 0 일때 오류가 생긴다.
         iter = iter[Symbol.iterator](); //(a) 진행을 하기 위해, 소비할 이터러블을 새롭게 생성
         acc = iter.next().value;
     }
@@ -97,7 +97,7 @@ const reduce = (f, iter, acc) => {
 
 ```javascript
 const reduce = (f, iter, acc) => {
-    if (!acc) {
+    if (acc === undefined) {
         acc = iter[Symbol.iterator]().next().value; //(a)
     }
     for (const a of iter) { //(b)
