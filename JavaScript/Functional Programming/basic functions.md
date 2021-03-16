@@ -111,3 +111,51 @@ const reduce = (f, iter, acc) => {
 - 이렇게 하면 오류가 발생한다. 
 - (a) 라인은 얼핏 보면 앞의 두 줄 코드를 한줄로 단순화 한것 같지만, acc에서 필요한 값만 인스턴스한 값으로 취하고 버리기 때문이다. 
 - (b) 라인에서의 iter는 원본이다.  (왜냐하면 위 acc에서 사용한 값은 iter의 Symbol.itertor 함수 실행 결과 에서 뽑아낸 값에 불과하기 때문이다.)
+
+
+
+
+
+
+
+## map + filter + reduce 
+
+```javascript
+const fruits = [
+    {
+        name: 'banana',
+        price: 1000
+    },
+    {
+        name: 'tomato',
+        price: 1500
+    },
+    {
+        name: 'grape',
+        price: 3500
+    },
+    {
+        name: 'strawberry',
+        price: 2000
+    }
+]
+
+const add = (a, b) => a + b;
+const price = f => f.price;
+const priceUnder2000 = p => p < 2000;
+
+log(
+    reduce(
+        add,
+        filter(
+            priceUnder2000,
+            map(price, fruits)
+        )
+    )
+)
+```
+
+- 함수형으로 코드를 작성하게 될 때, 안에 쓰여질 값이 뭐가 될지 기대하면서 쓰면 된다.
+- 예를 들어서, 이건 과일 가격이 2000원 이하인 값들의 합이다. 
+  - 여기서 우선 '합'을 생각해서 reduce를 만들고, 합의 대상이 될 배열을 구상한다.
+    - 그리고 이 배열은 필터된 결과인데, 이 필터된 결과가 대상으로 하는 것은 2000원 이하의 가격을 가진 것들이다.
