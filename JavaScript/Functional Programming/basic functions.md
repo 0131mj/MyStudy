@@ -15,13 +15,14 @@
 ```javascript
 const map = (f, iter) => {
     const res = [];
-    for(i of iter){
+    for(const i of iter){
         res.push(f(i));
     }
     return res;
 }
 ```
 
+- f는 하나의 인자를 받아 새로운 값을 리턴하는 함수이다.
 - for ...of 문을 사용했기 때문에, Array.prorotype.map 과는 달리,  array 뿐만 아니라 iterable 프로토콜을 따르는 모든 값(NodeList, Map, Set...)을 지원한다.
 
 ```javascript
@@ -43,7 +44,7 @@ log(new Map(map(([k, v]) => [k, v * 2], m))); // Map(2) { 'a' => 20, 'b' => 40 }
 ```javascript
 const filter = (f, iter) => {
     const res = [];
-    for(i of iter){
+    for(const i of iter){
         if(f(i)){
             res.push(i)
         }
@@ -52,6 +53,7 @@ const filter = (f, iter) => {
 }
 ```
 
+- f는 하나의 인자를 받아 boolean 값을 리턴하는 함수이다.
 - iter 에는 제너레이터의 즉시 실행 결과도 들어갈 수 있다. 
 
 ```javascript
@@ -79,17 +81,19 @@ const reduce = (f, iter, acc) => {
         acc = iter.next().value;
     }
     for (const i of iter) { //(b) acc가 주어지지 않았을 경우, 여기서 순회하는 iter는 (a)에서 생성한 이터러블
-        acc = f(acc, i);
+        acc = f(acc, i); //(c) 누적값과 순회값 처리를 주입된 reducer에 위임
     }
     return acc;
 };
 ```
 
+- 여기서 f는 map, filter의 f와는 달리, 두개의 인자(acc, cur)를 받아 새로운 acc를 리턴하는 함수이다.(리듀서)
 - acc 존재여부에 따라, 순회할 대상 자체가 달라진다. 
   - acc 있음 : iter 는 함수의 인자 원본
   - acc 없음 : iter 는 함수의 인자 원본 iter에서 뽑아낸 새로운 iterable  
     - (b) 단계(순회) 에 이르기 전에 진행을 해야 하므로 새롭게 만들어 놓고 시작했다.
 - 둘다 실행시 Iterable을 반환하는 Well-formed iterable 이기 때문에 위는 가능하다. 
+- 입력값으로 한개의 함수를 받는데, 이 함수가 누적값과 순회값으로 무엇을 할지를 알아서 정한다. (순서는 누적값(acc), 순회값(cur))
 
 
 
@@ -100,8 +104,8 @@ const reduce = (f, iter, acc) => {
     if (acc === undefined) {
         acc = iter[Symbol.iterator]().next().value; //(a)
     }
-    for (const a of iter) { //(b)
-        acc = f(acc, a);
+    for (const i of iter) { //(b)
+        acc = f(acc, i);
     }
     return acc;
 };

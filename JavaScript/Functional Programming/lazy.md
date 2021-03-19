@@ -67,3 +67,21 @@ test('range', 10, ()=> reduce(add, range(10000)));
 test('L.range', 10, ()=> reduce(add, L.range(10000)));
 ```
 
+
+
+
+
+## take
+
+```javascript
+const take = (l, iter) => {
+    let res = [];
+    for (const i of iter) {
+        res.push(i);
+        if (res.length === l) {
+            return res;
+        }
+    }
+}
+```
+

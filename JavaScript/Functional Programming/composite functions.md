@@ -8,13 +8,15 @@
 
 '초기값과, 연속적으로 이어질 함수들'을 입력받아, 하나의 값으로 귀결시키는 함수
 
+하나의 값에 대한 다수개의 함수의 집중포화
+
 ```javascript
-const run = (acc, i) => i(a); // (a)
-const go = (...args) => reduce(run, args);
+const run = (acc, cur) => cur(acc); // (a) reduce 내부에서 사용할 reducer함수
+const go = (...args) => reduce(run, args); // (b)
 
 go(
-    0, // (a)
-    a => a + 1, // (b) 
+    0, // (c)
+    a => a + 1, // (d...) 
     a => a + 10,
     a => a + 100,
     log
@@ -24,17 +26,21 @@ go(
 
 - reduce 를 사용해 루프를 돌며, 함수로 누적값을 갱신한다.
 - 파라미터
-  - (a) run : 누적값을 만들어낼 콜백 함수 (reduce 함수에 기술한 순서와 같아야 한다.)
-    - 여기서 a는 누적값, i는 reduce가 순회하는 함수들(b)이 된다.
-  - (b) args : reduce의 iterable 대상
+  - (a) run : 누적값을 만들어낼 콜백 함수 (reduce에서 사용할 reducer가 된다.)
+    - 여기서 acc는 누적값, cur는 reduce가 순회하는 함수들(d...)이 된다.
+  - args : reduce의 iterable 대상
     - (c) 초기값 : reduce 함수에서, 초기값이 없다면 iterable의 첫번째 항목을 사용하는 성질을 사용,
-    - (c) 함수들 :  iterable
+    - (d) 함수들 :  iterable
+
+
 
 
 
 ## pipe
 
 함수 여러개를 입력받아, 하나의 함수로 합성해주는 함수
+
+go를 실행할 준비를 해주는 함수
 
 ```javascript
 const pipe = (...fs) => (a => go(a, ...fs));
@@ -53,12 +59,15 @@ log(f(0)); //222
     - '초기값을 받고 나면, go를 실행할 수 있도록 준비해두는 것'이라 할 수 있다.
 - 여기서 일어나는 마법은, fs가 array 이며 well-formed iterable 이라는 것이다.
 - 즉, pipe에 몇개의 값을 집어넣든 fs 는 이를 iterable로 처리할 수 있다는 뜻이다.
+- 인자로 받은 ...fs 는 '배열로 뭉쳐서 받은 것([a, b, c])'이고, 내부에서 사용한 ...fs 는 '배열을 풀어서 사용하는 값(a, b, c)'이다. 
 
 
 
 ## curry
 
 f(x,y)를 f(x)(y) 형태로 사용할 수 있는 함수를 만들어줌으로써, 함수를 받아서 내가 원하는 시점에 호출하도록 하는 보조함수. 
+
+즉, 일반적인 함수를 유예처리기로 한번 감싸주는 것이다.
 
 ```javascript
 const curry = f =>
@@ -98,11 +107,11 @@ log(mult(3)(2)); //(f)
 
 커링 또는  partial application 은 보편적인 기술이다. 함수에 인자가 다 주어지지 않았을 경우, 미결상태인 함수로 결과를 리턴하는 것으로 결과를 유예시키는 것, 
 
-여기서는 함수를 인자로 받아서 처리하는 래퍼함수로 쓰는 보조함수로서의 역할을 한다. 
+여기서는 함수를 인자로 받아서 처리하는 래퍼함수로 쓰는 보조함수로서의 역할을 하는데, 두개의 인자를 처리하는 것으로 정의되어 있다.  (1 or ...n)
 
 
 
-
+#### 다른 커링 예시 
 
 ```javascript
 log([11, 11, 11, 11].map(parseInt)); // [11, NaN, 3, 4] - map의 index가 parseInt의 radix로 처리
@@ -111,4 +120,4 @@ const curry = f => a => f(a);
 log([11, 11, 11, 11].map(curry(parseInt))); // [11, 11, 11, 11] - 함수의 인자를 1개만 받도록 커링
 ```
 
-예시 출처 : 김정환 블로그
+출처 : 김정환 블로그
