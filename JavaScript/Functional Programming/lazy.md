@@ -81,6 +81,7 @@ const take = (l, iter) => {
         if (res.length === l) {
             return res;
         }
+        return res;
     }
 }
 ```
