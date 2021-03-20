@@ -85,3 +85,33 @@ const take = (l, iter) => {
 }
 ```
 
+- 주어진 length만큼만 iterable 을 순회하고 결과를 리턴하는 함수
+
+
+
+## L.map
+
+```javascript
+L.map = function* (f, iter) {
+    for (const i of iter) {
+        yield f(i);
+    }
+}
+```
+
+
+
+
+
+## L.filter
+
+```javascript
+L.filter = function* (f, iter) {
+    for (const i of iter) {
+        if (f(i)) {
+            yield i;
+        }
+    }
+}
+```
+
