@@ -116,3 +116,27 @@ L.filter = function* (f, iter) {
 }
 ```
 
+
+
+## 실행순서 비교
+
+```javascript
+go(
+    range(10),
+    map(n => n + 10),
+    filter(n => n % 2),
+    take(2),
+    log
+)
+
+go(
+    L.range(10),
+    L.map(n => n + 10),
+    L.filter(n => n % 2),
+    take(2),
+    log
+)
+```
+
+- 위의 go 는 코드가 아래로 순차적으로 실행되는 반면,
+- 아래의 코드는  take까지 통과해서 갔다가 다시 L.range로 거슬러올라온다.
