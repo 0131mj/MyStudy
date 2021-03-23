@@ -42,3 +42,29 @@ Promise 의 가장 큰 장점은 then으로 콜백지옥을 해결하는 것이 
 
 
 
+
+
+## Promise.then
+
+Promise는 몇번을 중첩하더라도 한번의 then 으로 값을 꺼낼 수 있다.
+
+즉 아무리 깊이 있는 Promise 도 then으로 쏙 뽑아낼 수 있다.
+
+```javascript
+Promise.resolve(
+     Promise.resolve(1)
+).then(log); // 1
+
+new Promise(
+    resolve => resolve(
+        new Promise(
+            resolve => resolve(1)
+        )
+    )
+).then(log); // 1
+```
+
+
+
+
+
