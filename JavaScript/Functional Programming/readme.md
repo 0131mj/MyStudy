@@ -30,36 +30,6 @@ const result = pipe( map(),sort() )(names);
 
 
 
-
-
-```javascript
-const oddsSum = (limit, iter) => {
-    let acc = 0;
-    for (const i of iter) {
-        if (i % 2) {
-            acc += i * i;
-            if (--limit === 0) break;
-        }
-    }
-    return acc;
-}
-
-const oddsSum2 = (limit, iter) =>  arr
-.filter(i => i % 2)
-.map(i => i * i)
-.splice(0, 3)
-.reduce((acc, cur) => acc + cur, 0)
-
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-log(oddsSum(3, arr));
-log(oddsSum2(3, arr));
-```
-
-
-
-
-
 ## 평가와 일급
 
 ### 평가
