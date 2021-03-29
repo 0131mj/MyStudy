@@ -201,3 +201,26 @@ interface Example {
 }
 ```
 
+
+
+
+
+인터페이스 확장하기
+
+```typescript
+interface Person {
+    name: string;
+    age: number;
+}
+
+interface Developer extends Person {
+    language: string;
+}
+
+const me: Developer = {
+    language: 'hi',
+    age: 23,
+    name: 'b'
+}
+```
+
