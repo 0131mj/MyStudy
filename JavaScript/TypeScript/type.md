@@ -22,6 +22,26 @@ let arr: [boolean, 2, string]
 
 
 
+## object
+
+객체타입 지정
+
+```typescript
+let person: object
+```
+
+
+
+타입이 있는 객체 지정
+
+```typescript
+let perseon: {name: string, age: number}
+```
+
+
+
+
+
 ## as const
 
 ```typescript

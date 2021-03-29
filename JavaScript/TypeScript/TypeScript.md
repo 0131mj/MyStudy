@@ -52,19 +52,6 @@ console.log(c); //1
 
 
 
-### union type
-
-```typescript
-let multiType: number | boolean;
-multiType = 20;
-multiType = true;
-multiType = 'hello'; / /Error
-```
-
-
-
-
-
 ## 함수 선언
 
 
