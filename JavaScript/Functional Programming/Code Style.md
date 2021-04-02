@@ -14,6 +14,8 @@
 
 
 
+즉, 기호나 변수들이 없어지고, 로직을 설명하는 키워드들이 많아진다. 
+
 
 
 ### filter
@@ -128,4 +130,62 @@ log(
 
 
 
+
+
+
+
+
+## map, filter, reduce를 섞어쓸 것.
+
+- reduce를 한번에 쓰려고 하지말고, 최종적으로 쓰며, map, filter를 먼저 적용할 것
+
+
+
+
+
+### query
+
+```javascript
+const obj1 = {
+    a: 1,
+    b: undefined,
+    c: "cc",
+    d: "dd"
+}
+const param = ([k,v]) => v === undefined ? "" : `${k}=${v}`;
+const query = (obj)=> Object
+	.entries(obj)
+	.map(param)
+	.join("&");
+```
+
+- fx.js 를 사용하면 더 보기좋고 간단하게 만들 수 있다. 
+
+
+
+#### queryToObj
+
+```javascript
+const queryToObj = (query) => {
+    const obj = {};        
+    const set = ([k,v])=>obj[k] = v;
+    query.split('&')
+        .map(param => param.split('='))
+        .forEach(set);
+    return obj;
+}
+```
+
+
+
+#### queryToObj2 - 키 밸류를 구성해놓은 상태로 assign 시키기
+
+```javascript
+const objRow = ([k,v])=>({[k]: v});
+const queryToObj = (query)=>        
+    query.split('&')
+        .map(param=>param.split('='))
+        .map(objRow)
+        .reduce((acc,cur)=>Object.assign(acc, cur), {})
+```
 

@@ -87,3 +87,6 @@ arr.reduce((acc,curVal) => return acc+curVal, 0)
 https://kwangyulseo.com/2015/06/16/javascript-reduce-%ED%95%A8%EC%88%98/
 
 https://www.zerocho.com/category/JavaScript/post/5acafb05f24445001b8d796d
+
+
+
