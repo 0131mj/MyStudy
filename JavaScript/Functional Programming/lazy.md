@@ -15,9 +15,11 @@ const range = function (limit) {
     }
     return res;
 }
+
+const range5 = range(5); // [0,1,2,3,4]
 ```
 
-
+- range(5)를 호출하는 순간 값이 생성되어 담겨버린다.
 
 ## L.range
 
@@ -31,9 +33,11 @@ L.range = function*(limit){
         yield i;
     }
 }
+
+const lrange5 = range(5); // L.range{<suspened>}
 ```
 
-
+- range(5)를 호출하는 순간, 값을 순회할 수 있는 이터러블구조를 리턴해준다.
 
 
 
