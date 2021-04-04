@@ -35,6 +35,29 @@ log(new Map(map(([k, v]) => [k, v * 2], m))); // Map(2) { 'a' => 20, 'b' => 40 }
 
 
 
+map 내부의 for  ...of  코드는 아래와 같이 풀어서 기술할 수 있다.
+
+```javascript
+const map = (f, iter) => {
+    const res = [];
+    iter = iter[Symbol.iterator]();
+    let cur;
+    while(!(cur = iter.next()).done){
+      const a = cur.value;
+      res.push(f(a));
+    }
+    return res;
+};
+```
+
+
+
+
+
+
+
+
+
 
 
 ## filter
