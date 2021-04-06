@@ -75,8 +75,6 @@ test('L.range', 10, ()=> reduce(add, L.range(10000)));
 
 
 
-
-
 ## take
 
 ```javascript
@@ -93,6 +91,24 @@ const take = (l, iter) => {
 ```
 
 - 주어진 length만큼만 iterable 을 순회하고 결과를 리턴하는 함수
+
+
+
+
+
+```javascript
+go(
+    L.range(10),
+    take(2),
+    log
+)
+```
+
+위의 코드는 어떻게 평가되는가?  take로 들어간 값은 10개의 값을 가진배열이 아니라, 제너레이터로 만들어진 이터러블이다.
+
+이 이터러블이 take에서 for...of 문을 수행할 때 꺼내어지므로, L.range(10)에서 next는 두번만 발생한다.
+
+(코드 실행이 끝나도 done이 된 상태가 아닌 것이다.)
 
 
 
