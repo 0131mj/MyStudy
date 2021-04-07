@@ -1,3 +1,3 @@
 # Map
 
-keys() 함수
+- keys(), values(), entries()가 모두 사용 가능하다.

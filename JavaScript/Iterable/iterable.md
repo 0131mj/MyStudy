@@ -76,6 +76,7 @@ const iterable = {
 - Iterable 은 문자열, 배열 등에 이미 구현되어 있다. 
 - 자바스크립트 엔진조차도 ES6 에서 Core Object 등이 변경되고 적용되어 있다. 
 - ES6 loop는 지연실행에 기반한 iterator 객체를 소비하는 형태로 되어있다. 
+- array는 대표적인 iterable이며, Map, Set, NodeList 등도 Object.entries를 사용하여 순회가 가능하다.
 
 
 
