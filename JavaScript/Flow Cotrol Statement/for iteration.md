@@ -70,3 +70,20 @@ for(const v of iter){
 
 
 
+## for  vs  while
+
+#### for
+
+- iteration
+
+- 상황이 확정적일 때 사용한다. (1부터 10까지 더하기...)
+
+
+
+#### while
+
+- recursive 
+- 상황이 불확실할 때 사용한다.
+
+
+
