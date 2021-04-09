@@ -1,3 +1,59 @@
+# Error
+
+프로그램은 여러 이유로 실패한다.
+
+에러가 났을 때, 제대로 처리 하지 않으면 에러가 있다는 것 조차 모르고 지나간다. 
+
+
+
+컴파일 에러가 나거나 프로그램이 죽거나 에러를 뿜어내면 다행인데, 
+
+컨텍스트 에러가 있어서 프로그램 스스로가 결함을 껴안고 문제를 숨겨버리면 에러를 찾기 힘들다. 
+
+
+
+##### 나쁜 예시
+
+```javascript
+const double = (a) => {
+    if(typeof a !== "number"){
+        a = 0;
+    }
+    return a * 2;
+}
+```
+
+위의 코드는 에러에 대한 내결함성을 갖고 있다. 
+
+
+
+##### 올바른 해결
+
+```javascript
+const double = (a) => {
+    if(typeof a !== "number"){
+		throw `invalid value ${a}`;
+    }
+    return a * 2;
+}
+
+try {
+  double(null);
+} catch(e){
+  console.error(e);
+}
+```
+
+
+
+
+
+
+
+
+
+
+
 ## CORS
 
 - Access to fetch at 'http://localhost:4000/' from origin 'http://localhost:3000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
