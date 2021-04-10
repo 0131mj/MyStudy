@@ -32,7 +32,7 @@ for (; ; ;){
 
 
 
-# for ( in )
+## for ( in )
 
 객체의 속성을 순회할때 사용하는데, 몇가지 주의해야 할 점(단점) 이 있다. 
 
@@ -44,7 +44,7 @@ for (; ; ;){
 
 
 
-# for ( of )
+## for ( of )
 
 배열의 원소를 순회하기 위해 사용하는 구문
 
@@ -86,4 +86,36 @@ for(const v of iter){
 - 상황이 불확실할 때 사용한다.
 
 
+
+
+
+
+
+## for문을 바라보는 관점
+
+for문은 루프의 컨텍스트를 공유한 일반 함수호출과 같다. 
+
+재귀호출이 계속해서 변수를 집어넣어서 호출을 하는 반면,  스코프를 공유변수를 변경해서 계속 함수를 호출하는 것으로 이를 대신하는 것이다.
+
+재귀는 인자에만 의존하기 때문에 공유변수같은건 없다.
+
+```javascript
+const f = (arr) => {
+    for(let i = 0; i <arr.length; i++){
+        console.log(arr[i]);
+    }
+}
+```
+
+
+
+```javascript
+const f = (arr) => {
+    let i = 0;
+    const innerF = () => {
+      console.log(arr[i]);
+    };
+    for (i; i < arr.length; i++) innerF();
+  };
+```
 

@@ -48,6 +48,38 @@ try {
 
 
 
+### 에러처리 사례
+
+```javascript
+const validCheck = {
+    err(msg) {
+        throw new Error(msg);
+    },
+    isNotEmptyArray(arr) {
+        if (!Array.isArray(arr)) this.err(`${arr} is not array`);
+        if (arr.length === 0) this.err(`arr is empty`);
+    }
+};
+
+const recF = (arr) => {
+    validCheck.isNotEmptyArray(arr);
+    const sum = (arr, i, acc) =>
+        typeof arr[i] !== "number"
+            ? validCheck.err(`invalid value(index: ${i}): ${arr[i]}`)
+            : (i > 0 ? sum(arr, i - 1, arr[i] + acc) : acc);
+    return sum(arr, arr.length - 1, arr[0]);
+};
+
+try {
+    console.log("result: ", recF([2, null]));
+} catch (e) {
+    console.error(e);
+}
+
+```
+
+
+
 
 
 
