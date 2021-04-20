@@ -29,3 +29,37 @@
 
 1. 재귀 대신 반복문을 사용한다.
 2. 꼬리 재귀를 사용한다.
+
+
+
+##### 예제 1 : 카운트 다운
+
+```python
+def countdown(i):
+    print(i)
+    if i <= 1:
+        return
+    else:
+        countdown(i-1)
+
+countdown(10)
+```
+
+
+
+
+
+##### 예제 2 : factorial
+
+```python
+def fact(x):
+    if(x == 1):
+        return x
+    else:
+        return x * fact(x-1)
+
+print(fact(3))
+```
+
+
+
