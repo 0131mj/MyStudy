@@ -58,8 +58,10 @@ def fact(x):
     else:
         return x * fact(x-1)
 
-print(fact(3))
+print(fact(3)) 
 ```
 
-
+- 3 * fact(2) : 첫번째 평가
+- 3 * (2 * fact(1)) : 두번째 평가
+- 3 * (2 * (1)) : 마지막 평가
 
