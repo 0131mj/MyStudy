@@ -2,7 +2,7 @@
 
 어떤 특정 gemetry 속에서 left, top 등을 결정하는 룰을 지정하는 방식(계산식)
 
-- static
+- static: 
 - relative
 - absolute
 - fixed
