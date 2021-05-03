@@ -5,3 +5,10 @@
   -moz-text-size-adjust: none !important;
   -ms-text-size-adjust: none !important;
 ```
+
+## 미디어쿼리로, 현재 브라우저가 hover를 지원하는지 확인하는 방법
+```css
+  @media (hover: hover){
+    ...
+  }
+```
