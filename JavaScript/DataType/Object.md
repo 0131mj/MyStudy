@@ -20,7 +20,7 @@
 
 ## 1. 객체란?
 
-객체는 해쉬형태로 이루어진, 프로퍼티(key : value 형태)를 저장하는 컨테이너
+객체는 프로퍼티를 저장하는 해쉬형태의 컨테이너
 
 ```javascript
 //apple object
@@ -29,6 +29,8 @@ var apple = {
   	taste : 'sweet'  //taste property
 }
 ```
+
+- 프로퍼티 : (key : value) 의 구성을 통칭해서 property 라고 한다.
 
 
 

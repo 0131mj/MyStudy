@@ -4,5 +4,9 @@
 
 아래의 주소에서는 콘솔에 대한 다양한 정보를 알 수 있다. 
 
+
+
+크롬에서는 단축키 Ctrl Shift i ;
+
 https://console.spec.whatwg.org/
 

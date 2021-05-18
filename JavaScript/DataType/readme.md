@@ -17,7 +17,56 @@
 
 
 
-## 자바스크립트의 자료형은 크게 2종류
+
+
+## 언어타입(Language types)과 사양 타입 (Specification types)
+
+EcmaScript 에서는 타입을 두 가지 하위분류로 나눈다. 
+
+
+
+### 언어타입
+
+ECMAScript 프로그래머가 언어를 사용하여 직접 조작하기 위한 타입
+
+- Undefined
+- Null
+- Boolean
+- String
+- Number,
+- Object
+
+
+
+### 사양 타입 (스펙타입 or 명세타입)
+
+사양 타입은 ECMAScript 언어 구조 및 ECMAScript 언어 유형의 의미를 설명하기 위해 알고리즘 내에서 사용되는 메타 값으로, 
+
+ECMAScript 표현식 평가의 중간 결과를 설명하는 데 사용할 수 있지만 이러한 값은 객체의 속성이나 ECMAScript 언어 변수의 값으로 저장할 수 없다.
+
+- Reference
+
+- List
+
+- Completion
+- Property Descriptor 
+- Environment Record
+- Abstract Closure
+- Data Block
+
+
+
+https://tc39.es/ecma262/#sec-ecmascript-language-types
+
+
+
+---
+
+
+
+
+
+## 자바스크립트의 언어타입은 크게 2종류
 
 - 값과 참조를 정의하는 방식은 언어마다 다르다. 
 - 값이 아니면 모두 참조이다. 
@@ -35,7 +84,7 @@ var undefined;        // 정의되지 않음
 ```
 
 - 기본타입(5종) : string, number, boolean, null, undefined
-- typeof 연산자를 사용해 자료형을 확인한다. 
+- typeof 연산자를 사용해 자료형을 확인한다. (typeof 연산자와 같은 것를 keyword 라고 부르기도 한다. )
 - 복사하면 값 자체가 복사된다. 
 - 함수인자로 값이 전달되면 복사되어서 넘어간다. 
 
@@ -50,9 +99,7 @@ var rx = new RegExp();
 ```
 
 - 참조타입-객체(3종) : Function, Array, RegExp
-
 - instanceof 연산자를 사용해 참조형태를 확인한다. 
-
 - 복사하면 힙주소가 복사된다. 
 
 ---
@@ -85,6 +132,4 @@ b = null;
 console.log(a); // [1, 2, 3]
 console.log(b); // null
 ```
-
-
 
