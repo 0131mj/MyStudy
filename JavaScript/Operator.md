@@ -207,6 +207,21 @@ a += 2; // a = 3
 
 
 
+### 단항연산자
+
++, - 로 뒤에오는 값을 숫자로 바꾸어 리턴한다.
+
+```javascript
+var a = '5';
+var numA = +a;
+var numB = -a;
+console.log(numA);
+```
+
+
+
+
+
 
 ### 증감 연산자
 
