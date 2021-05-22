@@ -43,3 +43,30 @@ search
 ### replaceAll
 이 함수는 생각보다 최근에 도입되었다. 
 Node.js 는 15.0.0 부터, Chrome 85 부터 지원한다. 
+
+
+
+
+
+## Unicode
+
+> 전 세계의 모든 문자를 다루도록 설계된 표준문자 전산처리방식 - 나무위키
+
+
+
+
+
+## UTF
+
+Unicode Transformation Format
+
+유니코드의 코드포인트를 맵핑하는 방법
+
+
+
+UTF-8로 코드포인트 맵핑시 아래와 같이 태그 사용
+
+```html
+<meta charset="utf-8">
+```
+
