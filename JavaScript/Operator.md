@@ -317,9 +317,25 @@ userName이 있으면 logIn을, 없으면 singUp을 리턴한다.
 
 
 
-### typeof
+대소비교 연산자
 
-typeof 도 연산자이다. 
+
+
+---
+
+
+
+### 관계 연산자
+
+- in
+- instanceof
+- typeof
+
+
+
+#### typeof
+
+typeof 도 연산자이다. (관계 연산자)
 
 typeof는 피연산자의 타입을 문자열 형태로 리턴하는데, 주의할 점은 다음과 같다. 
 
