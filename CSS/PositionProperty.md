@@ -60,6 +60,14 @@
 
 
 
+## fixed
+
+### 기준
+- 기본 컨테이닝 블록(body)을 기준으로 한다.
+- 단 조상중에서 transform, perspective, filter 중 none 이 하나라도 있는게 있으면 그 조상이 기준 컨테이닝 블록이 된다.
+- 즉, body가 기본적으로 기준이 되지만 예외를 두고 싶을 경우 위의 속성을 가진 엘리먼트로 막으면 그게 기준이 된다. 
+
+
 
 
 ----
@@ -81,5 +89,4 @@
 헷갈리는 개념들 정리하기
 
 - margin-left vs left
-- fixed vs absolute
 - padding vs margin
