@@ -26,8 +26,8 @@
 
 ### static vs relative
 
-- relative 가 위로 올라온다. 
-- relative 끼리는 z-index 가 경합을 벌인다. 
+- relative가 위로 올라온다. 
+- relative끼리는 z-index 가 경합을 벌인다. 
 
 
 
