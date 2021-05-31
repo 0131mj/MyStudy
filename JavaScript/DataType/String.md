@@ -38,7 +38,7 @@ typeof abc3def; //string
 
 ## 내장함수
 
-search
+- search
 
 ### replaceAll
 이 함수는 생각보다 최근에 도입되었다. 
