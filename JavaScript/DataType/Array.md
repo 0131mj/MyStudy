@@ -51,8 +51,6 @@ var colorObject = {
 
 #### 3. 프로토타입
 
-부모가 다르다. 
-
 - Array  >  Array.prototype  >  Object.prototype
 - Object > Object.prototype 
 
