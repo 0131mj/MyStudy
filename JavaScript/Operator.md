@@ -319,9 +319,21 @@ userName이 있으면 logIn을, 없으면 singUp을 리턴한다.
 
 #### 대소비교 연산자
 
-대소비교 연산자는 기본적으로 false 를 반환한다. 
+아래와 같은 결과는 true를 반환하는데, 아래와 같은 케이스에서 자바스크립트는 내부적으로 우선 Boolean으로 값을 캐스팅 한 후에 비교한다는 것을 알수 있다.
 
-아래와 같이 타입이 다르거나 이상한 연산은 false로 처리된다. 
+```javascript
+console.log(0 < true); // true
+```
+
+
+
+
+
+#### string 타입 비교
+
+String 타입을 서로 비교할 경우, 유니코드를 비교한다. 
+
+아래와 같이 하나만 문자타입인 연산은 false로 처리된다. 
 
 ```javascript
 console.log(1 > 'a')
@@ -331,12 +343,6 @@ console.log(undefined > 'a')
 console.log(null > 'a')
 console.log(null < 'a')
 ```
-
-
-
-#### string 타입 비교
-
-String 타입을 서로 비교할 경우, 유니코드를 비교한다. 
 
 
 
