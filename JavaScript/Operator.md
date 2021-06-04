@@ -403,3 +403,11 @@ let "a" in {a:1, b:2, c:3} // true
   - AND(&&), 
   - OR ||
   - 삼항연산자(? :)
+
+
+
+
+
+연산자 우선순위
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
