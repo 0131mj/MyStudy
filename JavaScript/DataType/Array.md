@@ -151,7 +151,7 @@ for문은 인덱스만 열거하는 데 비해, for in 문은 안에 들어있�
 
 
 ### Array.from()
-- 내장객체 Array의 static 메소드로, 유사배열 혹은 이터러블을 얄게 복사하여 새로운 Array를 만들어준다.
+- 내장객체 Array의 static 메소드로, 유사배열 혹은 이터러블을 얉게 복사하여 새로운 Array를 만들어준다.
 
 
 ## Object.entries
