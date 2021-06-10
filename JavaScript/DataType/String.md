@@ -1,6 +1,6 @@
 # String
 
-
+문자열이라고도 한다.
 
 ## String primative vs String object
 
