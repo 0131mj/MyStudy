@@ -109,9 +109,7 @@ console.log(b); // null
 ECMAScript 표현식 평가의 중간 결과를 설명하는 데 사용할 수 있지만 이러한 값은 객체의 속성이나 ECMAScript 언어 변수의 값으로 저장할 수 없다.
 
 - Reference
-
 - List
-
 - Completion
 - Property Descriptor 
 - Environment Record
