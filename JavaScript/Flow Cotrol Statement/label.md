@@ -14,7 +14,7 @@
 
 - label : "Function Scope"를 따르며, 같은 "함수 스코프" 내에서 중복선언이 불가
 - break : 모든 레이블 구문에서 사용가능한 탈출명령어
-- continue : 반복레이블 구문에서만 사용가능한 탈출명령어
+- continue : 반복레이블 구문에서만 사용가능한 탈출명령어 (for, for~in, while, do~while)
 
 
 
