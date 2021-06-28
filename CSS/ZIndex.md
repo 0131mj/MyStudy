@@ -1,7 +1,7 @@
 # zIndex
 
 ## Stacking Context
-Stacking Context 가 발생하는 조건 : 
+Stacking Context 가 발생하는 조건
 - html
 - z-index가 auto가 아닌 엘리먼트
 - position: fixed or sticky
