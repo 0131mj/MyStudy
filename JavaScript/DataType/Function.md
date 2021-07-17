@@ -86,6 +86,8 @@ function add(x, y){
 - 함수는 기본적으로 값이기 때문에 변수에 할당하는 것이 옳은 방법이다.
 - (클래스도 마찬가지로, 선언과 동시에 변수에 할당하는 것이 좋다.)
 
+함수의 첫문자 : 영문자, _, $ 가 사용가능하다.
+
 ### 함수 정의
 
 ### 함수 리터럴
@@ -215,5 +217,19 @@ console.log(typeof(Function.__proto__.__proto__)) // object
 
 
 - call by value : 값이 복사되어 함수 안으로 들어감 (바깥의 값은 영향받지 않음)
-
 - call by reference : 값의 주소가 함수 안으로 들어감 (바깥의 값에 영향을 줌)
+
+
+
+함수는 호출이 끝나면 리턴을 한다. 
+
+명시적으로 return 값을 대입해주면 값을 가지고 리턴하고, 그렇지 않으면 undefined 를 암시적으로 return 한다.
+
+```javascript
+const f = () => 1;
+console.log(typeof f()); // number
+
+const f1 = () => {};
+console.log(typeof f1()) // undefined
+```
+
