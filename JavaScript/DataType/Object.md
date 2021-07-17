@@ -404,7 +404,7 @@ const objNew = {
 
 
 
-## 4. 내장객체 
+## 4. 내장객체 (Built-in)
 
 내장객체의 경우, 첫글자가 대문자이면 생성자로 사용가능하다. 
 
@@ -426,3 +426,15 @@ const objNew = {
 ### 3) String(숫자) 
 
 숫자를 문자로 바꿔줌
+
+
+
+### 4) Number
+
+- Number Object의 스펙을 확인하려면, 아래와 같이 테스트해보면 된다. 
+
+```javascript
+console.dir(Number)
+```
+
+그러면 isNaN, MIN_VALUE 등 내장된 함수와 값이 나온다.
