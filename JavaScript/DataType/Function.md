@@ -210,7 +210,7 @@ console.log(typeof(Function.__proto__.__proto__)) // object
 
 ## 함수의 실행방식
 
-함수의 매개변수에 어떤 값을 집어넣느냐에 따라 실행되는 방식이 달라진다. 
+함수의 매개변수에 어떤 값을 집어넣냐에 따라 실행되는 방식이 달라진다. 
 
 기본타입을 집어넣으면 call by value 로 작동하고 참조타입으로 넣으면 call by reference로 작동한다.
 
