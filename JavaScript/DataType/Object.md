@@ -408,6 +408,18 @@ const objNew = {
 
 내장객체의 경우, 첫글자가 대문자이면 생성자로 사용가능하다. 
 
+- Number
+- String
+- Boolean
+- Object
+- Array
+- Function
+- Math
+- Date
+- JSON
+- RegExp
+- Global
+
 ### 1) window 객체 
 
 - document : JavasScript 언어와 HTML 언어 간의 통역사의 기능을 한다. 
