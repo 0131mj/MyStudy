@@ -67,3 +67,26 @@ UTF-8로 코드포인트 맵핑시 아래와 같이 태그 사용
 <meta charset="utf-8">
 ```
 
+
+
+
+
+## .length()
+
+문자열의 길이를 구할 수 있다. 
+
+```javascript
+const str = "hello";
+console.log(str.length);
+```
+
+.length를 만나게되면 내부적으로 임시적인 String 인스턴스 (오브젝트) 를 생성하게 된다. 
+
+아마 이런 모양일 것이다.
+
+```javascript
+new String(str)
+```
+
+
+
