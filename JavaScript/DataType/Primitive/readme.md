@@ -34,6 +34,7 @@ Primitive 값이 있고, Primitive 값을 갖는 Built-in Object 가 있다.
 #### [[Primitive]] 
 
 - 내부적으로 [[Primitive]]라는 값을 갖는데 이 대괄호 두개[[ ]]는 자바스크립트 엔진에 의해 생성되었다는 표식이다.
+- 이 값은 직접적으로 접근이 불가하며, valueOf연산자로 출력해낼 수 있다.
 
 
 
