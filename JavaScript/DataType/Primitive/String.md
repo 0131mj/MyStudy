@@ -2,7 +2,9 @@
 
 문자열이라고도 한다.
 
-## String primative vs String object
+
+
+## String Object vs string primitive
 
 ```javascript
 const abc  = "abc";
@@ -27,6 +29,8 @@ typeof abc2de; //string
 typeof abc3de; //string
 typeof abc3def; //string
 ```
+
+string primitive 에 바로 .을 붙여서 함수를 호출할 수 있는데, 이는 컴파일시 자바스크립트엔진이 내부적으로 primitive를 String Object로 변환해서 업무를 수행하기 때문이다.
 
 
 
@@ -115,3 +119,72 @@ str = {
 
 
 
+
+
+### String.prototype.toString()
+
+toString은 대부분의 빌트인 오브젝트에 포함되어 있으며, String의 prototype에도 toString이 있다. 
+
+String 인스턴스를 생성하면 prototype에 toString이 포함되어 나오며 toString은 String Object의 Primitive 값을 반환한다.
+
+```javascript
+var a = new String(123);
+console.log(typeof a); //object
+var b = a.toString();
+console.log(typeof b); //string
+```
+
+
+
+#### 다른 인스턴스의 toString 과의 차이점
+
+Number 또는 Boolean 빌트인 오브젝트 등에 포함되어 있는 toString은 형변환의 용도인 반면,
+
+String의 toString은 자신의 Primitive를 그대로 반환하도록 하는 일종의 가드 역할을 한다. 
+
+
+
+만약 String의 prototype에 toString이 없다면 해당 인스턴스는 프로토타입 체이닝에 의해 
+
+Object 빌트인 오브젝트의 toString까지 찾아서 거슬러올라갈 것이다. 
+
+하지만 자신의 Primitive를 그대로 반환하는 함수를 prototype에 내재해둠으로서 프로토타입 체이닝을 미연에 방지하는 역할을 수행한다.
+
+
+
+```javascript
+var a = new String("abc");
+a.toString(); // primitive 반환 : "abc", 만일 이게 없다면
+a.__proto__.toString(); // object에서 찾음 [object Object] : 값이 이상하게 출력
+```
+
+
+
+#### toString()
+
+그냥 toString만 작성하면 Object빌트인 오브젝트의 toString을 호출한다.
+
+
+
+### String.prototype.charAt(n)
+
+문자열에서 n 번째 문자를 반환
+
+해당 문자열이 없을 경우, charAt은 공백문자("")를 반환하며 string[n] 의 경우 undefined 를 반환함
+
+
+
+
+
+### substring vs substr vs slice
+
+- substring(start, end) : start ~ end-1까지
+- substr(start, length) : start ~ length 개
+- slice(start, end): start ~  end까지
+
+
+
+### indexOf vs search
+
+- indexOf 는 문자를 검색하는데 비해,
+- search는 정규표현식을 파라미터로 할 수 있다.

@@ -47,6 +47,7 @@ console.dir(foo);
 - foo에서 Human 생성자 함수의 프로토타입에 프로퍼티나 함수를 추가하려면, foo.constructor.prototype 방식을 사용한다.
 - prototype과 `__proto__`는 결국 같은 대상을 가리키는데, 그 대상은 Human의 prototype이다.
 - 원시값이 아닌 모든 참조값은 `__proto__`속성을 갖는다.
+- 어떤 객체에 프로퍼티가 없다면 프로퍼티를 찾을 때까지  `__proto__` 를 계층적으로 탐색한다.
 
 
 
