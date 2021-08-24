@@ -60,11 +60,30 @@ var obj = {
 
 
 
+### 객체의 종류
+
+- Native Object
+  - JS 스펙에서 정의한 Object
+    - Built -in Object
+      - Number
+      - String
+      - ...
+  - 실행시 만들어지는 Object
+    - Argument Object : 함수 호출시 일시적으로 생겨나고 함수종료시 없어짐
+- Host Object
+  - window
+  - DOM
+- User-Defined Object
 
 
-## 2. 객체의 정의 및 생성
 
-자바스크립트에서 객체를 만들어 내기 위해 사용하는 방법은 3가지가 있다. 
+
+
+
+
+## 2. 객체 인스턴스의 정의 및 생성
+
+자바스크립트에서 객체 인스턴스를 만들어 내기 위해 사용하는 방법은 3가지가 있다. 
 
 1. 자바스크립트 내장 생성자 이용 - new Object()
 2. 사용자 정의 생성자 이용 - new Person()
@@ -88,7 +107,7 @@ var obj = {
 
 
 
-#### 객체의 정의 방법 
+#### 객체 인스턴스의 정의 방법 
 
 ```javascript
 var mySon = new Object();
@@ -115,7 +134,18 @@ function Number(){
 }
 ```
 
+- new Object가 항상 Object 인스턴스를 만들어내는 것은 아니다. 예를 들어 new Object(1) 을 하면 Number 인스턴스를 생성한다.
+  또한 Object() 를하는 것은 타입을 캐스팅 하는 것이 아니라, Object 인스턴스를 만들어내는 역할을 한다. (그냥 new 가 빠진 것이다.)
+  Number("123")이 문자열을 Number타입으로 강제캐스팅을 하는것과 다르다.
+  위에서 빈 객체가 만들어지는 이유는 new Object() 에 아무 값도 집어넣지 않았을때, undefined 가 입력된 것과 동일하게 자바스크립트엔진이 처리하기 때문이고, undefined 혹은 null을 매개변수로 만든 Object 인스턴스가 빈 객체를 반환하는 로직이 심어져있기 때문이다.
 
+```javascript
+var obj = new Object();
+console.log(obj); // {}
+
+var obj2 = new Object(undefined);
+console.log(obj2); // {}
+```
 
 
 
@@ -185,7 +215,7 @@ var mySon ={
 
 리터럴은 풀어서 직접기재하여 객체를 정의하는 방식이다. 코드가 간결하고 가독성이 높아서 객체 생성구문으로 많이 사용된다. 
 
-객체 리터럴을 사용해 객체를 생성하는 방법은 내부적으로 new Object를 수행한 후 멤버를 구성하는 방법과 동일한 절차를 따른다. 또한 이렇게 정의된 멤버는 모두 외부에서 접근할 수 있는 공개 멤버이다. 
+객체 리터럴을 사용해 객체 인스턴스를 생성하는 방법은 내부적으로 new Object를 수행한 후 멤버를 구성하는 방법과 동일한 절차를 따른다. 또한 이렇게 정의된 멤버는 모두 외부에서 접근할 수 있는 공개 멤버이다. 
 
 
 
@@ -365,6 +395,19 @@ const objNew = {
 
 
 ### 4) 객체관련 연산자 및 메소드
+
+
+
+#### valueOf
+
+- 해당 인스턴스의 Primitive 값을 반환한다. 
+
+```javascript
+const num = new Number(123);
+console.log(valueOf(num)); //123
+```
+
+
 
 
 
