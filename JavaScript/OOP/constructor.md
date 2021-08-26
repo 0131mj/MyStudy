@@ -70,3 +70,6 @@ const a = new Function(); // a.__proto__ === f();
 const b = new Object();   // b.__proto__ === Object;
 ```
 
+
+
+new Number() 는 Number.prototype.constructor 를 사용하여 인스턴스를 생성해낸다.

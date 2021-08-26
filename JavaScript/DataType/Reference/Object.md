@@ -398,6 +398,24 @@ const objNew = {
 
 
 
+프로퍼티 플래그
+
+```javascript
+console.clear();
+function Test1() {}
+delete (Test1.prototype);
+var hasPrototype = Test1.hasOwnProperty("prototype");    
+console.log(Object.getOwnPropertyDescriptor(Test1, "prototype"))
+console.log("hasPrototype:", hasPrototype )
+var t1 = new Test1();
+console.log(t1);
+
+```
+
+
+
+
+
 #### valueOf
 
 - 해당 인스턴스의 Primitive 값을 반환한다. 
@@ -463,6 +481,16 @@ console.log(valueOf(num)); //123
 - RegExp
 - Global
 
+
+
+### prototype
+
+- 내장객체에 .prototype 프로퍼티가 있으면 인스턴스를 생성할 수 있다. 
+- 즉, prototype은 인스턴스 생성가능 여부의 기준이 된다. 
+- 예를 들어 Math Object의 경우, prototype이 존재하지 않으므로 인스턴스를 만들어낼 수 없다.
+
+
+
 ### 1) window 객체 
 
 - document : JavasScript 언어와 HTML 언어 간의 통역사의 기능을 한다. 
@@ -493,3 +521,26 @@ console.dir(Number)
 ```
 
 그러면 isNaN, MIN_VALUE 등 내장된 함수와 값이 나온다.
+
+
+
+## function vs method
+
+### function
+
+- 연결 : Object.create() 와 같이 오브젝트에 바로 연결되어 있다.
+- 호출: Object.create() 처럼 바로 호출한다. 
+- 작성: 파라미터에 값을 작성한다.
+
+### method
+
+- 연결: Object.prototye.toString() 와 같이 prototype에 연결되어 있다. 
+- 호출: Object.prototype.toString() 처럼 호출하거나 인스턴스를 생성하여 호출한다.
+- 작성: method 앞에 값을 작성한다. 
+
+```javascript
+const num = 123;
+console.log(num.toString()); //"123"
+```
+
+데이터타입에 따라 Number 인스턴스를 생성한 뒤, prototype에 포함된Number.prototype.toString()을 호출한다.

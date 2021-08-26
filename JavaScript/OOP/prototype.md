@@ -1,5 +1,12 @@
 # prototype
 
+1. prototype은 프로퍼티를 연결하는 오브젝트이다. 
+2. prototype은 인스턴스 생성 가능 여부 기준이 된다. 
+   내장 객체 중에서도 prototype 을 가지지 않은 Math는 new Math() 이런 식으로 객체를 생성하지 못한다. 
+   왜냐하면 인스턴스는 prototype에 있는 constructor 로 생성되기 때문이다. 
+
+
+
 
 
 ```javascript
