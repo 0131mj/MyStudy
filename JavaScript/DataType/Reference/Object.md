@@ -467,7 +467,43 @@ console.log(valueOf(num)); //123
 
 ## 4. 내장객체 (Built-in)
 
-내장객체의 경우, 첫글자가 대문자이면 생성자로 사용가능하다. 
+### prototype
+
+- 내장객체에 .prototype 프로퍼티가 있으면 인스턴스를 생성할 수 있다. 
+- 즉, prototype은 인스턴스 생성가능 여부의 기준이 된다. 
+- 예를 들어 Math Object의 경우, prototype이 존재하지 않으므로 인스턴스를 만들어낼 수 없다.
+
+
+
+### 공통 메소드
+
+모든 Built-in Object의 `__proto__`에는 Object.prototype의 6개 메소드가 설정되어 있다. 
+
+- constructor 
+- hasOwnProperty
+- propertyIsEnumerable
+- toLocaleString
+- toString
+- valueOf
+- isPrototypeOf
+
+#### toString()
+
+Object의 toString은 인스턴스의 타입을 문자열로 표시한다. 
+
+```javascript
+const obj = {};
+console.log(obj.toString()); // [object Object]
+
+const date = new Date();
+console.log(Object.prototype.toString.call(num)) // [object Date]
+```
+
+앞의 object는 인스턴스를, 뒤의 결과는 빌트인 Object를 나타낸다.
+
+
+
+## Built - in 오브젝트의 종류
 
 - Number
 - String
@@ -480,14 +516,6 @@ console.log(valueOf(num)); //123
 - JSON
 - RegExp
 - Global
-
-
-
-### prototype
-
-- 내장객체에 .prototype 프로퍼티가 있으면 인스턴스를 생성할 수 있다. 
-- 즉, prototype은 인스턴스 생성가능 여부의 기준이 된다. 
-- 예를 들어 Math Object의 경우, prototype이 존재하지 않으므로 인스턴스를 만들어낼 수 없다.
 
 
 
