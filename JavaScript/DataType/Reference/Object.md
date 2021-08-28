@@ -516,6 +516,7 @@ console.log(Object.prototype.toString.call(num)) // [object Date]
 - JSON
 - RegExp
 - Global
+- Argument
 
 
 

@@ -1,16 +1,30 @@
 # call vs apply vs bind
 
+Function.prototype에는 이 세 메소드가 등록되어 있다. 
+
+따라서 모든 함수는 call, apply, bind를 사용할 수 있다. 
+
 - call 이나 apply는 거의 비슷하다. 
 
 - call은 실행할 때의 컨텍스트를 바꾸는 것이고, bind 는 해당 함수를 고정으로 박아둔 함수 자체를 만들어내는 것이다.
 
 - 한계 : call 과 apply 로는 생성자의 인자로 사용할수 없다. 
 
-  ## 
+
 
 ## call()
 
-모든 함수는 call이라는 메소드를 갖고 있다.  call의 매개변수로 인자를 전달해주면 this는 call 안에 들어있는 매개변수를 가리키게 된다. 
+Function.prototype에 call이 등록되어 있고, 모든 함수는 Fuction.prototype을 상속하므로
+
+모든 함수는 functionName.call()의 형식을 사용할 수 있다. 
+
+즉, 함수이름 뒤에 붙어서 사용하는 것이 call이다. 
+
+
+
+call에서 매개변수를 전달해주면
+
+이제 functionName에서 사용하는 this는 해당 매개변수를 가리키게 된다. 
 
 ```javascript
 var a = { first : 10, second : 20 }
