@@ -17,9 +17,9 @@
 ## 함수
 
 - isNaN()
-- isFinite()
-- eval()
-- encodeURI()
+- isFinite() : 인자의 내부값을 Number타입으로 반환후, boolean으로 유한대여부 판단
+- eval() : 문자열을 코드로 바꿔주는 기능을 한다. 보안상의 문제 때문에 사용을 금한다.
+- encodeURI() :  URI(주소창 끝에 첨부되는 값)을 인코딩하여 "%16진수%16진수"형태로 반환(일부 특수문자 제외)
 - decodeURI()
 
 

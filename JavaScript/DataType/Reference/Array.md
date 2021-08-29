@@ -154,5 +154,13 @@ for문은 인덱스만 열거하는 데 비해, for in 문은 안에 들어있�
 ### Array.from()
 - 내장객체 Array의 static 메소드로, 유사배열 혹은 이터러블을 얕게 복사하여 새로운 Array를 만들어준다.
 
-
 ## Object.entries
+
+
+
+
+
+## Array vs New Array
+
+- new Array() : new 연산자에서 생성자 함수를 호출하여 인스턴스 생성
+- Array() : new 직접 생성자 함수를 호출하여 인스턴스 생성
