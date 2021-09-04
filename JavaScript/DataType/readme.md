@@ -40,6 +40,8 @@ ECMAScript 프로그래머가 언어를 사용하여 직접 조작하기 위한 
 - 값과 참조를 정의하는 방식은 언어마다 다르다. 
 - 값이 아니면 모두 참조이다. 
 
+
+
 #### (1) Primative(값)
 
 ```js
@@ -57,7 +59,7 @@ var undefined;        // 정의되지 않음
 
 
 
-##### (2) Reference(참조)
+#### (2) Reference(참조)
 
 ```javascript
 var func = function();

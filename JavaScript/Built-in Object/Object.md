@@ -463,113 +463,11 @@ console.log(valueOf(num)); //123
 
 
 
+##### Object.defineProperty()
 
+오브젝트에 값과 속성을 정의할 때 사용한다. 
 
-## 4. 내장객체 (Built-in)
+오브젝트의 property는 단순히 key value 로만 이뤄진 게 아니라 삭제가능 여부와 같은 메타정보도 함께 가지고 있다. 
 
-### prototype
+이 메타정보와 키, 값을 아울러서 정의할 때 이 함수를 사용한다. 
 
-- 내장객체에 .prototype 프로퍼티가 있으면 인스턴스를 생성할 수 있다. 
-- 즉, prototype은 인스턴스 생성가능 여부의 기준이 된다. 
-- 예를 들어 Math Object의 경우, prototype이 존재하지 않으므로 인스턴스를 만들어낼 수 없다.
-
-
-
-### 공통 메소드
-
-모든 Built-in Object의 `__proto__`에는 Object.prototype의 6개 메소드가 설정되어 있다. 
-
-- constructor 
-- hasOwnProperty
-- propertyIsEnumerable
-- toLocaleString
-- toString
-- valueOf
-- isPrototypeOf
-
-#### toString()
-
-Object의 toString은 인스턴스의 타입을 문자열로 표시한다. 
-
-```javascript
-const obj = {};
-console.log(obj.toString()); // [object Object]
-
-const date = new Date();
-console.log(Object.prototype.toString.call(num)) // [object Date]
-```
-
-앞의 object는 인스턴스를, 뒤의 결과는 빌트인 Object를 나타낸다.
-
-
-
-## Built - in 오브젝트의 종류
-
-- Number
-- String
-- Boolean
-- Object
-- Array
-- Function
-- Math
-- Date
-- JSON
-- RegExp
-- Global
-- Argument
-
-
-
-### 1) window 객체 
-
-- document : JavasScript 언어와 HTML 언어 간의 통역사의 기능을 한다. 
-- alert  : 원래의 정체는 window.alert이다. 
-- console.dir() : 객체 형식으로 출력하기 
-- console.dir(document)
-
-
-
-### 2) Math.random
-
-완벽한 랜덤은 아니다??
-
-
-
-### 3) String(숫자) 
-
-숫자를 문자로 바꿔줌
-
-
-
-### 4) Number
-
-- Number Object의 스펙을 확인하려면, 아래와 같이 테스트해보면 된다. 
-
-```javascript
-console.dir(Number)
-```
-
-그러면 isNaN, MIN_VALUE 등 내장된 함수와 값이 나온다.
-
-
-
-## function vs method
-
-### function
-
-- 연결 : Object.create() 와 같이 오브젝트에 바로 연결되어 있다.
-- 호출: Object.create() 처럼 바로 호출한다. 
-- 작성: 파라미터에 값을 작성한다.
-
-### method
-
-- 연결: Object.prototye.toString() 와 같이 prototype에 연결되어 있다. 
-- 호출: Object.prototype.toString() 처럼 호출하거나 인스턴스를 생성하여 호출한다.
-- 작성: method 앞에 값을 작성한다. 
-
-```javascript
-const num = 123;
-console.log(num.toString()); //"123"
-```
-
-데이터타입에 따라 Number 인스턴스를 생성한 뒤, prototype에 포함된Number.prototype.toString()을 호출한다.
