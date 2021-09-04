@@ -27,3 +27,13 @@ instance.method();
 
 자바스크립트가 타입을 확인한 다음, 해당 타입으로 임시적인 인스턴스를 생성하여 사용하는 방식이다. 
 
+```javascript
+var a = 1;
+console.log(a.toString());
+```
+
+a는 Primitive 값일 뿐이지만, 해당 데이터를 보고 Number인스턴스를 임시적으로 만든다음, 그 Number 빌트인 오브젝트에 포함된 prototype의 toString 메소드를 사용해서 결과를 도출한다. 
+
+
+
+## 오브젝트의 함수 호출
