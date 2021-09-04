@@ -1,5 +1,11 @@
 # prototype
 
+자바스크립트에서는 OOP를 prototype 기반으로 구현한다.
+
+다른 언어에서 class에 메소드와 프로퍼티를 선언하는 반면, 자바스크립트는 prototype에 메소드를 작성한다.
+
+
+
 1. prototype은 프로퍼티를 연결하는 오브젝트이다. 
 2. prototype은 인스턴스 생성 가능 여부 기준이 된다. 
    내장 객체 중에서도 prototype 을 가지지 않은 Math는 new Math() 이런 식으로 객체를 생성하지 못한다. 
