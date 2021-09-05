@@ -471,3 +471,23 @@ console.log(valueOf(num)); //123
 
 이 메타정보와 키, 값을 아울러서 정의할 때 이 함수를 사용한다. 
 
+
+
+##### Object.getOwnPropertyDescritptor()
+
+해당객체 고유의 프로퍼티 디스크립터의 키와 값을 반환한다. (valeu, writable, enumarable, configuarble...)
+
+
+
+##### Object.keys()
+
+열거 가능한 key의 이름들을 string 형태의 배열로 반환한다. 
+
+이때, 특정 속성이 enumerable 하지 않다면 제외되는데, enumerable하지 않은 key값도 가지고 오고 싶으면 getOwnPropertyNames 를 사용한다.
+
+
+
+
+
+
+
