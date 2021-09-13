@@ -59,17 +59,3 @@ const d2 = new d.constructor();
 
 
 
-## new의 역할
-
-객체를 리터럴로 생성하는 대신에, new를 통해서 생성을 하면  prototype 체이닝이 기능을 한다. 
-
-아래의 둘은 각각 내장함수 Object() 와 Fuction 으로 만들어 진 것이다. 
-
-```javascript
-const a = new Function(); // a.__proto__ === f();
-const b = new Object();   // b.__proto__ === Object;
-```
-
-
-
-new Number() 는 Number.prototype.constructor 를 사용하여 인스턴스를 생성해낸다.

@@ -2,16 +2,18 @@
 
 
 
-new 는 인스턴스를 생성하는 연산자이다.  new 로 생성할 수 있는 인스턴스의 타입은 두 종류가 있다.
+new는 constuctor(생성자 함수)를 사용하여 인스턴스를 생성하는 오퍼레이터이다. 
 
-- 사용자 정의 객체 타입
+new 로 생성할 수 있는 인스턴스의 타입은 두 종류가 있다.
+
 - 내장 객체 타입
+- 사용자 정의 객체 타입
 
 
 
-그러나, 1회성 인스턴스를 만들어 낼 수도 있다. 
+그리고 사용자 정의 객체 타입으로  1회성 인스턴스를 만들어 낼 수도 있다. 
 
-그러니까 정리하자면, new 뒤에 붙을 수 있는 건 총 3가지가 된다.
+정리하자면, new 뒤에 붙을 수 있는 건 총 3가지가 된다.
 
 ```javascript
 new Obj(); //사용자 정의 객체의 인스턴스 생성
@@ -20,6 +22,23 @@ const a = new function(){ // 1회성 인스턴스
     this.a = 1;
 }
 ```
+
+
+
+## new의 역할
+
+객체 인스턴스를 리터럴로 생성하는 대신에, new를 통해서 생성을 하면  prototype 체이닝이 기능을 한다. 
+
+아래의 둘은 각각 내장함수 Object() 와 Fuction 으로 만들어 진 것이다. 
+
+```javascript
+const a = new Function(); // a.__proto__ === f();
+const b = new Object();   // b.__proto__ === Object;
+```
+
+
+
+new Number() 는 Number.prototype.constructor 를 사용하여 인스턴스를 생성해낸다.
 
 
 
