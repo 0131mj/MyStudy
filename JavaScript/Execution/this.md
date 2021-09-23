@@ -29,6 +29,25 @@ case 1 과  case 2의 차이점은 별로 없다.
 
 결국 객체의 메서드를 호출한 것이나 마찬가지다. 
 
+```javascript
+const obj = {
+    num: 1,
+    f: function(){
+        console.log("num: ", this.num); // (0)
+    }
+}
+obj.f(); // (1) num : 1 
+const f = obj.f;
+f(); // (2) num : undefined
+f.call(obj);// (3) num: 1
+```
+
+
+
+(2) 에서 전개를 한 f 함수의 결과는 undefined로 나온다. 
+
+(만일  (0) 에서 this.num 대신 obj.num이라고 해주면 렉시컬에 의해 1을 출력한다.)
+
 
 
 헷갈리는 것은 내부 함수 호출할 때다. 
