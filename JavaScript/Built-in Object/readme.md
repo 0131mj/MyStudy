@@ -4,13 +4,16 @@
 
 ## 1. Built - in 오브젝트의 종류
 
+
+
+### 빌트인 함수객체
+
 - Number
 - String
 - Boolean
 - Object
 - Array
 - Function
-- Math
 - Date
 - JSON
 - RegExp
@@ -18,6 +21,10 @@
 - Argument
 
 
+
+### 빌트인 객체
+
+- Math
 
 ### String
 

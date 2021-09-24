@@ -80,6 +80,10 @@ function 은 일반적인 함수를 나타내고 Function 은 내장객체를 �
 
 
 
+---
+
+본문의 예제 1 ~ 9 까지의 내용은 책(자바스크립트 객체지향 프로그래밍)을 공부하고 정리한 내용이다.
+
 
 
 ## 1. 자바스크립트 함수의 역할
@@ -115,6 +119,8 @@ function add(x, y){
 
 위와 같은 함수가 정해지면, 자바스크립트는 우선 컴파일을 실행을 하게 되는데 아래와 같은 구조로 구성된다. 
 
+(아래는 자바스크립트 객체지향 프로그래밍 책의 내용을 정리한 것이며, 실제 용어와는 다르다.)
+
 - 변수 스코프
   - [+] prototype
   - [-] x
@@ -137,7 +143,37 @@ function add(x, y){
 
 [[call]]에 의해 실제로 코드가 수행되는 영역이다.
 
+
+
 #### 공개변수 영역
+
+```javascript
+function log(){
+    const a = 1;
+    console.log("num a: ", a);
+    console.log("num b: ", log.b); // 2
+    console.log("num b: ", this.b); // undefined       
+    console.log("num b: ", b); // ReferenceError: b is not defined
+}    
+log.b = 2;
+console.dir(log);
+log();
+```
+
+동적으로 추가된 프로퍼티 b는 공개변수 영역이므로 함수 내부에서 접근할 수 없다. 
+
+
+
+```javascript
+const add = function (a, b) {
+    console.log(add.c);
+    return a + b;
+}
+add.c = 100;
+console.log(add(1, 2))
+```
+
+
 
 #### 프로토타입 객체
 
@@ -297,7 +333,34 @@ console.log(typeof(Function.__proto__.__proto__)) // object
 
 ## 7. 익명 함수
 
+
+
+
+
 ## 8. 중첩 함수
+
+```javascript
+(_=>{
+    console.clear();
+    var a = function(arg){
+        var b = function(innerArg){
+            return innerArg * 2;
+        }
+        return '결과: ' +b(arg);
+    }
+    console.log(a(10))
+})();
+```
+
+a는 b를 내부 함수로 갖는다. 
+
+a가 함수객체이므로  a.b(10) 이렇게 안에 있는 것 만 쏙 뽑아서 쓸 수 있을 것 같지만
+
+b는 a의 멤버가 아니기 때문에, 그렇게 접근이 불가능하다. 
+
+반면 a 함수 내부에서는 b에 접근이 가능하다.  이것은 캡슐화와 정보은닉의 개념을 구현하는 기반이 된다. 
+
+
 
 ## 9. 콜백 함수
 
