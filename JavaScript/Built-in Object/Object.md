@@ -483,6 +483,22 @@ console.log(valueOf(num)); //123
 
 
 
+##### Object.fromEntries()
+
+Object.entries 의 역을 수행
+
+```javascript
+const entries = [
+    ['apple', {color: "red", price: 200}],
+    ['grape', {color: "purble", price: 300}],
+]
+console.log(Object.fromEntries(entries));
+```
+
+
+
+
+
 
 
 
