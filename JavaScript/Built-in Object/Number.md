@@ -41,6 +41,17 @@ console.log((10).toString()); // "10"
 
 
 
+16진수로 변환하는 예제
+
+```javascript
+const rgbToHex = (...arr) => arr.reduce((acc, cur)=> acc += cur.toString(16) ,"#");
+console.log(rgbToHex(178, 255, 255));
+```
+
+
+
+
+
 ### toLocaleString()
 
 ```javascript
