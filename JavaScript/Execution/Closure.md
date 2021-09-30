@@ -57,6 +57,22 @@ x는 outer내부에도 정의되어 있고, 외부에도 정의되어 있다.
 
 
 
+## 클로저 생성자 만들기
+
+```javascript
+const User = function(name){
+    const _name = name;
+    this.getName = () => _name;
+}
+const user = new User('a');
+```
+
+이렇게 해두면 user 객체에서 name을 직접 수정할 수 있는 방법은 없어진다. 
+
+클로저를 활용한 은닉화에 성공한 것이다.
+
+
+
 ## 클로저 작성시 제약사항
 
 Function으로 생성한 함수는 클로저를 만들지 못한다. 그 이유는 Function 생성자를 이용해 생성한 함수는 렉시컬 영역을 사용하는 것이 아니라 전역에서 생성된 것처럼 컴파일 되기 때문이다. 
