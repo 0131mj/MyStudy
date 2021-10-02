@@ -74,7 +74,7 @@ class Person{
 
 
 
-#### ES6 이수 : 클래스 문법 (super 키워드 사용)
+#### ES6 이후 : 클래스 문법 (super 키워드 사용)
 
 ```javascript
 class Person {
