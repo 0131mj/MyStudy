@@ -30,7 +30,7 @@ typeof abc3de; //string
 typeof abc3def; //string
 ```
 
-string primitive 에 바로 .을 붙여서 함수를 호출할 수 있는데, 이는 컴파일시 자바스크립트엔진이 내부적으로 primitive를 String Object로 변환해서 업무를 수행하기 때문이다.
+string primitive 에 바로 .을 붙여서 함수를 호출할 수 있는데, 이는 컴파일시 자바스크립트엔진이 내부적으로 primitive를 new String() 함수를 사용하여 String Object로 변환해서 업무를 수행하기 때문이다.
 
 
 
