@@ -8,15 +8,17 @@
 
 수학에서는 흔히 사칙연산에 사용하는 +, - 등을 연산자라고 한다. 
 
-하지만 자바스크립트에서는 new, instanceof와 같은 키워드 또한 연산자로 취급한다. 그 말은, 생각보다 연산자의 영역이 광범위 하다는 말이 된다. 그럼 연산자란 무엇이고, 어디서 어디까지가 연산자인가?
+하지만 자바스크립트에서는 new, instanceof와 같은 키워드 또한 연산자로 취급한다. 
+
+그 말은, 생각보다 연산자의 영역이 광범위 하다는 말이 된다. 그럼 연산자란 무엇이고, 어디서 어디까지가 연산자인가?
 
 
 
 > "연산자란, 값에 대해서 어떤 작업을 컴퓨터에 지시하기 위한 기호" - by 생활코딩
 
+말하자면 더하고 빼고 곱하는 수학적인 의미의 연산 만을 말하는 것이 아니라, 미리 정의되어 있는 명령어를 총칭한다고 보면된다. 
 
-
-말하자면 더하고 빼고 곱하는 수학적인 의미의 연산 만을 말하는 것이 아니라, 미리 정의되어 있는 명령어를 총칭한다고 보면된다. 그래서 연산자는 이항연산자, 비트연산자, 대입연산자, 논리연산자 등의 여러 연산자들이 있는 것이다. '연산자'라는 단어보다 '실행자'라는 단어를 썼다면 더 어울렸을 지도 모른다.
+그래서 연산자는 이항연산자, 비트연산자, 대입연산자, 논리연산자 등의 여러 연산자들이 있는 것이다. '연산자'라는 단어보다 '실행자'라는 단어를 썼다면 더 어울렸을 지도 모른다.
 
 
 
@@ -74,9 +76,27 @@ var a = function(){}
 
 
 
+이것들은 키워드라고 부른다. 
+
+
+
+이 질문에 대해 만족할만한 대답은, 아래에서 찾았다. 여기에 따르면,
+
+https://cs.stackexchange.com/questions/6067/what-is-the-difference-between-operator-and-function
+
+
+
+> Historically, my guess is that the difference is rooted in how things were (and still are) translated into machine code.
+>
+> An *operator* such as addition of integers or exclusive-or of booleans would be translated into one (or few) assembler commands which would be directly executed by the processor (resp. its ALU). It would also be part of the *syntax*.
+>
+> A *function* (or procedure, method), on the other hand, is a subprogram the (main) program would explicitly jump to during execution. That is, a new stack frame is allocated, register values are saved, parameters are passed and only then is the function executed. See [here](https://en.wikipedia.org/wiki/Subroutine) for details. Furthermore, functions are defined by the programmer.
+
 ----
 
+번역하자면,
 
+역사적으로 내 추측은 이러하다. 차이점은 프로그래밍 언어가 어떻게 기계어 코드로 변환되느냐에 뿌리를 두고 있다는 것이다.
 
 
 
