@@ -25,6 +25,8 @@
 
 로딩 이후에 Instruction fetch 와 decoding execution 이 순환되는 과정
 
+(코드스피츠: 거침없는 자바스크립트 강의 내용 일부 정리)
+
 
 
 ### Loading
