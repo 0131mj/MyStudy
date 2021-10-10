@@ -2,7 +2,9 @@
 
 컨텍스트, 한국말로는 맥락이다. 
 
-(세상 어떤 것이든 그렇겠지만) 자바스크립트는 전체 덩어리를 한번에 실행하는 것이 아니라 부분 부분 실행하기 때문에, 이른바 컨텍스트(맥락)에 따라 프로그램을 수행하는 환경이 달라진다. 일단 다음 코드를 보면서 무슨 말인지를 이해해보자. 
+자바스크립트는 전체 덩어리를 한번에 실행하는 것이 아니라 부분 부분 실행하기 때문에, 이른바 컨텍스트(맥락)에 따라 프로그램을 수행하는 환경이 달라진다. 
+
+일단 다음 코드를 보면서 무슨 말인지를 이해해보자. 
 
 ```javascript
 function a(){
@@ -61,13 +63,13 @@ b();
 
 ## Execution Context (실행 컨텍스트)의 생성과 소멸
 
-자바스크립트 엔진은 Executable Code를 만나면 Execution Context 를 생성한다. (모던 자바스크립트 입문)
+자바스크립트 엔진은 Executable Code(실행 가능한 코드)를 만나면 Execution Context 를 생성한다. (모던 자바스크립트 입문)
 
-Executive Code 란 다음과 같다.  다시 말해 자바스크립트에서 실행 컨텍스트가 새롭게 쌓이는 경우는 다음 3가지 경우다.
+Executable Code 란 다음과 같다.  다시 말해 자바스크립트에서 실행 컨텍스트가 새롭게 쌓이는 경우는 다음 3가지 경우다.
 
-1. 처음 코드 실행 (전역 레벨)
-2. 함수 안의 코드 실행
-3. eval() 함수로 코드 실행
+1. GEC : 처음 코드 실행 (전역 레벨)
+2. FEC: 함수 안의 코드 실행
+3. EC: eval() 함수로 코드 실행
 
 
 컨텍스트가 새로 들어오면 새 컨텍스트를 기존 컨텍스트 위에 하나하나씩 차곡차곡 쌓는데, 맨 위에 쌓인 컨텍스트부터 하나씩 없애나가는 방식으로 일을 처리한다. 이걸 'LIFO 방식의 스택 구조'를 지닌다고 한다.
@@ -81,8 +83,8 @@ Executive Code 란 다음과 같다.  다시 말해 자바스크립트에서 실
 - EC (Execution Context)
   - **LEC (Lexical Environment Component)** (== Variable Environment Component) : ES5에서 도입
      - ER (Environment Record)
-      - DER (Declarative Environment Record)
-      - OER (Object Environment Record)
+        - DER (Declarative Environment Record)
+        - OER (Object Environment Record)
     - OLER (Outer Lexical Environment Reference)
   - **TBC (this Binding Component)**
 
@@ -233,3 +235,4 @@ http://jinbroing.tistory.com/78
 
 http://hsp1116.tistory.com/22
 
+https://medium.com/@happymishra66/execution-context-in-javascript-319dd72e8e2c
