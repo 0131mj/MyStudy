@@ -80,7 +80,7 @@ prototype은 객체 중에서도 Function 객체에만 만들어진다.
 
 
 
-#### function vs Function
+### function vs Function
 
 function 은 일반적인 함수를 나타내고 Function 은 내장객체를 말한다. 
 
