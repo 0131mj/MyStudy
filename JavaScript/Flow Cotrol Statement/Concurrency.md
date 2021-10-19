@@ -1,6 +1,4 @@
-# 
-
-## Concurrency vs Parallelism
+# Concurrency vs Parallelism
 
 - Concurrency  : 흔히 동시성이라고 번역되지만, 정말 똑같은 시간에 동시에 일어나는 것을 뜻하지는 않는다.
 
