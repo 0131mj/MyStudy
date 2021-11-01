@@ -25,6 +25,8 @@ arr.reduce(callbackFunc, initialVal);
 
 
 
+여기서, initialVal로 항상 값이 응축될 것이라고 기대할 필요는 없다. 순회의 초기값이며, 콜백 내부에서의 리턴값이 최종적으로 응축될 값의 형태가 된다고 보아도 된다. 
+
 ## callback 함수
 
 reduce 안에 들어가는 callback 함수에는 인수를 4개나 받을 수 있다.  얼핏 보면 복잡해보일수 있는데, 이 중 꼭 써야 하는 건 2개 뿐이다. 
