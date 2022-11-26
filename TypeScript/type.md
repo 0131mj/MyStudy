@@ -30,6 +30,26 @@ let arr: [boolean, 2, string]
 let person: object
 ```
 
+- 주의할 사항 : 객체의 키값은 언제나 string 이기 때문에, 설령 1과 같은 숫자를 키값으로 지정하게되면, 선언시에는 에러가 나지 않더라도 런타임에서 에러가 날 수 있다. 
+
+에러남 : does not exist on type
+
+```typescript
+interface IObj {
+    [key:number]: string
+}
+```
+
+
+
+수정됨
+
+```typescript
+interface IObj {
+    [key:string]: string
+}
+```
+
 
 
 타입이 있는 객체 지정
