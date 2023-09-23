@@ -1,78 +1,56 @@
-# node.js
+# Node js
 
-### 노드의 특징 ★
+### 
 
-- 이벤트 드리븐(기반)
-- 논블로킹 기반
-- 싱글스레드
+### 리눅스(우분투)에 설치하기
 
+우분투 버전에서 설치하려면 아래 레포지토리에 가서 설명된 걸 잘 따르면 된다. 
 
-
-## 이벤트 루프 
-
-- 자바스크립트를 알려면 이벤트루프를 알아야 한다. 
-- 이벤트 루프란, 자바스크립트 파일이 있을 때 어떤 순서로 실행이 되는가를 아는 것. 
-- 이벤트루프를 움직이는 두가지 영역이 있다. 
-  - 호출스택(콜스택) : 일반적으로 자바스크립트를 실행하면 A가 B를, B가 C를 호출했을때 C A B 순서로 실행된다.  LIFO 방식
-  - 태스크 큐 : 예를 들어 셋타임아웃을 걸어놓은 함수는 호출스택(콜스택)과 다른 방식으로 작동한다. FIFO 방식
-- 이벤트루프의 역할은 호출스택이 비워졌을 때 함수를 태스크큐에서 꺼내오는 것.
+[GitHub - nodesource/distributions: NodeSource Node.js Binary Distributions](https://github.com/nodesource/distributions#debian-and-ubuntu-based-distributions)
 
 
 
-태스크 큐에 들어가는 순간 : 
+여기 주소가 잘 생각나지 않는다면 이런 경로로 찾아가자. 
 
-1. setTimeout
-2. setInterval
-3. setImmediate
-4. Promise resolve, reject
-6. (async, await)
-7. 이벤트리스너의 콜백
+1. Node.js 홈페이지 방문
 
-https://nodejs.org/ko/docs/guides/event-loop-timers-and-nexttick/
-
-
-
-## 서버
-
-- 서버는 사용자(client)가 요청을 하면 응답을 해주는 장치 같은 것이다. 
-- node.js 기반에서 파일을 넣어놓고, 사용자가  들어오기를 기다리다가 누가 들어오면 그때 파일을 실행하도록 해야한다. 
-- 이때 필요한 건, **<u>이벤트 리스너</u>**이다. 언제 사용자의 요청이 들어올 지 모르기 때문에 항상 대기하는 것이다.
-- 파일을 실행할 때 미리 적어놓고 돌린다. 
+2. 다운로드 탭 클릭
+   
+   1. 다운로드 할 옵션이 여러 개 나오는데 '그 밖의 플랫폼'에서 '패키지 관리자를 통한 Node.js 설치'  이걸 선택한다. 
+   
+   2. 여기보면 데비안과 우분투 기반 리눅스 배포판 뭐 이런게 나오는데 그걸 클릭해보자.  위에서 붙여넣은 주소로 연결된다.
 
 
 
-### 서버가 동작하는 방식
+저 url 안에 있는 내용을  고대로 따라 적은 것이 아래와 같다. 하지만 날짜에 따라 내용이 달라질 수 있으므로, 차근차근 홈페이지를 방문해서 살표보는 것이 낫다. 
 
-- 요청이란 건, 주소를 치는 것이다. 
-- 사용자가 dns 같은걸로 주소에 땅 접속하면 TCP IP 막 이런게 나오면서 서버한테 가서 HTML을 받아온다. 그 후에 인터넷 브라우저에서 파싱을 해서 보여준다. 
-- 이벤트리스너에는 콜백함수가 저장되어있다. 
-- 호출 스택에 아무것도 없고, 태스크큐에 아무것도 없지만 이벤트리스너가 태스크큐로 요청을 전달한 다음에 실행이 가능하도록 하는 구조
-- 이벤트리스너를 등록해놨기때문에 서버가 계속 돌아가도록 해놓은 구조, 이것이 이벤트 드리븐 방식이다. 
-- 이벤트리스너 => 태스크큐 => 호출스택 
-- 태스크큐에 들어가는 순간은 모든 콜백함수가 아니라, 이벤트리스너에 등록된 이벤트가 실행될 때이다.
+#### [**Node.js**](https://github.com/nodesource/distributions#nodejs)
 
+> *루트 액세스 권한이 있는 경우 이미 전체 관리 권한이 있으므로 'sudo' 명령을 생략할 수 있습니다.*
 
+1. Nodesource GPG 키 다운로드 및 가져오기
 
-## 논블록킹 IO
+```shell
+sudo apt-get updatesudo apt-get install -y ca-certificates curl gnupgsudo mkdir -p /etc/apt/keyringscurl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+```
 
-프로그램이 눈에 보이는 순서와 다르게 동작하게 될 수 있는데 이것은 태스크큐를 사용하기 때문이다.  
+2. Deb 저장소 생성
 
-즉, 바로 실행을 하는 것이 아니라, 실행을 위한 순서를 먼저 정하는 단계가 있어서, 기술한 순차적으로 실행이 되지 않는 것이다.
+```shell
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+```
 
-- 논 블로킹 :  순서제어의 문제
-  - 호출스택으로 요청을 보내는 것이 아니라 일단 태스크 큐에 쌓아버리는 방식. 
-  - 호출순서와 실행순서가 다르면 논블로킹이라고 보면 된다.
-- IO : input / output : 자체적으로 논블로킹으로 동작한다.
-  - 파일시스템 : 알아서 멀티쓰레드를 돌림
-  - 네트워크: 태스크 큐를 거친 논블로킹
+> ***선택사항*** :`NODE_MAJOR`필요한 버전에 따라 변경될 수 있습니다.
+> 
+> ```shell
+> NODE_MAJOR=16NODE_MAJOR=18NODE_MAJOR=20
+> ```
 
+3. 업데이트 실행 및 설치
 
+```shell
+sudo apt-get updatesudo apt-get install nodejs -y
+```
 
-## 씽글스레드 
-
-- 자바스크립트는 하나에 한가지 밖에 일을 처리 못한다(팔이 하나 밖에 없다.)
-- 한번에 몇개나 일을 처리할수 있는가. 
-- 멀티쓰레드를 안하는 이유?
-  - 프로그래밍이 어렵다. 제어권 넘겨주고 뭐 이런문제들
-  - 노드제이에스에서는 싱글스레드밖에 사용할 수 밖에 없기 때문에, 이 한계를 극복하기 위해 스레드보다 상위개념인 프로세스를 여러개를 만들어서 사용한다. (멀티 프로세싱)
 
