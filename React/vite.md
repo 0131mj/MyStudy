@@ -16,8 +16,6 @@ yarn create vite [프로젝트] --template react-ts
 yarn add sass -D
 ```
 
-
-
 ### styled-component
 
 vite 프로젝트에서 스타일드 컴포넌트 사용
@@ -43,5 +41,3 @@ plugins: [
     })
   ],
 ```
-
-
